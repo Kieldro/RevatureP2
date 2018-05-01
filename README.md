@@ -21,3 +21,4 @@ Austin Weed @adweed93
 
 
 ### To Do:
+`git clone git@github.com:Kieldro/RevatureP2.git`
