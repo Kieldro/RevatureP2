@@ -11,7 +11,7 @@ Jackie Chen @JackieCX17
 
 John Eifert @JohnREifert 
 
-Dominic Sermeno @DominickSermeno 
+Dominick Sermeno @DominickSermeno 
 
 Austin Weed @adweed93 
 
