@@ -11,7 +11,7 @@ Jackie Chen @JackieCX17
 
 John Eifert @JohnREifert 
 
-Dominic Sermeno @DominickSermeno 
+Dominick Sermeno @DominickSermeno 
 
 Austin Weed @adweed93 
 
@@ -21,3 +21,4 @@ Austin Weed @adweed93
 
 
 ### To Do:
+`git clone git@github.com:Kieldro/RevatureP2.git`
