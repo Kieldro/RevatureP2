@@ -1,4 +1,12 @@
 HELLO GUYS
 
+<<<<<<< HEAD
 -Jackie was here.
 -Austin was here.
+=======
+GOODBYE CRUEL WORLD
+
+
+-Jackie was here.
+
+>>>>>>> b1f4b3d6544ab66195c130584747378faa41c085
