@@ -1,19 +1,19 @@
 # RevatureP2
 Project 2 at Revature
 
+API to automate the test written for any web application
+
 May 1 2018
 
 **Team Towns**
 
-Ian Buitrago @kieldro 
+- Ian Buitrago @kieldro 
+- Jackie Chen @JackieCX17
+- John Eifert @JohnREifert 
+- Dominick Sermeno @DominickSermeno
+- Austin Weed @adweed93 
 
-Jackie Chen @JackieCX17
-
-John Eifert @JohnREifert 
-
-Dominick Sermeno @DominickSermeno 
-
-Austin Weed @adweed93 
+Trainer: Yuvaraj Damodaran
 
 Requirements for a team project
 ================================
@@ -30,7 +30,7 @@ Requirements for a team project
 		- WebDriver (Selenium)
 		- Cucumber 
 		- TestNG
-	JavaScript
+	- JavaScript
 		- Jasmine
 		- Protractor
 		- Karma
@@ -44,7 +44,7 @@ p@$$w0rd2
 test.vpoftech@revature.com.int1
 p@$$w0rd1
 
-the instance URL is https://dev.assignforce.revaturelabs.com
+the instance URL is [https://dev.assignforce.revaturelabs.com](https://dev.assignforce.revaturelabs.com)
 
 
 Mandatory requirements / user stories / use case
@@ -54,8 +54,6 @@ Mandatory requirements / user stories / use case
 4. Presentation as a group
 5. Convention for test data - 1804JTA
 6. Use the following APIs - WebDriver, TestNG, Cucumber, Jasmine, Protactor
-
-
 
 ### To Do:
 `git clone git@github.com:Kieldro/RevatureP2.git`
