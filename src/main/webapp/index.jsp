@@ -1,6 +1,7 @@
 <html>
 <body>
 	<h2>Hello Team Townes</h2>
+	<p>Something Visable</p>
 
 	<a href="https://github.com/Kieldro/RevatureP2"> GitHub repo </a>
 <!-- 
