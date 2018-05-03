@@ -57,3 +57,4 @@ Mandatory requirements / user stories / use case
 
 ### To Do:
 `git clone git@github.com:Kieldro/RevatureP2.git`
+`git checkout develop` switch to the develop branch
