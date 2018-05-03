@@ -15,6 +15,8 @@ May 1 2018
 
 Trainer: Yuvaraj Damodaran
 
+live link: http://ec2-54-165-175-56.compute-1.amazonaws.com:8090/RevatureP2/
+
 Requirements for a team project
 ================================
 1. Working pipeline for project 2 to deploy application code and integrate test code
