@@ -56,7 +56,5 @@ Mandatory requirements / user stories / use case
 5. Convention for test data - 1804JTA
 6. Use the following APIs - WebDriver, TestNG, Cucumber, Jasmine, Protactor
 
-### To Do:
-`git clone git@github.com:Kieldro/RevatureP2.git`
-
-`git checkout develop` switch to the develop branch
+### To Run:
+copy hibernate.properties file into src/main/resources folder from google drive for db credentials

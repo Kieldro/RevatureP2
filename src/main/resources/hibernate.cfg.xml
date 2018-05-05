@@ -6,14 +6,12 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="hibernate.connection.username">jane</property>
-		<property name="hibernate.connection.password">password123</property>
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@keodb.cgd7zwirysy1.us-east-2.rds.amazonaws.com:1521:ORCL</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
-		<mapping class="com.revature.model.Employee"></mapping>
+		<mapping class="com.revature.model.Batch"></mapping>
 		<!-- <mapping resource="Employee.hbm.xml"></mapping> -->
 	</session-factory>
 </hibernate-configuration>
