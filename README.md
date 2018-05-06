@@ -1,7 +1,7 @@
 # RevatureP2
 Project 2 at Revature
 
-API to automate the test written for any web application
+An API to automate the test writing for any web application
 
 May 1 2018
 
@@ -59,3 +59,8 @@ Mandatory requirements / user stories / use case
 
 ### To Run:
 copy hibernate.properties file into src/main/resources folder from google drive for db credentials
+
+### To Do:
+- Add servlet
+- Windows slave vm
+- more selenium
