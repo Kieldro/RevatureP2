@@ -19,6 +19,7 @@
 	</properties>
 
 	<dependencies>
+		
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
@@ -38,12 +39,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.2.12.Final</version>
 		</dependency>
-		<!--  <dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-annotations -->
+	<!-- 	<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 			<version>3.5.6-Final</version>
-		</dependency>
--->
+		</dependency> -->
 		<!-- OJDB7 Local Maven Repository -->
 		<dependency>
 			<groupId>com.oracle</groupId>
@@ -61,8 +62,8 @@
 		<!-- Servlet (This dependency is needed if deployment is done in EC2) -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.0</version>
 		</dependency>
 
 		<!-- JSTL -->
