@@ -62,8 +62,8 @@
 		<!-- Servlet (This dependency is needed if deployment is done in EC2) -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.0</version>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
 		</dependency>
 
 		<!-- JSTL -->
