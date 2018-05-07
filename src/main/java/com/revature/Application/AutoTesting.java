@@ -51,4 +51,34 @@ public class AutoTesting //extends TestCase
 		
 		System.out.println("Current URL = " + browser.getCurrentUrl());
 	}
+	
+	
+	public static String showURL()
+	{
+		String path = "src/main/resources/chromedriver";
+		File tmpDir = new File(path);
+		boolean exists = tmpDir.exists();
+		// System.out.println(exists);
+		
+		if(!exists)		// windows path
+			path = "src\\main\\resources\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", path);
+		
+		WebDriver browser = new ChromeDriver();
+		
+		//Navigate to the login page:
+		browser.get("https://dev.assignforce.revaturelabs.com");
+		
+		//Acquire the relevant input objects:
+		WebElement usernameField = browser.findElement(By.id("username"));
+		WebElement passwordField = browser.findElement(By.id("password"));
+		WebElement submitButton = browser.findElement(By.id("Login"));
+		
+		//Perform the login actions:
+		usernameField.sendKeys("test.trainer@revature.com.int1");
+		passwordField.sendKeys("trainer123");
+		submitButton.click();
+		
+		return(browser.getCurrentUrl());
+	}
 }
