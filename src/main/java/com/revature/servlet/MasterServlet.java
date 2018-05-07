@@ -24,25 +24,27 @@ public class MasterServlet  extends HttpServlet {
 		}
 
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			response.getWriter().append("Hello world - get method");
 			System.out.println("doGet - MasterServlet");
+			
 			PrintWriter pw = response.getWriter();
+			pw.append("Hello world - get method");
 			pw.println();
 			response.setContentType("text/html");
-			String s1 = request.getParameter("text1");
-			String s2 = request.getParameter("text2");
+			String s1 = request.getParameter("param1");
+			String s2 = request.getParameter("param2");
 			pw.println("<html><body><div> "
 					+ s1 + " : " + s2 + ", are the values entered </div></body></html>");
 			pw.close();
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			response.getWriter().append("Hello world - Post method");
 			System.out.println("doPost");
-			PrintWriter pw = response.getWriter();
+
 			response.setContentType("text/html");
-			String s1 = request.getParameter("text1");
-			String s2 = request.getParameter("text2");
+			PrintWriter pw = response.getWriter();
+			pw.append("Hello world - Post method");
+			String s1 = request.getParameter("param1");
+			String s2 = request.getParameter("param2");
 			pw.println("<html><body><div> "
 					+ s1 + " : " + s2 + ", are the values entered </div></body></html>");
 			pw.close();
