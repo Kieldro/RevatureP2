@@ -12,6 +12,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name = "Batch")
 @NamedQueries({ @NamedQuery(name = "RetrieveAllBatches", query = "from Batch") })
@@ -23,6 +26,7 @@ public class Batch {
 	@Id
 	@Column(name = "name", nullable = false)
 	private String name;
+//	@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
 	private String curriculum;
 	private String trainer;
 	private String location;
