@@ -31,3 +31,4 @@ hibernate.properties
 *Log.html
 hs_err_pid*
 /.metadata/
+*.1

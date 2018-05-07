@@ -18,14 +18,14 @@ public class BatchService {
 	public static void insertBatch(Batch b) {
 		dao.insertBatch(b);
 	}
-//
-//	public static boolean updateBatch(Batch b) {
-//		return dao.updateBatch(b);
-//	}
-//
-//	public static boolean deleteBatch(Batch b) {
-//		return dao.deleteBatch(b);
-//	}
+
+	public static void updateBatch(Batch b) {
+		dao.updateBatch(b);
+	}
+
+	public static void deleteBatch(Batch b) {
+		dao.deleteBatch(b);
+	}
 
 	public static List<Batch> getAllBatches() {
 		return dao.getAllBatches();

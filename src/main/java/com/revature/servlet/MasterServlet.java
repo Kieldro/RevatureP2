@@ -48,6 +48,8 @@ public class MasterServlet  extends HttpServlet {
 			pw.println("<html><body><div> "
 					+ s1 + " : " + s2 + ", are the values entered </div></body></html>");
 			pw.close();
+
+//			response.sendRedirect("new.html");
 		}
 	
 

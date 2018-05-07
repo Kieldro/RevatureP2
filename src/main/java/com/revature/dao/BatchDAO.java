@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -83,31 +84,41 @@ public class BatchDAO implements BatchDAI {
 		return batches;
 	}
 
-//
-//	public void updateBatch(int id, String name) {
-//		Session session = HibernateUtil.getSession().openSession();
-//		Transaction t1 = null;
-//		Batch emp;
-//		try {
-//			t1 = session.beginTransaction();
-//			emp = session.get(Batch.class, id);
-//			emp.setEname(name);
-//			session.saveOrUpdate(emp);
-//			t1.commit();
-//		} catch (HibernateException h) {
-//			if (t1 != null) {
-//				t1.rollback();
-//			}
-//		} finally {
-//			session.close();
-//		}
-//	}
 
-//
-//	public void deleteBatch(int id) {
-//		// TODO Auto-generated method stub
-//
-//	}
+	public void updateBatch(Batch newBatch) {
+		Session session = HibernateUtil.getSession().openSession();
+		Transaction t1 = null;
+		try {
+			t1 = session.beginTransaction();
+			session.saveOrUpdate(newBatch);
+			t1.commit();
+		} catch (HibernateException h) {
+			if (t1 != null) {
+				t1.rollback();
+			}
+		} finally {
+			session.close();
+		}
+	}
+
+
+	public void deleteBatch(Batch b) {
+		Session session = HibernateUtil.getSession().openSession();
+		Transaction t1 = null;
+		try {
+			t1 = session.beginTransaction();
+			System.out.println("deleting... " + b);
+			session.delete(b);
+			System.out.println("deleted: " + b);
+			t1.commit();
+		} catch (HibernateException h) {
+			if (t1 != null) {
+				t1.rollback();
+			}
+		} finally {
+			session.close();
+		}
+	}
 //
 //	public void HQLExample(int id) {
 //		Session session = HibernateUtil.getSession().openSession();
