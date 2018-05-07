@@ -11,13 +11,13 @@
 
 	<h4>lets make some changes - Dominick</h4>
 
-	<form method="post" action="MasterServlet.do">
+	<form method="post" action="postTest.do">
 		<input type="text" name="param1"  />
 		<input type="text" name="param2"  />
 		<button type="submit">Submit post</button>
 	</form>
 	
-	<form method="get" action="MasterServlet.do">
+	<form method="get" action="getTest.do">
 		<input type="text" name="param1"  />
 		<input type="text" name="param2"  />
 		<button type="submit">Submit get</button>
