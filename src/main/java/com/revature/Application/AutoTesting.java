@@ -8,14 +8,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AutoTesting //extends TestCase
 {
+	public static void main(String args[])
+	{
+		AutoTesting instance = new AutoTesting();
+		instance.trainerLoginTest();
+	}
+	
+	
 	//@Test
 	public void trainerLoginTest()
 	{
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\firen\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
 		
 		WebDriver browser = new ChromeDriver();
-		
-		System.out.println("thing");
 		
 		//Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
