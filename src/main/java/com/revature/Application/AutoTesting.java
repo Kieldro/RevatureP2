@@ -1,13 +1,8 @@
 //John Eifert
 package com.revature.Application;
 
-//import org.junit.Test;
-//import org.junit.jupiter.*;
-//import junit.framework.TestCase;
-//import junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.google.common.collect.Multiset.Entry;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -17,9 +12,6 @@ public class AutoTesting //extends TestCase
 {
 	//Create the browser object that will be used for these tests:
 	//WebDriver browser = new FirefoxDriver();
-	
-	
-	
 	
 	//@Test
 	public void trainerLoginTest()
@@ -48,7 +40,4 @@ public class AutoTesting //extends TestCase
 		
 		System.out.println("Current URL = " + browser.getCurrentUrl());
 	}
-	
-	
-	
 }
