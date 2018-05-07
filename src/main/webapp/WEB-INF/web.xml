@@ -5,7 +5,6 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 	
-	
 	<servlet>
 		<servlet-name>MasterServlet</servlet-name>
 		<servlet-class>com.revature.servlet.MasterServlet</servlet-class>

@@ -32,3 +32,4 @@ hibernate.properties
 hs_err_pid*
 /.metadata/
 *.1
+chromedriver

@@ -37,6 +37,7 @@ public class App {
 		b = new Batch("1804aprjta", "jta", "Yuvi", "Reston", "11730 Plaza America dr", "214", new Date(),
 				new Date());
 		BatchService.deleteBatch(b);
+		
 //		b = BatchService.getBatch("1804aprjta");
 //		System.out.println("1804aprjta: " + b);
 //		System.out.println();
