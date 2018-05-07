@@ -18,7 +18,9 @@ public class AutoTesting //extends TestCase
 	//@Test
 	public void trainerLoginTest()
 	{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\firen\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\firen\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+		
 		
 		WebDriver browser = new ChromeDriver();
 		
