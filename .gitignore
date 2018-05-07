@@ -33,3 +33,4 @@ hs_err_pid*
 /.metadata/
 *.1
 chromedriver
+chromedriver.exe
