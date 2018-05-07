@@ -8,6 +8,7 @@ import com.revature.util.HibernateUtil;
 
 public class App {
 	public static void main(String[] args) {
+
 		System.out.println("Hello Townies...");
 
 		Batch b = new Batch("1804aprjta", "jta", "Yuvi", "Reston", "11730 Plaza America dr", "204", new Date(),

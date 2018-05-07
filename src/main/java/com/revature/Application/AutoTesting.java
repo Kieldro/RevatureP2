@@ -3,15 +3,25 @@ package com.revature.Application;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import com.google.common.collect.Multiset.Entry;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+
+
 
 public class AutoTesting //extends TestCase
 {
 	//Create the browser object that will be used for these tests:
-	WebDriver browser = new ChromeDriver();
+	//WebDriver browser = new FirefoxDriver();
 	
 	//@Test
 	public void trainerLoginTest()
 	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\firen\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+		
+		WebDriver browser = new ChromeDriver();
+		
+		System.out.println("thing");
+		
 		//Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
 		
@@ -24,19 +34,6 @@ public class AutoTesting //extends TestCase
 		usernameField.sendKeys("test.trainer@revature.com.int1");
 		passwordField.sendKeys("trainer123");
 		submitButton.click();
-		
-		//Wait for the next page to load:
-		try
-		{
-			wait(5000);
-		}
-		catch(InterruptedException ie)
-		{
-			System.err.println(ie.getMessage() + "\n");
-			ie.printStackTrace();
-			System.err.println("\n" + "Exiting trainerLoginTest()...");
-			return;
-		}
 		
 		//assertTrue("trainerLoginTest() failed.",
 		//		browser.getCurrentUrl().equals("https://dev.assignforce.revaturelabs.com/home"));
