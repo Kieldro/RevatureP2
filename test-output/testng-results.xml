@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="11347" started-at="2018-05-08T15:24:37Z" finished-at="2018-05-08T15:24:49Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="11347" started-at="2018-05-08T15:24:37Z" finished-at="2018-05-08T15:24:49Z">
+      <class name="com.revature.testing.TestNGTests">
+        <test-method status="PASS" signature="getDriver()[pri:0, instance:com.revature.testing.TestNGTests@6e1567f1]" name="getDriver" is-config="true" duration-ms="4932" started-at="2018-05-08T15:24:37Z" finished-at="2018-05-08T15:24:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getDriver -->
+        <test-method status="PASS" signature="trainerLoginTest()[pri:0, instance:com.revature.testing.TestNGTests@6e1567f1]" name="trainerLoginTest" duration-ms="6394" started-at="2018-05-08T15:24:42Z" finished-at="2018-05-08T15:24:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- trainerLoginTest -->
+      </class> <!-- com.revature.testing.TestNGTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
