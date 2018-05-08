@@ -2,7 +2,8 @@
 package com.revature.Application;
 
 import java.io.File;
-
+import org.testng.Assert;
+import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,57 +15,34 @@ public class AutoTesting //extends TestCase
 {
 	public static void main(String args[])
 	{
+		//Create an instance of AutoTesting so that non-static methods can be called:
 		AutoTesting instance = new AutoTesting();
+		
+		//Run trainerLoginTest():
 		instance.trainerLoginTest();
 	}
 	
 	
-	//@Test
-	public void trainerLoginTest()
+	public static WebDriver getDriver()
 	{
+		//Multi-OS support:
 		String path = "src/main/resources/chromedriver";
 		File tmpDir = new File(path);
 		boolean exists = tmpDir.exists();
-		// System.out.println(exists);
-		
 		if(!exists)		// windows path
 			path = "src\\main\\resources\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", path);
 		
-		WebDriver browser = new ChromeDriver();
-		
-		//Navigate to the login page:
-		browser.get("https://dev.assignforce.revaturelabs.com");
-		
-		//Acquire the relevant input objects:
-		WebElement usernameField = browser.findElement(By.id("username"));
-		WebElement passwordField = browser.findElement(By.id("password"));
-		WebElement submitButton = browser.findElement(By.id("Login"));
-		
-		//Perform the login actions:
-		usernameField.sendKeys("test.trainer@revature.com.int1");
-		passwordField.sendKeys("trainer123");
-		submitButton.click();
-		
-		//assertTrue("trainerLoginTest() failed.",
-		//		browser.getCurrentUrl().equals("https://dev.assignforce.revaturelabs.com/home"));
-		
-		System.out.println("Current URL = " + browser.getCurrentUrl());
+		//Make and return a ChromeDriver:
+		return(new ChromeDriver());
 	}
 	
 	
-	public static String showURL()
+	@Test
+	public void trainerLoginTest()
 	{
-		String path = "src/main/resources/chromedriver";
-		File tmpDir = new File(path);
-		boolean exists = tmpDir.exists();
-		// System.out.println(exists);
-		
-		if(!exists)		// windows path
-			path = "src\\main\\resources\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", path);
-		
-		WebDriver browser = new ChromeDriver();
+		//Get a WebDriver object:
+		WebDriver browser = getDriver();
 		
 		//Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
@@ -79,6 +57,41 @@ public class AutoTesting //extends TestCase
 		passwordField.sendKeys("trainer123");
 		submitButton.click();
 		
+		//Establish what URL we expect the new URL to be and what the new URL actually is:
+		String expectedURL = "https://dev.assignforce.revaturelabs.com/";
+		String actualURL = browser.getCurrentUrl();
+		
+		//Print the new URL:
+		System.out.println("Current URL = " + actualURL);
+		
+		//Test whether the new URL is what it should be:
+		Assert.assertEquals(actualURL, expectedURL);
+		
+		//Close the browser window:
+		browser.close();
+	}
+	
+	
+	//This method is made to be called via servlet:
+	public static String showURL()
+	{
+		//Get a WebDriver object:
+		WebDriver browser = getDriver();
+		
+		//Navigate to the login page:
+		browser.get("https://dev.assignforce.revaturelabs.com");
+		
+		//Acquire the relevant input objects:
+		WebElement usernameField = browser.findElement(By.id("username"));
+		WebElement passwordField = browser.findElement(By.id("password"));
+		WebElement submitButton = browser.findElement(By.id("Login"));
+		
+		//Perform the login actions:
+		usernameField.sendKeys("test.trainer@revature.com.int1");
+		passwordField.sendKeys("trainer123");
+		submitButton.click();
+		
+		//Return the new URL:
 		return(browser.getCurrentUrl());
 	}
 }
