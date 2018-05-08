@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\nhtml { background-color: black; }"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nhtml{\n\tbackground-color: black;\n}\n/* Application-wide Styles */\nh1 {\n  color: #369;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 250%;\n}\nh2, h3 {\n  color: #444;\n  font-family: Arial, Helvetica, sans-serif;\n  font-weight: lighter;\n}\nbody {\n  margin: 2em;\n}\nbody, input[text], button {\n  color: #888;\n  font-family: Cambria, Georgia;\n}\n/* everywhere else */\n* {\n  font-family: Arial, Helvetica, sans-serif;\n}"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/keo/Documents/workspace-st/RevatureP2/angular/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /home/keo/Documents/workspace-st/RevatureP2/angularApp/src/styles.css */"./src/styles.css");
 
 
 /***/ })
