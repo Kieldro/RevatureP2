@@ -15,7 +15,7 @@ May 1 2018
 
 Trainer: Yuvaraj Damodaran
 
-live link: http://ec2-54-165-175-56.compute-1.amazonaws.com:8090/RevatureP2/
+live link: http://ec2-34-230-44-182.compute-1.amazonaws.com:8090/RevatureP2/
 
 Requirements for a team project
 ================================
@@ -58,9 +58,8 @@ Mandatory requirements / user stories / use case
 6. Use the following APIs - WebDriver, TestNG, Cucumber, Jasmine, Protactor
 
 ### To Run:
-copy hibernate.properties file into src/main/resources folder from google drive for db credentials
+copy hibernate.properties file from google drive into src/main/resources in workspace for db credentials
 
 ### To Do:
-- Add servlet
 - Windows slave vm
 - more selenium
