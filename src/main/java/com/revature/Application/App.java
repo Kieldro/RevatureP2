@@ -42,7 +42,9 @@ public class App {
 //		System.out.println("1804aprjta: " + b);
 //		System.out.println();
 //		
-
+		
+		//System.out.println(HibernateUtil.getSession().getStatistics());
+		
 		// Close the SessionFactory
 		HibernateUtil.getSession().close();
 
