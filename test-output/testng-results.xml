@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11347" started-at="2018-05-08T15:24:37Z" finished-at="2018-05-08T15:24:49Z">
+  <suite name="Suite" duration-ms="8380" started-at="2018-05-08T19:18:42Z" finished-at="2018-05-08T19:18:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11347" started-at="2018-05-08T15:24:37Z" finished-at="2018-05-08T15:24:49Z">
+    <test name="TestNGTests" duration-ms="8380" started-at="2018-05-08T19:18:42Z" finished-at="2018-05-08T19:18:51Z">
       <class name="com.revature.testing.TestNGTests">
-        <test-method status="PASS" signature="getDriver()[pri:0, instance:com.revature.testing.TestNGTests@6e1567f1]" name="getDriver" is-config="true" duration-ms="4932" started-at="2018-05-08T15:24:37Z" finished-at="2018-05-08T15:24:42Z">
+        <test-method status="PASS" signature="getDriver()[pri:0, instance:com.revature.testing.TestNGTests@598067a5]" name="getDriver" is-config="true" duration-ms="3397" started-at="2018-05-08T19:18:42Z" finished-at="2018-05-08T19:18:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDriver -->
-        <test-method status="PASS" signature="trainerLoginTest()[pri:0, instance:com.revature.testing.TestNGTests@6e1567f1]" name="trainerLoginTest" duration-ms="6394" started-at="2018-05-08T15:24:42Z" finished-at="2018-05-08T15:24:49Z">
+        <test-method status="PASS" signature="trainerLoginTest()[pri:0, instance:com.revature.testing.TestNGTests@598067a5]" name="trainerLoginTest" duration-ms="4966" started-at="2018-05-08T19:18:46Z" finished-at="2018-05-08T19:18:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- trainerLoginTest -->
       </class> <!-- com.revature.testing.TestNGTests -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- TestNGTests -->
+  </suite> <!-- Suite -->
 </testng-results>
