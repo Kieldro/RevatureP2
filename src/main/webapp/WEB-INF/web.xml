@@ -4,7 +4,7 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
-	
+
 	<servlet>
 		<servlet-name>MasterServlet</servlet-name>
 		<servlet-class>com.revature.servlet.MasterServlet</servlet-class>
@@ -13,5 +13,8 @@
 		<servlet-name>MasterServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
+	<welcome-file-list>
+		<welcome-file>foo/index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>
