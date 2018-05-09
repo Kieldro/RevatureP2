@@ -2,6 +2,7 @@
 package com.revature.testing;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,12 +28,9 @@ public class TestNGTests
 			path = "src\\main\\resources\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", path);
 		
-		ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("window-size=1200x600");
 		
 		//Make and return a ChromeDriver:
-		return(new ChromeDriver(options));
+		return(new ChromeDriver());
 	}
 	
 	
@@ -44,7 +42,7 @@ public class TestNGTests
 		
 		//Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
-		
+				
 		//Acquire the relevant input objects:
 		WebElement usernameField = browser.findElement(By.id("username"));
 		WebElement passwordField = browser.findElement(By.id("password"));
