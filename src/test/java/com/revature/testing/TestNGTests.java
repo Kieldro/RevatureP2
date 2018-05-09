@@ -67,6 +67,12 @@ public class TestNGTests
 		actualURL = browser.getCurrentUrl();
 		System.out.println(actualURL);
 		Assert.assertNotEquals(actualURL, expectedURL);
+	}
+	
+	@Test(dependsOnMethods="trainerNavButtonTest")
+	public void homeSortByNameTest()
+	{
+		
 		
 		
 		browser.quit();
