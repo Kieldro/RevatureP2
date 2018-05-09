@@ -59,8 +59,17 @@ public class TestingMethods
 		//Acquire the button to be tested:
 		WebElement Zhalfir = browser.findElement(By.name(buttonName));
 		
+		System.out.println("Got the " + buttonName + " button.");
+		
+		//Kills some time while the JS finishes making the buttons interactable:
+		String sourceCode = "";
+		for(int i=0; i<10; i++)
+			sourceCode = browser.getPageSource();
+		
 		//Push the button to be tested:
 		Zhalfir.click();
+		
+		System.out.println("Pushed the " + buttonName + " button.");
 	}
 	
 	

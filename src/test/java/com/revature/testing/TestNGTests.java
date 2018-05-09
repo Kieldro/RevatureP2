@@ -41,12 +41,25 @@ public class TestNGTests
 		String expectedURL = "";
 		String actualURL = "";
 			//Overview button:
+		TestingMethods.pushButtonFromNavBar(browser, "overview");
+		expectedURL = "https://dev.assignforce.revaturelabs.com/home";
+		actualURL = browser.getCurrentUrl();
+		System.out.println(actualURL);
+		Assert.assertEquals(actualURL, expectedURL);
+			//Batches button:
 		TestingMethods.pushButtonFromNavBar(browser, "batches");
 		expectedURL = "https://dev.assignforce.revaturelabs.com/batches";
 		actualURL = browser.getCurrentUrl();
 		System.out.println(actualURL);
 		Assert.assertEquals(actualURL, expectedURL);
-		browser.navigate().back();
+			//Locations button:
+		TestingMethods.pushButtonFromNavBar(browser, "locations");
+		expectedURL = "https://dev.assignforce.revaturelabs.com/locations";
+		actualURL = browser.getCurrentUrl();
+		System.out.println(actualURL);
+		Assert.assertEquals(actualURL, expectedURL);
+		
+		
 		
 		/*
 		By
