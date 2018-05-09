@@ -75,3 +75,4 @@ chromedriver
 chromedriver.exe
 .editorconfig
 
+/angularApp/node_modules

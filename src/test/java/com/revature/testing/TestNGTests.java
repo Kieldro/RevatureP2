@@ -93,7 +93,7 @@ public class TestNGTests
 		
 		
 		
-		browser.close();
+		browser.quit();
 	}
 	
 	
