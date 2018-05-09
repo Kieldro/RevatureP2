@@ -64,6 +64,7 @@ Thumbs.db
 .settings/
 target/
 test-output/
+angularApp/dist/
 db.properties
 hibernate.properties
 *Log.html
