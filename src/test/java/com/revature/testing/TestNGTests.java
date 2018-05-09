@@ -1,13 +1,10 @@
 //John Eifert
 package com.revature.testing;
 
-//import java.io.File;
 import org.testng.Assert;
 import org.testng.annotations.*;
-//import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.ArrayList;
 
 
 
@@ -40,57 +37,36 @@ public class TestNGTests
 		//Test each of the nav buttons:
 		String expectedURL = "";
 		String actualURL = "";
-			//Overview button:
-		TestingMethods.pushButtonFromNavBar(browser, "overview");
-		expectedURL = "https://dev.assignforce.revaturelabs.com/home";
+		
+		ArrayList<String> buttonNames = new ArrayList<String>();
+		buttonNames.add("overview");
+		buttonNames.add("batches");
+		buttonNames.add("locations");
+		buttonNames.add("curricula");
+		buttonNames.add("trainers");
+		buttonNames.add("profile");
+		buttonNames.add("reports");
+		buttonNames.add("settings");
+		
+		for(int i=0; i<buttonNames.size(); i++)
+		{
+			TestingMethods.pushButtonFromNavBar(browser, buttonNames.get(i));
+			expectedURL = "https://dev.assignforce.revaturelabs.com/" + buttonNames.get(i);
+			if(i == 0)
+				expectedURL = "https://dev.assignforce.revaturelabs.com/home";
+			if(i == 3)
+				expectedURL = "https://dev.assignforce.revaturelabs.com/curriculum";
+			actualURL = browser.getCurrentUrl();
+			System.out.println(actualURL);
+			Assert.assertEquals(actualURL, expectedURL);
+		}
+		
+			//Logout button:
+		TestingMethods.pushButtonFromNavBar(browser, "logout");
+		expectedURL = "https://dev.assignforce.revaturelabs.com/reports";
 		actualURL = browser.getCurrentUrl();
 		System.out.println(actualURL);
-		Assert.assertEquals(actualURL, expectedURL);
-			//Batches button:
-		TestingMethods.pushButtonFromNavBar(browser, "batches");
-		expectedURL = "https://dev.assignforce.revaturelabs.com/batches";
-		actualURL = browser.getCurrentUrl();
-		System.out.println(actualURL);
-		Assert.assertEquals(actualURL, expectedURL);
-			//Locations button:
-		TestingMethods.pushButtonFromNavBar(browser, "locations");
-		expectedURL = "https://dev.assignforce.revaturelabs.com/locations";
-		actualURL = browser.getCurrentUrl();
-		System.out.println(actualURL);
-		Assert.assertEquals(actualURL, expectedURL);
-		
-		
-		
-		/*
-		By
-		
-		
-		<li class="md-nav-item ng-scope ng-isolate-scope layout-align-end-end" role="option" aria-selected="false" md-nav-href="batches" name="batches" layout-align="end end">
-		<!-- ngIf: ctrl.mdNavSref -->
-		<!-- ngIf: ctrl.mdNavHref -->
-		<a class="_md-nav-button md-accent md-button ng-scope md-ink-ripple md-unselected" ng-transclude="" ng-if="ctrl.mdNavHref" ng-class="ctrl.getNgClassMap()" tabindex="-1" ng-href="batches" href="batches">
-		<span ng-transclude="" class="_md-nav-button-text ng-scope">
-		<span class="ng-scope">
-		Batches   
-				</span>
-		</span>
-		<div class="md-ripple-container" style="">
-		</div>
-		</a>
-		<!-- end ngIf: ctrl.mdNavHref -->
-		<!-- ngIf: ctrl.mdNavClick -->
-		</li>
-		
-		/*
-			//Batches button:
-		TestingMethods.pushButton(browser, "batches");
-		expectedURL = "https://dev.assignforce.revaturelabs.com/batches";
-		actualURL = browser.getCurrentUrl();
-		Assert.assertEquals(actualURL, expectedURL);
-		browser.navigate().back();
-			//
-			 */
-		
+		Assert.assertNotEquals(actualURL, expectedURL);
 		
 		
 		browser.quit();

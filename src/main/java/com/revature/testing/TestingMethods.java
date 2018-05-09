@@ -1,14 +1,11 @@
 //John Eifert
 package com.revature.testing;
 
-import static org.hamcrest.CoreMatchers.containsString;
 import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Wait;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -63,8 +60,10 @@ public class TestingMethods
 		
 		//Kills some time while the JS finishes making the buttons interactable:
 		String sourceCode = "";
-		for(int i=0; i<10; i++)
+		for(int i=0; i<9; i++)
 			sourceCode = browser.getPageSource();
+		
+		System.out.println("About to push the " + buttonName + " button...");
 		
 		//Push the button to be tested:
 		Zhalfir.click();
