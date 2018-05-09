@@ -1,72 +1,88 @@
 //John Eifert
 package com.revature.testing;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+//import java.io.File;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+//import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.chrome.ChromeDriver;
 
 
 
 public class TestNGTests
 {
-	@BeforeTest
-	public static WebDriver getDriver()
-	{
-		//Multi-OS support:
-		String path = "src/main/resources/chromedriver";
-		File tmpDir = new File(path);
-		boolean exists = tmpDir.exists();
-		if(!exists)		// windows path
-			path = "src\\main\\resources\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", path);
-		
-		
-		//Make and return a ChromeDriver:
-		return(new ChromeDriver());
-	}
+	//Get a WebDriver object for use in the tests:
+	WebDriver browser = TestingMethods.getDriver();
 	
 	
 	@Test
 	public void trainerLoginTest()
 	{
-		//Get a WebDriver object:
-		WebDriver browser = getDriver();
-		
-		//Navigate to the login page:
-		browser.get("https://dev.assignforce.revaturelabs.com");
-				
-		//Acquire the relevant input objects:
-		WebElement usernameField = browser.findElement(By.id("username"));
-		WebElement passwordField = browser.findElement(By.id("password"));
-		WebElement submitButton = browser.findElement(By.id("Login"));
-		
 		//Perform the login actions:
-		usernameField.sendKeys("test.trainer@revature.com.int1");
-		passwordField.sendKeys("trainer123");
-		submitButton.click();
+		TestingMethods.trainerLogin(browser);
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
 		String expectedURL = "https://dev.assignforce.revaturelabs.com/";
 		String actualURL = browser.getCurrentUrl();
 		
-		/*
-		//Print the new URL:
-		System.out.println("Current URL = " + actualURL);
-		*/
-		
 		//Test whether the new URL is what it should be:
 		Assert.assertEquals(actualURL, expectedURL);
+	}
+	
+	@Test(dependsOnMethods="trainerLoginTest")
+	public void trainerNavButtonTest()
+	{
+		//Perform the login actions:
+			//Login has already been performed by the previous test.
 		
-		//Close the browser window:
+		//Test each of the nav buttons:
+		String expectedURL = "";
+		String actualURL = "";
+			//Overview button:
+		TestingMethods.pushButtonFromNavBar(browser, "batches");
+		expectedURL = "https://dev.assignforce.revaturelabs.com/batches";
+		actualURL = browser.getCurrentUrl();
+		System.out.println(actualURL);
+		Assert.assertEquals(actualURL, expectedURL);
+		browser.navigate().back();
+		
+		/*
+		By
+		
+		
+		<li class="md-nav-item ng-scope ng-isolate-scope layout-align-end-end" role="option" aria-selected="false" md-nav-href="batches" name="batches" layout-align="end end">
+		<!-- ngIf: ctrl.mdNavSref -->
+		<!-- ngIf: ctrl.mdNavHref -->
+		<a class="_md-nav-button md-accent md-button ng-scope md-ink-ripple md-unselected" ng-transclude="" ng-if="ctrl.mdNavHref" ng-class="ctrl.getNgClassMap()" tabindex="-1" ng-href="batches" href="batches">
+		<span ng-transclude="" class="_md-nav-button-text ng-scope">
+		<span class="ng-scope">
+		Batches   
+				</span>
+		</span>
+		<div class="md-ripple-container" style="">
+		</div>
+		</a>
+		<!-- end ngIf: ctrl.mdNavHref -->
+		<!-- ngIf: ctrl.mdNavClick -->
+		</li>
+		
+		/*
+			//Batches button:
+		TestingMethods.pushButton(browser, "batches");
+		expectedURL = "https://dev.assignforce.revaturelabs.com/batches";
+		actualURL = browser.getCurrentUrl();
+		Assert.assertEquals(actualURL, expectedURL);
+		browser.navigate().back();
+			//
+			 */
+		
+		
+		
 		browser.close();
 	}
+	
+	
 	
 }
