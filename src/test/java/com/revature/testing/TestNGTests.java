@@ -2,12 +2,15 @@
 package com.revature.testing;
 
 import java.io.File;
-import org.testng.Assert;
-import org.testng.annotations.*;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 
 
@@ -24,8 +27,12 @@ public class TestNGTests
 			path = "src\\main\\resources\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", path);
 		
+		ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("window-size=1200x600");
+		
 		//Make and return a ChromeDriver:
-		return(new ChromeDriver());
+		return(new ChromeDriver(options));
 	}
 	
 	
