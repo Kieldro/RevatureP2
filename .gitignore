@@ -63,6 +63,7 @@ Thumbs.db
 .project
 .settings/
 target/
+Servers/
 test-output/
 angularApp/dist/
 db.properties
