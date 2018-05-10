@@ -1,13 +1,11 @@
 Feature:
-	As I am hungry 
-	I want to eat salad for lunch
-	So I could fill my stomach
+I want to log into the website.
+I want to be able to navigate the site.
 	
 Scenario:
-	Given there are cucumbers 
-	When I am hungry
-	Then I eat cucumbers
-
+	Given the url in chrome
+  When I am logged in
+  Then I am done
 
 
 
