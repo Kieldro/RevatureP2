@@ -17,9 +17,10 @@ public class TestNGTests
 	//Get a WebDriver object for use in the tests:
 	WebDriver browser = TestingMethods.getDriver();
 	
-		@Test(groups="trainerTests", priority=1)
+	@Test(groups="trainerTests", priority=1)
 	public void trainerLoginTest()
 	{
+		
 		//Perform the login actions:
 		TestingMethods.trainerLogin(browser);
 		
@@ -189,7 +190,7 @@ public class TestNGTests
 	}
 	*/
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=3)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=4)
 	public void locationTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "locations");
@@ -220,6 +221,8 @@ public class TestNGTests
 		
 		for(int i=0; i<allInputs.size(); i++)
 		{
+			System.out.println("input " + i + " = " + allInputs.get(i).getAttribute("ng-model"));
+			
 			if(allInputs.get(i).getAttribute("ng-model").equals("ldCtrl.location.name"))
 			{
 				allInputs.get(i).sendKeys("Team Towns");
@@ -228,9 +231,47 @@ public class TestNGTests
 			{
 				allInputs.get(i).sendKeys("Townsville");
 			}
-			//if()
+		}
+		List<WebElement> allDropDowns = new ArrayList<WebElement>();
+		allDropDowns = browser.findElements(By.tagName("md-select"));
+		for(int i=0; i<allDropDowns.size(); i++)
+		{
+			System.out.println("drop down " + i + "=" + allDropDowns.get(i).getAttribute("ng-model"));
+			
+			if(allDropDowns.get(i).getAttribute("ng-model").equals("ldCtrl.location.state"))
+			{
+				allDropDowns.get(i).click();
+				
+				String sourceCode = "";
+				for(int j=0; j<25; j++)
+				{
+					sourceCode = browser.getPageSource();
+				}
+				
+				List<WebElement> allDropOptions = new ArrayList<WebElement>();
+				allDropOptions = browser.findElements(By.tagName("md-option"));
+				for(int j=0; j<allDropOptions.size(); j++)
+				{
+					System.out.println("option"+j+"= "+ allDropOptions.get(i).getAttribute("value"));
+					
+					if(allDropOptions.get(i).getAttribute("value").equals("OH"))
+					{
+						allDropOptions.get(i).click();
+						break;
+					}
+				}
+			}
 		}
 		
+		
+		
+	}
+	
+	
+	@AfterTest
+	public void quitBrowser()
+	{
+		browser.quit();
 	}
 	
 	
