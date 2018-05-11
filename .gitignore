@@ -72,8 +72,7 @@ hibernate.properties
 hs_err_pid*
 /.metadata/
 *.1
-chromedriver
-chromedriver.exe
 .editorconfig
-
+# ignores Chrome\\User\ Data/
+C:*
 /angularApp/node_modules
