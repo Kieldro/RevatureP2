@@ -17,11 +17,13 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class TestingMethods {
+public class TestingMethods
+{
 	public static ChromeOptions options = new ChromeOptions()
 			.addArguments("user-data-dir=C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data");
 
-	public static WebDriver getDriver() {
+	public static WebDriver getDriver()
+	{
 		// Multi-OS support:
 		String os = System.getProperty("os.name");
 		System.out.println("OS: " + os);
@@ -34,7 +36,8 @@ public class TestingMethods {
 		return (new ChromeDriver(options));
 	}
 
-	public static void trainerLogin(WebDriver browser) {
+	public static void trainerLogin(WebDriver browser)
+	{
 		// Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
 
@@ -49,7 +52,8 @@ public class TestingMethods {
 		submitButton.click();
 	}
 
-	public static void pushButtonFromNavBar(WebDriver browser, String buttonName) {
+	public static void pushButtonFromNavBar(WebDriver browser, String buttonName)
+	{
 		/*
 		 * Declare the name of the button being tested, so that, should the test fail,
 		 * the button that it failed on will be easily knowable
@@ -81,19 +85,22 @@ public class TestingMethods {
 		System.out.println("Pushed the " + buttonName + " button.");
 	}
 
-	public static void vpLogin(WebDriver browser) {
+	public static void vpLogin(WebDriver browser)
+	{
 		// Declare the relevant input objects:
 		WebElement usernameField;
 		WebElement passwordField;
 		WebElement submitButton;
 
 		// Supports the test even if the trainer tests didn't leave off on a login page:
-		try {
+		try
+		{
 			// Acquire the relevant input objects:
 			usernameField = browser.findElement(By.id("username"));
 			passwordField = browser.findElement(By.id("password"));
 			submitButton = browser.findElement(By.id("Login"));
-		} catch (NoSuchElementException e) {
+		} catch (NoSuchElementException e)
+		{
 			browser.quit();
 			browser = getDriver();
 			browser.get("https://dev.assignforce.revaturelabs.com");
@@ -110,7 +117,8 @@ public class TestingMethods {
 		submitButton.click();
 	}
 
-	public static void selectFirstOption(WebDriver browser, String menuID, String optionValue) {
+	public static void selectFirstOption(WebDriver browser, String menuID, String optionValue)
+	{
 		// Acquire the desired menu object:
 		WebElement menuObject = browser.findElement(By.id(menuID));
 		// Click into the menu:
@@ -123,7 +131,8 @@ public class TestingMethods {
 
 		Select menu = new Select(browser.findElement(By.id(menuID)));
 		ArrayList<WebElement> allOptions = new ArrayList<WebElement>();
-		for (int i = 0; i < menu.getOptions().size(); i++) {
+		for (int i = 0; i < menu.getOptions().size(); i++)
+		{
 			allOptions.add(menu.getOptions().get(i));
 		}
 
@@ -144,21 +153,26 @@ public class TestingMethods {
 		// optionObject.click();
 	}
 
-	public static void selectAnotherOption(WebDriver browser, String optionID) {
+	public static void selectAnotherOption(WebDriver browser, String optionID)
+	{
 		// Acquire the desired option object:
 		WebElement optionObject = browser.findElement(By.id(optionID));
 		// Select the desired option:
 		optionObject.click();
 	}
 
-	public static void enterText(WebDriver browser, WebElement field, String sendInput) {
+	public static void enterText(WebDriver browser, WebElement field, String sendInput)
+	{
 		// Give the desired input text to the desired input object:
 		field.sendKeys(sendInput);
 	}
 
-	public static void makeTheBatch(WebDriver browser, WebElement button) {
+	public static void makeTheBatch(WebDriver browser, WebElement button)
+	{
 		// Push the submit button to submit the finished batch:
 		button.click();
 	}
-
+	
+	
+	
 }
