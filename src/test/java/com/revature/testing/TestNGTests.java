@@ -5,7 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -21,7 +24,7 @@ public class TestNGTests
 		TestingMethods.trainerLogin(browser);
 		
 		String sourceCode = "";
-		for(int i=0; i<10; i++)
+		for(int i=0; i<500; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -98,6 +101,14 @@ public class TestNGTests
 		//Perform the login actions:
 		TestingMethods.vpLogin(browser);
 		
+		
+		String sourceCode = "";
+		for(int i=0; i<500; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
 		String expectedURL = "https://dev.assignforce.revaturelabs.com/home";
 		String actualURL = browser.getCurrentUrl();
@@ -124,6 +135,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/batches");
 	}
 	
+	/*
 	@Test(groups={"vpTests", "batchesTests"}, dependsOnMethods="vpBatchesNavTest", priority=3)
 	public void vpBatchCreationTest()
 	{
@@ -173,6 +185,37 @@ public class TestNGTests
 		
 		
 		Assert.assertTrue(true);
+	}
+	*/
+	
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=3)
+	public void locationTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "locations");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/locations");
+		
+		List<WebElement> things = new ArrayList<WebElement>();
+		things = browser.findElements(By.tagName("md-checkbox"));
+		
+		WebElement thisThing = null;
+		for(int i=0; i< things.size(); i++)
+		{
+			if(things.get(i).getAttribute("aria-label").contains("boston, MA"))
+			{
+				thisThing = things.get(i);
+			}
+		}
+		
+		System.out.println("About to check the box...");
+		thisThing.click();
+		System.out.println("Checked the box.");
+
+		
+		//Assert.assertTrue(thisThing.isSelected());
+		
+		
+		
 	}
 	
 	
