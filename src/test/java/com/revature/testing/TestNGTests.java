@@ -32,6 +32,7 @@ public class TestNGTests
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
 		String expectedURL = "https://dev.assignforce.revaturelabs.com/home";
 		String actualURL = browser.getCurrentUrl();
+		System.out.println(actualURL);
 		
 		//Test whether the new URL is what it should be:
 		Assert.assertEquals(actualURL, expectedURL);
@@ -214,7 +215,21 @@ public class TestNGTests
 		
 		//Assert.assertTrue(thisThing.isSelected());
 		
+		browser.findElement(By.id("locAdd")).click();
+		List<WebElement> allInputs = new ArrayList<WebElement>();
 		
+		for(int i=0; i<allInputs.size(); i++)
+		{
+			if(allInputs.get(i).getAttribute("ng-model").equals("ldCtrl.location.name"))
+			{
+				allInputs.get(i).sendKeys("Team Towns");
+			}
+			if(allInputs.get(i).getAttribute("ng-model").equals("ldCtrl.location.city"))
+			{
+				allInputs.get(i).sendKeys("Townsville");
+			}
+			//if()
+		}
 		
 	}
 	
