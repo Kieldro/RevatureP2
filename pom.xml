@@ -56,11 +56,11 @@
 		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-annotations</artifactId> 
 			<version>3.5.6-Final</version> </dependency> -->
 		<!-- OJDB7 Local Maven Repository -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>12.2.0.1</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- log4J Central Maven Repository -->
 		<dependency>
