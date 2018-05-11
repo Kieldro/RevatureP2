@@ -14,8 +14,7 @@ public class TestNGTests
 	//Get a WebDriver object for use in the tests:
 	WebDriver browser = TestingMethods.getDriver();
 	
-	
-	@Test(groups="trainerTests", priority=1)
+		@Test(groups="trainerTests", priority=1)
 	public void trainerLoginTest()
 	{
 		//Perform the login actions:
