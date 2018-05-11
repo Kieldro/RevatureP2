@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,10 +20,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestingMethods
 {
-	
 	public static ChromeOptions options = new ChromeOptions()
 			.addArguments("user-data-dir=C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data");
-	
 	
 	public static WebDriver getDriver()
 	{
@@ -103,9 +102,20 @@ public class TestingMethods
 			submitButton = browser.findElement(By.id("Login"));
 		} catch (NoSuchElementException e)
 		{
-			browser.quit();
+			
+			
+			try
+			{
+				//browser.close();
+			}
+			catch(NoSuchSessionException nsse)
+			{
+				System.err.println("There was no session to quit.");
+			}
+			
 			browser = getDriver();
-			browser.get("https://dev.assignforce.revaturelabs.com");
+			browser.navigate().to("https://dev.assignforce.revaturelabs.com");
+			//browser.get("https://dev.assignforce.revaturelabs.com");
 
 			// Acquire the relevant input objects:
 			usernameField = browser.findElement(By.id("username"));
