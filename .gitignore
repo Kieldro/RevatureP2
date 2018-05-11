@@ -73,7 +73,6 @@ hs_err_pid*
 /.metadata/
 *.1
 chromedriver
-chromedriver.exe
 .editorconfig
 
 /angularApp/node_modules
