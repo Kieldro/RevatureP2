@@ -353,6 +353,197 @@ public class TestingMethods
 		System.out.println("Finished location deletion.");
 	}
 	
+	public static void makeCurricula(WebDriver browser, String currName)
+	{
+		System.out.println("currName = " + currName);
+		
+		List<WebElement> buttons = new ArrayList<WebElement>();
+		buttons = browser.findElements(By.tagName("button"));
+		
+		WebElement AddButton = null;
+		for(WebElement e:buttons)
+		{
+			if(e.getAttribute("aria-label").contains("Add New Curriculum"))
+			{
+				AddButton = e;
+				break;
+			}
+		}
+		AddButton.click();
+		
+		List<WebElement> allInputs = new ArrayList<WebElement>();
+		allInputs = browser.findElements(By.tagName("input"));
+		for(WebElement e:allInputs)
+		{
+			if(e.getAttribute("aria-label").contains("curriculumName"))
+			{
+				e.clear();
+				e.sendKeys(currName);
+			}
+		}
+		List<WebElement> allDropDowns = new ArrayList<WebElement>();
+		allDropDowns = browser.findElements(By.tagName("md-select"));
+		for(int i = 0; i < allDropDowns.size(); i++)
+		{
+			System.out.println("drop down " + i + "=" + allDropDowns.get(i).getAttribute("ng-model"));
+			
+			if(allDropDowns.get(i).getAttribute("ng-model").equals("curricI.skills"))
+			{
+				allDropDowns.get(i).click();
+				
+				String sourceCode = "";
+				for(int j=0; j<25; j++)
+				{
+					sourceCode = browser.getPageSource();
+				}
+				
+				List<WebElement> allDropOptions = new ArrayList<WebElement>();
+				allDropOptions = browser.findElements(By.tagName("md-option"));
+				for(int j = 0; j < allDropOptions.size(); j++)
+				{
+					//TODO ADD FIXED DROPDOWN SELECTION
+				}
+			}
+		}
+	}
 	
+
+	public static void makeFocus(WebDriver browser, String focusName)
+	{
+		System.out.println("focusName = " + focusName);
+		
+		List<WebElement> buttons = new ArrayList<WebElement>();
+		buttons = browser.findElements(By.tagName("button"));
+		
+		WebElement AddButton = null;
+		for(WebElement e:buttons)
+		{
+			if(e.getAttribute("aria-label").contains("Add New Focus"))
+			{
+				AddButton = e;
+				break;
+			}
+		}
+		
+		AddButton.click();
+		
+		List<WebElement> allInputs = new ArrayList<WebElement>();
+		allInputs = browser.findElements(By.tagName("input"));
+		for(WebElement e:allInputs)
+		{
+			if(e.getAttribute("aria-label").contains("curriculumName"))
+			{
+				e.clear();
+				e.sendKeys(focusName);
+			}
+		}
+		List<WebElement> allDropDowns = new ArrayList<WebElement>();
+		allDropDowns = browser.findElements(By.tagName("md-select"));
+		for(int i = 0; i < allDropDowns.size(); i++)
+		{
+			System.out.println("drop down " + i + "=" + allDropDowns.get(i).getAttribute("ng-model"));
+			
+			if(allDropDowns.get(i).getAttribute("ng-model").equals("curricI.skills"))
+			{
+				allDropDowns.get(i).click();
+				
+				String sourceCode = "";
+				for(int j=0; j<25; j++)
+				{
+					sourceCode = browser.getPageSource();
+				}
+				
+				List<WebElement> allDropOptions = new ArrayList<WebElement>();
+				allDropOptions = browser.findElements(By.tagName("md-option"));
+				for(int j = 0; j < allDropOptions.size(); j++)
+				{
+					//TODO ADD FIXED DROPDOWN SELECTION
+				}
+			}
+		}
+	}
 	
+	public static void makeSkill(WebDriver browser, String skillName)
+	{
+		List<WebElement> allInputs = new ArrayList<WebElement>();
+		allInputs = browser.findElements(By.tagName("input"));
+		for(WebElement e:allInputs)
+		{
+			if(e.getAttribute("ng-model").contains("cCtrl.skillName"))
+			{
+				e.sendKeys(skillName);
+				break;
+			}
+		}
+		
+		List<WebElement> allDivs = new ArrayList<WebElement>();
+		allDivs = browser.findElements(By.tagName("div"));
+		for(WebElement e:allDivs)
+		{
+			if(e.getAttribute("ng-click").contains("createSkill"))
+			{
+				e.click();
+				break;
+			}
+		}
+		
+	}
+	
+	public static void makeTrainer(WebDriver browser, String firstName, String lastName)
+	{
+		List<WebElement> buttons = new ArrayList<WebElement>();
+		buttons = browser.findElements(By.tagName("button"));
+		
+		WebElement AddButton = null;
+		for(WebElement e:buttons)
+		{
+			if(e.getAttribute("aria-label").contains("Add Trainer"))
+			{
+				AddButton = e;
+				break;
+			}
+		}
+		AddButton.click();
+		
+		List<WebElement> allInputs = new ArrayList<WebElement>();
+		allInputs = browser.findElements(By.tagName("input"));
+		for(WebElement e:allInputs)
+		{
+			if(e.getAttribute("ng-model").equals("tdCtrl.trainer.firstName"))
+			{
+				e.sendKeys(firstName);
+			}
+			if(e.getAttribute("ng-model").equals("tdCtrl.trainer.lastName"))
+			{
+				e.sendKeys(lastName);
+			}
+		}
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i = 0; i < allButtons.size(); i++)
+		{
+			if(allButtons.get(i).getAttribute("type").equals("submit"))
+			{
+				allButtons.get(i).click();
+				System.out.println("Created the new trainer.");
+			}
+		}
+	}
+	
+	public static boolean findTrainer(WebDriver browser, String fullName)
+	{
+		List<WebElement> allTrainers = new ArrayList<WebElement>();
+		allTrainers = browser.findElements(By.tagName("button"));
+		for(int i = 0; i < allTrainers.size(); i++)
+		{
+			System.out.println("Trainer " + i + " = " + allTrainers.get(i).getAttribute("aria-label"));
+			if(allTrainers.get(i).getAttribute("aria-label").contains(fullName))
+			{
+				System.out.println("There is a trainer named " + fullName + ".");
+				return(true);
+			}
+		}
+		return(false);
+	}
 }

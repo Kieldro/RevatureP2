@@ -250,8 +250,65 @@ public class TestNGTests
 		
 		
 	}
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=5)
+	public void curriculumTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "curricula");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/curriculum");
+		
+		String CurrName = Integer.toString(rand.nextInt(500000)).concat(
+				Integer.toString(rand.nextInt(500000)));
+		TestingMethods.makeCurricula(browser, CurrName);
+		
+		String sourceCode = "";
+		for(int i=0; i<100; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+
+		String FocusName = Integer.toString(rand.nextInt(500000)).concat(
+				Integer.toString(rand.nextInt(500000)));
+		TestingMethods.makeFocus(browser, FocusName);
+		
+		sourceCode = "";
+		for(int i=0; i<100; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		String SkillName = Integer.toString(rand.nextInt(500000)).concat(
+				Integer.toString(rand.nextInt(500000)));
+		TestingMethods.makeSkill(browser, SkillName);
+		
+		sourceCode = "";
+		for(int i=0; i<100; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+	}
 	
-	
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=6)
+	public void TrainersTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "trainers");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/trainers");
+		
+		String firstName = Integer.toString(rand.nextInt(500000)).concat(
+				Integer.toString(rand.nextInt(500000)));
+		String lastName = Integer.toString(rand.nextInt(500000)).concat(
+				Integer.toString(rand.nextInt(500000)));
+		TestingMethods.makeTrainer(browser, firstName, lastName);
+		String sourceCode = "";
+		for(int i=0; i<100; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		String fullName = firstName + " " + lastName;
+		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
+	}
 	/*
 	@AfterTest
 	public void quitBrowser()
