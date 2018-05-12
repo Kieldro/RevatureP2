@@ -335,7 +335,7 @@ public class TestNGTests
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/settings");
 		
-		
+		TestingMethods.settingsTest(browser);
 		
 		
 	}
