@@ -109,7 +109,7 @@ public class TestNGTests
 		String sourceCode = "";
 		for(int i=0; i<500; i++)
 		{
-			sourceCode = browser.getPageSource();
+			System.out.println(browser.getCurrentUrl());
 		}
 		
 		
