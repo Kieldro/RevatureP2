@@ -6,6 +6,7 @@ import org.testng.annotations.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import java.util.Random;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class TestNGTests
 {
 	//Get a WebDriver object for use in the tests:
 	WebDriver browser = TestingMethods.getDriver();
+	Random rand = new Random();
 	
 	@Test(groups="trainerTests", priority=1)
 	public void trainerLoginTest()
@@ -25,9 +27,9 @@ public class TestNGTests
 		TestingMethods.trainerLogin(browser);
 		
 		String sourceCode = "";
-		for(int i=0; i<500; i++)
+		for(int i=0; i<700; i++)
 		{
-			sourceCode = browser.getPageSource();
+			System.out.println(browser.getCurrentUrl());
 		}
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
@@ -212,67 +214,51 @@ public class TestNGTests
 		System.out.println("About to check the box...");
 		thisThing.click();
 		System.out.println("Checked the box.");
+		
+		
+		
 
 		
 		//Assert.assertTrue(thisThing.isSelected());
+		String locName = Integer.toString(rand.nextInt(500000)).concat(
+				Integer.toString(rand.nextInt(500000)));
 		
-		browser.findElement(By.id("locAdd")).click();
-		List<WebElement> allInputs = new ArrayList<WebElement>();
+		TestingMethods.makeLocation(browser, locName);
 		
-		for(int i=0; i<allInputs.size(); i++)
+		String sourceCode = "";
+		for(int i=0; i<150; i++)
 		{
-			System.out.println("input " + i + " = " + allInputs.get(i).getAttribute("ng-model"));
-			
-			if(allInputs.get(i).getAttribute("ng-model").equals("ldCtrl.location.name"))
-			{
-				allInputs.get(i).sendKeys("Team Towns");
-			}
-			if(allInputs.get(i).getAttribute("ng-model").equals("ldCtrl.location.city"))
-			{
-				allInputs.get(i).sendKeys("Townsville");
-			}
+			sourceCode = browser.getPageSource();
 		}
-		List<WebElement> allDropDowns = new ArrayList<WebElement>();
-		allDropDowns = browser.findElements(By.tagName("md-select"));
-		for(int i=0; i<allDropDowns.size(); i++)
+		
+		Assert.assertTrue(TestingMethods.findLocation(browser, "Townsville"));
+		
+		for(int i=0; i<150; i++)
 		{
-			System.out.println("drop down " + i + "=" + allDropDowns.get(i).getAttribute("ng-model"));
-			
-			if(allDropDowns.get(i).getAttribute("ng-model").equals("ldCtrl.location.state"))
-			{
-				allDropDowns.get(i).click();
-				
-				String sourceCode = "";
-				for(int j=0; j<25; j++)
-				{
-					sourceCode = browser.getPageSource();
-				}
-				
-				List<WebElement> allDropOptions = new ArrayList<WebElement>();
-				allDropOptions = browser.findElements(By.tagName("md-option"));
-				for(int j=0; j<allDropOptions.size(); j++)
-				{
-					System.out.println("option"+j+"= "+ allDropOptions.get(i).getAttribute("value"));
-					
-					if(allDropOptions.get(i).getAttribute("value").equals("OH"))
-					{
-						allDropOptions.get(i).click();
-						break;
-					}
-				}
-			}
+			sourceCode = browser.getPageSource();
 		}
+		
+		TestingMethods.deleteLocation(browser, "Townsville");
+		
+		for(int i=0; i<150; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		Assert.assertFalse(TestingMethods.findLocation(browser, "Townsville"));
 		
 		
 		
 	}
 	
 	
+	/*
 	@AfterTest
 	public void quitBrowser()
 	{
 		browser.quit();
 	}
+	*/
 	
 	
 	

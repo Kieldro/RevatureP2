@@ -15,13 +15,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestingMethods
 {
+	/*
 	public static ChromeOptions options = new ChromeOptions()
 			.addArguments("user-data-dir=C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data");
+	*/
 	
 	public static WebDriver getDriver()
 	{
@@ -34,7 +37,7 @@ public class TestingMethods
 		System.setProperty("webdriver.chrome.driver", path);
 
 		// Make and return a ChromeDriver:
-		return (new ChromeDriver(options));
+		return (new ChromeDriver());//options));
 	}
 
 	public static void trainerLogin(WebDriver browser)
@@ -183,6 +186,171 @@ public class TestingMethods
 	{
 		// Push the submit button to submit the finished batch:
 		button.click();
+	}
+	
+	public static void makeLocation(WebDriver browser, String locName)
+	{
+		System.out.println("locName = " + locName);
+		
+		browser.findElement(By.id("locAdd")).click();
+		List<WebElement> allInputs = new ArrayList<WebElement>();
+		allInputs = browser.findElements(By.tagName("input"));
+		String cityName = "Townsville";
+		while(!cityName.equals("Townsville"))
+		{
+			cityName = "Townsville";
+		}
+		for(int i=0; i<allInputs.size(); i++)
+		{
+			System.out.println("input " + i + " = " + allInputs.get(i).getAttribute("ng-model"));
+			
+			if(allInputs.get(i).getAttribute("ng-model").equals("ldCtrl.location.name"))
+			{
+				allInputs.get(i).sendKeys(locName);
+			}
+			if(allInputs.get(i).getAttribute("ng-model").equals("ldCtrl.location.city"))
+			{
+				allInputs.get(i).sendKeys(cityName);
+				
+				String sourceCode = "";
+				for(int j=0; j<50; j++)
+				{
+					sourceCode = browser.getPageSource();
+				}
+				
+				while(!allInputs.get(i).getText().equals(cityName))
+				{
+					System.out.println(cityName + "!=" + allInputs.get(i).getText());
+					
+					allInputs.get(i).clear();
+					
+					for(int j=0; j<50; j++)
+					{
+						sourceCode = browser.getPageSource();
+					}
+					
+					allInputs.get(i).sendKeys(cityName);
+					
+					for(int j=0; j<50; j++)
+					{
+						sourceCode = browser.getPageSource();
+					}
+				}
+			}
+		}
+		List<WebElement> allDropDowns = new ArrayList<WebElement>();
+		allDropDowns = browser.findElements(By.tagName("md-select"));
+		for(int i=0; i<allDropDowns.size(); i++)
+		{
+			System.out.println("drop down " + i + "=" + allDropDowns.get(i).getAttribute("ng-model"));
+			
+			if(allDropDowns.get(i).getAttribute("ng-model").equals("ldCtrl.location.state"))
+			{
+				allDropDowns.get(i).click();
+				
+				String sourceCode = "";
+				for(int j=0; j<25; j++)
+				{
+					sourceCode = browser.getPageSource();
+				}
+				
+				List<WebElement> allDropOptions = new ArrayList<WebElement>();
+				allDropOptions = browser.findElements(By.tagName("md-option"));
+				for(int j=0; j<allDropOptions.size(); j++)
+				{
+					if(allDropOptions.get(j).getAttribute("value").equals("OH"))
+					{
+						allDropOptions.get(j).click();
+						break;
+					}
+				}
+			}
+		}
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			if(allButtons.get(i).getAttribute("type").equals("submit"))
+			{
+				allButtons.get(i).click();
+				System.out.println("Created the new location.");
+			}
+		}
+	}
+	
+	public static WebElement getLocationBox(WebDriver browser, String cityName)
+	{
+		List<WebElement> allBoxes = new ArrayList<WebElement>();
+		allBoxes = browser.findElements(By.tagName("md-checkbox"));
+		for(int i=0; i<allBoxes.size(); i++)
+		{
+			if(allBoxes.get(i).getAttribute("aria-label").contains(cityName))
+			{
+				System.out.println("Got the location in " + cityName + ".");
+				return(allBoxes.get(i));
+			}
+		}
+		return(null);
+	}
+	
+	public static void checkLocation(WebDriver browser, String cityName)
+	{
+		System.out.println("Checking the location in " + cityName + "...");
+		getLocationBox(browser, cityName).click();
+		System.out.println("Checked the location in " + cityName + ".");
+	}
+	
+	public static boolean findLocation(WebDriver browser, String cityName)
+	{
+		List<WebElement> allBoxes = new ArrayList<WebElement>();
+		allBoxes = browser.findElements(By.tagName("md-checkbox"));
+		for(int i=0; i<allBoxes.size(); i++)
+		{
+			System.out.println("Box " + i + " = " + allBoxes.get(i).getAttribute("aria-label"));
+			if(allBoxes.get(i).getAttribute("aria-label").contains(cityName))
+			{
+				System.out.println("There is a location in " + cityName + ".");
+				return(true);
+			}
+		}
+		return(false);
+	}
+	
+	public static void deleteLocation(WebDriver browser, String cityName)
+	{
+		checkLocation(browser, cityName);
+		
+		System.out.println("Checked " + cityName + ".");
+		
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		System.out.println("Finished waiting.");
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			try
+			{
+				allButtons.get(i).getAttribute("aria-label");
+				
+				System.out.println("button "+i+" label = "+allButtons.get(i).getAttribute("aria-label"));
+				if(allButtons.get(i).getAttribute("aria-label").equals("Inactivate selected"))
+				{
+					System.out.println("About to delete location in " + cityName + ".");
+					allButtons.get(i).click();
+				}
+			}
+			catch(NullPointerException e)
+			{ }
+		}
+		
+		System.out.println("Finished location deletion.");
 	}
 	
 	
