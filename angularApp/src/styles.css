@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+	background-color: black;
+}
+
+/* Application-wide Styles */
+h1 {
+  color: rgb(221, 47, 12);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body, input[text], button {
+  color: #880;
+  font-family: Cambria, Georgia;
+}
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2, h3 {
+  color: #A55;
+  font-family: sans-serif;
+}
+
+
+.container{
+  border: 1px solid ;
+  background: rgb(97, 94, 94);
+}
+
+
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+ 
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+ 
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
+ 
+.intrinsic-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 99.5%;
+  height: 99.5%;
+}
