@@ -319,6 +319,45 @@ public class TestNGTests
 		String fullName = firstName + " " + lastName;
 		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
 	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=7)
+	public void ReportsTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "reports");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/reports");
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=8)
+	public void SettingsTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "settings");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/settings");
+		
+		
+		
+		
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
+	public void LogoutTest()
+	{
+		String expectedURL, actualURL;
+		TestingMethods.pushButtonFromNavBar(browser, "logout");
+		String sourceCode = "";
+		for(int i=0; i<9; i++)
+		{
+			//System.out.println(i);
+			sourceCode = browser.getPageSource();
+			//System.out.println(browser.getCurrentUrl());
+		}
+		System.out.println(browser.getCurrentUrl());
+		expectedURL = "https://dev.assignforce.revaturelabs.com/settings";
+		actualURL = browser.getCurrentUrl();
+		
+		Assert.assertNotEquals(actualURL, expectedURL);
+	}
 	/*
 	@AfterTest
 	public void quitBrowser()
