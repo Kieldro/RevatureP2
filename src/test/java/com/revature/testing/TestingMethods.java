@@ -21,10 +21,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestingMethods
 {
-	/*
+	
 	public static ChromeOptions options = new ChromeOptions()
 			.addArguments("user-data-dir=C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data");
-	*/
+	
 	
 	public static WebDriver getDriver()
 	{
