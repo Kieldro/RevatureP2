@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -150,8 +151,8 @@ public class TestingMethods
 		{
 			thisOption = allOptions.get(i);
 			
-			thisOption.
-			
+			//thisOption.
+			//TODO
 			
 		}
 		
@@ -569,5 +570,60 @@ public class TestingMethods
 			}
 		}
 		return(false);
+	}
+	
+	public static void settingsTest(WebDriver browser)
+	{
+		Random rand = new Random();
+		List<WebElement> allInput = new ArrayList<WebElement>();
+		allInput = browser.findElements(By.tagName("input"));
+		for(WebElement e: allInput)
+		{
+			if(e.getAttribute("ng-model").equals("sCtrl.settings.trainersPerPage"))
+			{
+				e.sendKeys(Integer.toString(rand.nextInt(30)));
+			}
+			
+			if(e.getAttribute("ng-model").equals("sCtrl.settings.reportGrads"))
+			{
+				e.sendKeys(Integer.toString(rand.nextInt(30)));
+			}
+			
+			if(e.getAttribute("ng-model").equals("sCtrl.settings.reportIncomingGrads"))
+			{
+				e.sendKeys(Integer.toString(rand.nextInt(30)));
+			}
+			
+			if(e.getAttribute("ng-model").equals("sCtrl.settings.minBatchSize"))
+			{
+				e.sendKeys(Integer.toString(rand.nextInt(30)));
+			}
+			
+			if(e.getAttribute("ng-model").equals("sCtrl.settings.maxBatchSize"))
+			{
+				e.sendKeys(Integer.toString(rand.nextInt(30)));
+			}
+			
+			if(e.getAttribute("ng-model").equals("sCtrl.settings.batchLength"))
+			{
+				e.sendKeys(Integer.toString(rand.nextInt(30)));
+			}
+			
+			if(e.getAttribute("ng-model").equals("sCtrl.settings.trainerBreakDays"))
+			{
+				e.sendKeys(Integer.toString(rand.nextInt(30)));
+			}
+		}
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allInput = browser.findElements(By.tagName("button"));
+		for(WebElement e: allButtons)
+		{
+			if(e.getAttribute("ng-click").contains("updateSettings"))
+			{
+				e.click();
+				break;
+			}
+		}
 	}
 }
