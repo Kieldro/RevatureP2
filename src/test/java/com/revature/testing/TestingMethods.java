@@ -37,7 +37,7 @@ public class TestingMethods
 		System.setProperty("webdriver.chrome.driver", path);
 
 		// Make and return a ChromeDriver:
-		return (new ChromeDriver());//options));
+		return (new ChromeDriver(options));
 	}
 
 	public static void trainerLogin(WebDriver browser)
