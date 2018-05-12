@@ -31,6 +31,15 @@ public class TestNGTests
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
+		try
+		{
+			browser.wait(3000);
+		}
+		catch (InterruptedException e)
+		{
+			System.err.println("Oops");
+		}
+		
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
 		String expectedURL = "https://dev.assignforce.revaturelabs.com/home";
@@ -301,9 +310,10 @@ public class TestNGTests
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeTrainer(browser, firstName, lastName);
 		String sourceCode = "";
-		for(int i=0; i<100; i++)
+		for(int i=0; i<300; i++)
 		{
 			sourceCode = browser.getPageSource();
+			System.out.println(browser.getPageSource());
 		}
 		
 		String fullName = firstName + " " + lastName;

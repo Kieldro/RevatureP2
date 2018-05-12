@@ -134,6 +134,29 @@ public class TestingMethods
 
 	public static void selectFirstOption(WebDriver browser, String menuID, String optionValue)
 	{
+		WebElement menu = browser.findElement(By.id(menuID));
+		menu.click();
+		
+		String sourceCode = "";
+		for(int i=0; i<100; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		List<WebElement> allOptions = new ArrayList<WebElement>();
+		allOptions = browser.findElements(By.tagName("md-option"));
+		WebElement thisOption = null;
+		for(int i=0; i<allOptions.size(); i++)
+		{
+			thisOption = allOptions.get(i);
+			
+			thisOption.
+			
+			
+		}
+		
+		
+		/*
 		// Acquire the desired menu object:
 		WebElement menuObject = browser.findElement(By.id(menuID));
 		// Click into the menu:
@@ -166,6 +189,7 @@ public class TestingMethods
 
 		// Select the desired option:
 		// optionObject.click();
+		 */
 	}
 
 	public static void selectAnotherOption(WebDriver browser, String optionID)
