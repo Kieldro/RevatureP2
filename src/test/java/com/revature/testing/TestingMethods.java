@@ -133,7 +133,7 @@ public class TestingMethods
 		submitButton.click();
 	}
 
-	public static void selectFirstOption(WebDriver browser, String menuID, String optionValue)
+	public static void selectCoreCurriculum(WebDriver browser, String menuID, String optionValue)
 	{
 		WebElement menu = browser.findElement(By.id(menuID));
 		menu.click();
@@ -150,10 +150,13 @@ public class TestingMethods
 		for(int i=0; i<allOptions.size(); i++)
 		{
 			thisOption = allOptions.get(i);
+			String thisText = thisOption.findElement(By.className("md-text ng-binding")).getText();
 			
-			//thisOption.
-			//TODO
-			
+			if(thisText.equals(optionValue))
+			{
+				thisOption.click();
+				break;
+			}
 		}
 		
 		
@@ -191,6 +194,28 @@ public class TestingMethods
 		// Select the desired option:
 		// optionObject.click();
 		 */
+	}
+	
+	public static void selectFocus(WebDriver browser, String menuID, String optionValue)
+	{
+		WebElement menu = browser.findElement(By.id(menuID));
+		menu.click();
+		
+		String sourceCode = "";
+		for(int i=0; i<100; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		List<WebElement> allOptions = new ArrayList<WebElement>();
+		allOptions = browser.findElements(By.tagName("md-option"));
+		WebElement thisOption = null;
+		for(int i=0; i<allOptions.size(); i++)
+		{
+			thisOption
+			
+		}
+		
 	}
 
 	public static void selectAnotherOption(WebDriver browser, String optionID)
