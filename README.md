@@ -1,11 +1,11 @@
 # RevatureP2
 Project 2 at Revature
 
-API to automate the test written for any web application
+An API to automate the test writing for any web application
 
 May 1 2018
 
-**Team Towns**
+**Team Townes**
 
 - Ian Buitrago @kieldro 
 - Jackie Chen @JackieCX17
@@ -15,7 +15,7 @@ May 1 2018
 
 Trainer: Yuvaraj Damodaran
 
-live link: http://ec2-54-165-175-56.compute-1.amazonaws.com:8090/RevatureP2/
+live link: http://ec2-34-230-44-182.compute-1.amazonaws.com:8090/RevatureP2/
 
 Requirements for a team project
 ================================
@@ -41,12 +41,12 @@ User Credentials
 ==================
 The test Salesforce credentials are either as VP or trainer role: 
 test.trainer@revature.com.int1
-p@$$w0rd2
+trainer123
 
 test.vpoftech@revature.com.int1
-p@$$w0rd1
+yuvi1712
 
-the instance URL is [https://dev.assignforce.revaturelabs.com](https://dev.assignforce.revaturelabs.com)
+the instance URL is https://dev.assignforce.revaturelabs.com
 
 
 Mandatory requirements / user stories / use case
@@ -57,6 +57,9 @@ Mandatory requirements / user stories / use case
 5. Convention for test data - 1804JTA
 6. Use the following APIs - WebDriver, TestNG, Cucumber, Jasmine, Protactor
 
+### To Run:
+copy hibernate.properties file from google drive into src/main/resources in workspace for db credentials
+
 ### To Do:
-`git clone git@github.com:Kieldro/RevatureP2.git`
-`git checkout develop` switch to the develop branch
+- Windows slave vm
+- more selenium
