@@ -416,16 +416,14 @@ public class TestingMethods
 		List<WebElement> buttons = new ArrayList<WebElement>();
 		buttons = browser.findElements(By.tagName("button"));
 		
-		WebElement AddButton = null;
 		for(WebElement e: buttons)
 		{
 			if(e.getAttribute("aria-label").contains("Add New Curriculum"))
 			{
-				AddButton = e;
+				e.click();
 				break;
 			}
 		}
-		AddButton.click();
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
@@ -550,16 +548,14 @@ public class TestingMethods
 		List<WebElement> buttons = new ArrayList<WebElement>();
 		buttons = browser.findElements(By.tagName("button"));
 		
-		WebElement AddButton = null;
 		for(WebElement e: buttons)
 		{
 			if(e.getAttribute("aria-label").contains("Add Trainer"))
 			{
-				AddButton = e;
+				e.click();
 				break;
 			}
 		}
-		AddButton.click();
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
