@@ -474,7 +474,7 @@ public class TestingMethods
 		WebElement AddButton = null;
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label").contains("Add New Focus"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Focus"))
 			{
 				AddButton = e;
 				break;
