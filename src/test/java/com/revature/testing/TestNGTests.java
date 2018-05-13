@@ -259,6 +259,7 @@ public class TestNGTests
 		
 		
 	}
+	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=5)
 	public void curriculumTest()
 	{
