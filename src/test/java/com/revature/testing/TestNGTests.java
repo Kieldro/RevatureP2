@@ -27,17 +27,21 @@ public class TestNGTests
 		TestingMethods.trainerLogin(browser);
 		
 		String sourceCode = "";
-		for(int i=0; i<700; i++)
+		for(int i=0; i<1000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
 		try
 		{
-			browser.manage().timeouts().wait(3000);
+			browser.manage().timeouts().wait(5000);
 		}
 		catch (InterruptedException e)
 		{
 			System.err.println("Oops");
+		}
+		for(int i=0; i<700; i++)
+		{
+			System.out.println(browser.getCurrentUrl());
 		}
 		
 		
