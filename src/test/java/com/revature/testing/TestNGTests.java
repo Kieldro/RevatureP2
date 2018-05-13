@@ -50,6 +50,7 @@ public class TestNGTests
 		Assert.assertEquals(actualURL, expectedURL);
 	}
 	
+	/*
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerNavButtonTest()
 	{
@@ -80,7 +81,89 @@ public class TestNGTests
 			Assert.assertEquals(actualURL, expectedURL);
 		}
 		
+		
 			//Logout button:
+		TestingMethods.pushButtonFromNavBar(browser, "logout");
+		String sourceCode = "";
+		for(int i=0; i<9; i++)
+		{
+			//System.out.println(i);
+			sourceCode = browser.getPageSource();
+			//System.out.println(browser.getCurrentUrl());
+		}
+		System.out.println(browser.getCurrentUrl());
+		expectedURL = "https://dev.assignforce.revaturelabs.com/settings";
+		actualURL = browser.getCurrentUrl();
+		
+		Assert.assertNotEquals(actualURL, expectedURL);
+	}
+	*/
+	
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerOverviewNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "overview");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/home");
+	}
+	
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerBatchesNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "batches");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/batches");
+	}
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerLocationsNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "locations");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/locations");
+	}
+	
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerCurriculaNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "curricula");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/curriculum");
+	}
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerTrainersNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "trainers");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/trainers");
+	}
+	
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerProfileNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "profile");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/profile");
+	}
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerReportNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "reports");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/reports");
+	}
+	
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
+	public void trainerSettingsNavTest()
+	{
+		TestingMethods.pushButtonFromNavBar(browser, "settings");
+		Assert.assertEquals(browser.getCurrentUrl(),
+				"https://dev.assignforce.revaturelabs.com/settings");
+	}
+	
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=2)
+	public void TrainerLogoutTest()
+	{
+		String expectedURL, actualURL;
 		TestingMethods.pushButtonFromNavBar(browser, "logout");
 		String sourceCode = "";
 		for(int i=0; i<9; i++)
@@ -108,7 +191,7 @@ public class TestNGTests
 	*/
 	
 	
-	@Test(groups="vpTests", priority=2)
+	@Test(groups="vpTests", priority=3)
 	public void vpLoginTest()
 	{
 		//Perform the login actions:
@@ -130,7 +213,7 @@ public class TestNGTests
 		Assert.assertEquals(actualURL, expectedURL);
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=2)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=3)
 	public void vpOverviewNavTest()
 	{
 		//Test the overview nav button:
@@ -139,7 +222,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/home");
 	}
 	
-	@Test(groups= {"vpTests", "batchesTests"}, dependsOnMethods="vpLoginTest", priority=3)
+	@Test(groups= {"vpTests", "batchesTests"}, dependsOnMethods="vpLoginTest", priority=4)
 	public void vpBatchesNavTest()
 	{
 		//Test the batches nav button:
@@ -149,7 +232,7 @@ public class TestNGTests
 	}
 	
 	/*
-	@Test(groups={"vpTests", "batchesTests"}, dependsOnMethods="vpBatchesNavTest", priority=3)
+	@Test(groups={"vpTests", "batchesTests"}, dependsOnMethods="vpBatchesNavTest", priority=4)
 	public void vpBatchCreationTest()
 	{
 		String CORE_CURRICULUM = "select_9";
@@ -201,7 +284,7 @@ public class TestNGTests
 	}
 	*/
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=4)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=5)
 	public void locationTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "locations");
@@ -260,7 +343,7 @@ public class TestNGTests
 		
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=5)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=6)
 	public void curriculumTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "curricula");
@@ -298,7 +381,7 @@ public class TestNGTests
 		}
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=6)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=7)
 	public void TrainersTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "trainers");
@@ -321,7 +404,7 @@ public class TestNGTests
 		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=7)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=8)
 	public void ReportsTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "reports");
@@ -329,7 +412,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/reports");
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=8)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
 	public void SettingsTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "settings");
@@ -341,7 +424,7 @@ public class TestNGTests
 		
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=10)
 	public void LogoutTest()
 	{
 		String expectedURL, actualURL;
