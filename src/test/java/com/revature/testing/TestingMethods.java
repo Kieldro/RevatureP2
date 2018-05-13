@@ -45,7 +45,13 @@ public class TestingMethods
 	{
 		// Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
-
+		
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
 		// Acquire the relevant input objects:
 		WebElement usernameField = browser.findElement(By.id("username"));
 		WebElement passwordField = browser.findElement(By.id("password"));
@@ -64,7 +70,6 @@ public class TestingMethods
 		 * the button that it failed on will be easily knowable
 		 */
 		System.out.println("Now testing the " + buttonName + " button.");
-
 		/*
 		 * Since the page's JavaScript needs time to create the nav buttons, the browser
 		 * will for an arbitrary, but large amount of time to give the JS time to create
@@ -74,19 +79,21 @@ public class TestingMethods
 
 		// Acquire the button to be tested:
 		WebElement Zhalfir = browser.findElement(By.name(buttonName));
-
 		System.out.println("Got the " + buttonName + " button.");
 
 		// Kills some time while the JS finishes making the buttons interactable:
-		String sourceCode = "";
-		for (int i = 0; i < 9; i++)
-			sourceCode = browser.getPageSource();
-
+		if(!browser.getCurrentUrl().equals("https://dev.assignforce.revaturelabs.com/reports"))
+		{
+			String sourceCode = "";
+			for (int i = 0; i < 9; i++)
+			{
+				sourceCode = browser.getPageSource();
+			}
+		}
 		System.out.println("About to push the " + buttonName + " button...");
-
+		
 		// Push the button to be tested:
 		Zhalfir.click();
-
 		System.out.println("Pushed the " + buttonName + " button.");
 	}
 
@@ -106,8 +113,6 @@ public class TestingMethods
 			submitButton = browser.findElement(By.id("Login"));
 		} catch (NoSuchElementException e)
 		{
-			
-			
 			try
 			{
 				//browser.close();

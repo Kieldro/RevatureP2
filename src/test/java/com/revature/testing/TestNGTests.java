@@ -308,9 +308,6 @@ public class TestNGTests
 		System.out.println("Checked the box.");
 		
 		
-		
-
-		
 		//Assert.assertTrue(thisThing.isSelected());
 		String locName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
@@ -338,9 +335,6 @@ public class TestNGTests
 		}
 		
 		Assert.assertFalse(TestingMethods.findLocation(browser, "Townsville"));
-		
-		
-		
 	}
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=6)
