@@ -442,13 +442,14 @@ public class TestNGTests
 		
 		Assert.assertNotEquals(actualURL, expectedURL);
 	}
-	/*
+	
+	
 	@AfterTest
 	public void quitBrowser()
 	{
 		browser.quit();
 	}
-	*/
+	
 	
 	
 	
