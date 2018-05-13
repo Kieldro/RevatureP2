@@ -275,7 +275,7 @@ public class TestingMethods
 					sourceCode = browser.getPageSource();
 				}
 				
-				while(!allInputs.get(i).getText().equals(cityName))
+				while(!allInputs.get(i)     )
 				{
 					System.out.println(cityName + "!=" + allInputs.get(i).getText());
 					
