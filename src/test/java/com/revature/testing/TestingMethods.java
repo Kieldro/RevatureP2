@@ -53,12 +53,6 @@ public class TestingMethods
 			System.out.println(browser.getCurrentUrl());
 		}
 		
-		while(true)
-		{
-			if(false)
-				break;
-		}
-		
 		// Acquire the relevant input objects:
 		WebElement usernameField = browser.findElement(By.id("username"));
 		WebElement passwordField = browser.findElement(By.id("password"));
