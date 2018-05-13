@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.Random;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +30,7 @@ public class TestNGTests
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
+		/*
 		try
 		{
 			browser.manage().timeouts().wait(5000);
@@ -39,7 +39,8 @@ public class TestNGTests
 		{
 			System.err.println("Oops");
 		}
-		for(int i=0; i<700; i++)
+		*/
+		for(int i=0; i<1000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
