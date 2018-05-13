@@ -431,7 +431,7 @@ public class TestingMethods
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
 		{
-			if(e.getAttribute("aria-label").contains("curriculumName"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
 			{
 				e.clear();
 				e.sendKeys(currName);
@@ -525,7 +525,7 @@ public class TestingMethods
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
 		{
-			if(e.getAttribute("ng-model").contains("cCtrl.skillName"))
+			if(e.getAttribute("ng-model") != null && e.getAttribute("ng-model").contains("cCtrl.skillName"))
 			{
 				e.sendKeys(skillName);
 				break;
