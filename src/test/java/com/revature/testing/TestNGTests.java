@@ -33,7 +33,7 @@ public class TestNGTests
 		}
 		try
 		{
-			browser.wait(3000);
+			browser.manage().timeouts().wait(3000);
 		}
 		catch (InterruptedException e)
 		{
