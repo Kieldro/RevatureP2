@@ -47,9 +47,10 @@ public class TestingMethods
 		browser.get("https://dev.assignforce.revaturelabs.com");
 		
 		String sourceCode = "";
-		for(int i=0; i<50; i++)
+		for(int i=0; i<75; i++)
 		{
 			sourceCode = browser.getPageSource();
+			System.out.println(browser.getCurrentUrl());
 		}
 		
 		// Acquire the relevant input objects:
