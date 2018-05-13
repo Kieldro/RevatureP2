@@ -417,7 +417,7 @@ public class TestingMethods
 		buttons = browser.findElements(By.tagName("button"));
 		
 		WebElement AddButton = null;
-		for(WebElement e:buttons)
+		for(WebElement e: buttons)
 		{
 			if(e.getAttribute("aria-label").contains("Add New Curriculum"))
 			{
@@ -429,7 +429,7 @@ public class TestingMethods
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
-		for(WebElement e:allInputs)
+		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("aria-label").contains("curriculumName"))
 			{
@@ -472,7 +472,7 @@ public class TestingMethods
 		buttons = browser.findElements(By.tagName("button"));
 		
 		WebElement AddButton = null;
-		for(WebElement e:buttons)
+		for(WebElement e: buttons)
 		{
 			if(e.getAttribute("aria-label").contains("Add New Focus"))
 			{
@@ -485,7 +485,7 @@ public class TestingMethods
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
-		for(WebElement e:allInputs)
+		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("aria-label").contains("curriculumName"))
 			{
@@ -523,7 +523,7 @@ public class TestingMethods
 	{
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
-		for(WebElement e:allInputs)
+		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("ng-model").contains("cCtrl.skillName"))
 			{
@@ -534,7 +534,7 @@ public class TestingMethods
 		
 		List<WebElement> allDivs = new ArrayList<WebElement>();
 		allDivs = browser.findElements(By.tagName("div"));
-		for(WebElement e:allDivs)
+		for(WebElement e: allDivs)
 		{
 			if(e.getAttribute("ng-click").contains("createSkill"))
 			{
@@ -551,7 +551,7 @@ public class TestingMethods
 		buttons = browser.findElements(By.tagName("button"));
 		
 		WebElement AddButton = null;
-		for(WebElement e:buttons)
+		for(WebElement e: buttons)
 		{
 			if(e.getAttribute("aria-label").contains("Add Trainer"))
 			{
@@ -563,7 +563,7 @@ public class TestingMethods
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
-		for(WebElement e:allInputs)
+		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("ng-model").equals("tdCtrl.trainer.firstName"))
 			{
