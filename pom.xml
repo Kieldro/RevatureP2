@@ -155,6 +155,7 @@
 					<excludes>
 						<!-- <exclude>TestNGTests.java</exclude> -->
 						<exclude>*/TestSquare.java</exclude>
+						<exclude>*/Test1.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
