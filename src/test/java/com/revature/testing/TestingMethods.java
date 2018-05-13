@@ -419,7 +419,8 @@ public class TestingMethods
 		
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label").contains("Add New Curriculum"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Curriculum"))
+				
 			{
 				e.click();
 				break;
@@ -473,7 +474,7 @@ public class TestingMethods
 		WebElement AddButton = null;
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label").contains("Add New Focus"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Focus"))
 			{
 				AddButton = e;
 				break;
@@ -486,7 +487,7 @@ public class TestingMethods
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
 		{
-			if(e.getAttribute("aria-label").contains("curriculumName"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
 			{
 				e.clear();
 				e.sendKeys(focusName);
@@ -551,7 +552,7 @@ public class TestingMethods
 		
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label").contains("Add Trainer"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add Trainer"))
 			{
 				e.click();
 				break;
