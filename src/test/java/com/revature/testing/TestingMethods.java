@@ -419,7 +419,8 @@ public class TestingMethods
 		
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label").contains("Add New Curriculum"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Curriculum"))
+				
 			{
 				e.click();
 				break;
@@ -486,7 +487,7 @@ public class TestingMethods
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
 		{
-			if(e.getAttribute("aria-label").contains("curriculumName"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
 			{
 				e.clear();
 				e.sendKeys(focusName);
