@@ -552,7 +552,7 @@ public class TestingMethods
 		
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label").contains("Add Trainer"))
+			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add Trainer"))
 			{
 				e.click();
 				break;
