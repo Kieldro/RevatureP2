@@ -152,7 +152,7 @@
 						</property>
 					</properties>
 					<excludes>
-						<exclude>TestNGTests.java</exclude>
+						<!-- <exclude>TestNGTests.java</exclude> -->
 						<exclude>*/TestSquare.java</exclude>
 					</excludes>
 				</configuration>
