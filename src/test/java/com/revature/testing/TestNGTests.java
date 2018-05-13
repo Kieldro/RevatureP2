@@ -441,7 +441,9 @@ public class TestNGTests
 	@AfterTest
 	public void quitBrowser()
 	{
+		System.out.println("About to quit the browser...");
 		browser.quit();
+		System.out.println("Quit the browser.");
 	}
 	
 	
