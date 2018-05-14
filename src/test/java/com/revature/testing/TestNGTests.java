@@ -413,7 +413,7 @@ public class TestNGTests
 				Integer.toString(rand.nextInt(500000)));
 		String lastName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
-		TestingMethods.makeTrainer(browser, firstName, lastName);
+//		TestingMethods.makeTrainer(browser, firstName, lastName);
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
@@ -424,7 +424,7 @@ public class TestNGTests
 		}
 		
 		String fullName = firstName + " " + lastName;
-		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
+//		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
 	}
 	
 	/*
