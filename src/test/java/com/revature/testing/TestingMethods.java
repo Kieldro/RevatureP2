@@ -46,6 +46,8 @@ public class TestingMethods
 		// Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
 		
+		browser.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		
 		String sourceCode = "";
 		for(int i=0; i<75; i++)
 		{
@@ -82,7 +84,6 @@ public class TestingMethods
 		 * will for an arbitrary, but large amount of time to give the JS time to create
 		 * the buttons
 		 */
-		browser.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 		// Acquire the button to be tested:
 		WebElement Zhalfir = browser.findElement(By.name(buttonName));
