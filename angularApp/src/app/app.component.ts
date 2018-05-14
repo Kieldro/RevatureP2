@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'RevatureP2: Automated Web Testing API- Team Townes';
+  title = 'Automated Web Testing API';
 }
