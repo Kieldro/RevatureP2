@@ -48,12 +48,14 @@ public class TestingMethods
 		
 		browser.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		
+		/*
 		String sourceCode = "";
 		for(int i=0; i<75; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
 		}
+		*/
 		
 		// Acquire the relevant input objects:
 		WebElement usernameField = browser.findElement(By.id("username"));
@@ -208,11 +210,13 @@ public class TestingMethods
 		WebElement menu = browser.findElement(By.id(menuID));
 		menu.click();
 		
+		/*
 		String sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
+		*/
 		
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		allOptions = browser.findElements(By.tagName("md-option"));
@@ -282,10 +286,12 @@ public class TestingMethods
 					
 					allInputs.get(i).clear();
 					
+					/*
 					for(int j=0; j<50; j++)
 					{
 						sourceCode = browser.getPageSource();
 					}
+					*/
 					
 					allInputs.get(i).sendKeys(cityName);
 					
@@ -306,11 +312,13 @@ public class TestingMethods
 			{
 				allDropDowns.get(i).click();
 				
+				/*
 				String sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
+				*/
 				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
@@ -381,11 +389,13 @@ public class TestingMethods
 		
 		System.out.println("Checked " + cityName + ".");
 		
+		/*
 		String sourceCode = "";
 		for(int i=0; i<25; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
+		*/
 		
 		System.out.println("Finished waiting.");
 		
@@ -448,11 +458,13 @@ public class TestingMethods
 			{
 				allDropDowns.get(i).click();
 				
+				/*
 				String sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
+				*/
 				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
