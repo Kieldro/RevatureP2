@@ -415,10 +415,10 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<300; i++)
+		for(int i=0; i<1000; i++)
 		{
 			sourceCode = browser.getPageSource();
-			System.out.println(browser.getPageSource());
+			//System.out.println(browser.getPageSource());
 		}
 		
 		String fullName = firstName + " " + lastName;
