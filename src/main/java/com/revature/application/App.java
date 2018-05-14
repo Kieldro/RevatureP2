@@ -1,4 +1,4 @@
-package com.revature.application;
+package com.revature.Application;
 
 import java.util.Date;
 

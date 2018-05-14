@@ -392,13 +392,11 @@ public class TestNGTests
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeSkill(browser, SkillName);
 		
-		/*
 		sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 	}
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=7)

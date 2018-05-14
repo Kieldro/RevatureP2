@@ -446,6 +446,13 @@ public class TestingMethods
 			{ }
 		}
 		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
@@ -462,8 +469,32 @@ public class TestingMethods
 			{ }
 		}
 		
+		sourceCode = "";
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			try
+			{
+				if(allButtons.get(i).getAttribute("ng-click") != null && allButtons.get(i).getAttribute("ng-click").contains("saveCurriculum"))
+				{
+					allButtons.get(i).click();
+					break;
+				}
+			}
+			catch(Exception e1)
+			{ }
+		}
+		
+		/*
 		List<WebElement> allDropDowns = new ArrayList<WebElement>();
 		allDropDowns = browser.findElements(By.tagName("md-select"));
+		boolean done = false;
 		for(int i = 0; i < allDropDowns.size(); i++)
 		{
 			System.out.println("drop down " + i + "=" + allDropDowns.get(i).getAttribute("ng-model"));
@@ -473,25 +504,46 @@ public class TestingMethods
 				allDropDowns.get(i).click();
 				
 				/////////////////////////////////////////////////////////////////////
-				String sourceCode = "";
-				for(int j=0; j<25; j++)
+				sourceCode = "";
+				for(int j=0; j<50; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
 				
-				if(true)
-				{
-					return;
-				}
-				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
+				List<WebElement> theseDivs = new ArrayList<WebElement>();
+				WebElement thisOption = null;
 				for(int j = 0; j < allDropOptions.size(); j++)
 				{
-					//ADD FIXED DROPDOWN SELECTION
+					thisOption = allDropOptions.get(j);
+					
+					theseDivs = thisOption.findElements(By.tagName("div"));
+					for(int k=0; k<theseDivs.size(); k++)
+					{
+						if(theseDivs.get(k).getAttribute("class").equals("md-text ng-binding"))
+						{
+							if(theseDivs.get(k).getText().equals(".ANDROID"))
+							{
+								thisOption.click();
+								done = true;
+								break;
+							}
+						}
+					}
+					if(done)
+					{
+						break;
+					}
 				}
 			}
+			if(done)
+			{
+				break;
+			}
 		}
+		*/
+		
 	}
 	
 
@@ -510,6 +562,7 @@ public class TestingMethods
 				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Focus"))
 				{
 					AddButton = e;
+					AddButton.click();
 					break;
 				}
 			}
@@ -517,24 +570,55 @@ public class TestingMethods
 			{ }
 		}
 		
-		AddButton.click();
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
+		WebElement field = null;
 		for(WebElement e: allInputs)
 		{
 			try
 			{
 				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
 				{
-					e.clear();
-					e.sendKeys(focusName);
+					field = e;
+					field.clear();
+					field.sendKeys(focusName);
+					break;
 				}
 			}
 			catch(Exception e1)
 			{ }
 		}
 		
+		sourceCode = "";
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			try
+			{
+				if(allButtons.get(i).getAttribute("ng-click") != null && allButtons.get(i).getAttribute("ng-click").contains("saveCurriculum"))
+				{
+					allButtons.get(i).click();
+					break;
+				}
+			}
+			catch(Exception e1)
+			{ }
+		}
+		
+		/*
 		List<WebElement> allDropDowns = new ArrayList<WebElement>();
 		allDropDowns = browser.findElements(By.tagName("md-select"));
 		for(int i = 0; i < allDropDowns.size(); i++)
@@ -546,7 +630,7 @@ public class TestingMethods
 				allDropDowns.get(i).click();
 				
 				/////////////////////////////////////////////////////////////////////
-				String sourceCode = "";
+				sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
@@ -560,6 +644,8 @@ public class TestingMethods
 				}
 			}
 		}
+		*/
+		
 	}
 	
 	public static void makeSkill(WebDriver browser, String skillName)
