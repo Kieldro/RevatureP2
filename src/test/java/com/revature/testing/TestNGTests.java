@@ -313,24 +313,6 @@ public class TestNGTests
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/locations");
 		
-		List<WebElement> things = new ArrayList<WebElement>();
-		things = browser.findElements(By.tagName("md-checkbox"));
-		
-		WebElement thisThing = null;
-		for(int i=0; i< things.size(); i++)
-		{
-			if(things.get(i).getAttribute("aria-label").contains("Reston, VA"))
-			{
-				thisThing = things.get(i);
-				break;
-			}
-		}
-		
-		System.out.println("About to check the box...");
-		thisThing.click();
-		System.out.println("Checked the box.");
-		
-		
 		//Assert.assertTrue(thisThing.isSelected());
 		String locName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));

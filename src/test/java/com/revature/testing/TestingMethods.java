@@ -271,6 +271,7 @@ public class TestingMethods
 		System.out.println("locName = " + locName);
 		
 		browser.findElement(By.id("locAdd")).click();
+		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
 		String cityName = "Townsville";
@@ -290,6 +291,7 @@ public class TestingMethods
 			{
 				allInputs.get(i).sendKeys(cityName);
 				
+				/////////////////////////////////////////////////////////////////////
 				String sourceCode = "";
 				for(int j=0; j<50; j++)
 				{
@@ -393,6 +395,7 @@ public class TestingMethods
 		for(int i=0; i<allBoxes.size(); i++)
 		{
 			System.out.println("Box " + i + " = " + allBoxes.get(i).getAttribute("aria-label"));
+			
 			if(allBoxes.get(i).getAttribute("aria-label").contains(cityName))
 			{
 				System.out.println("There is a location in " + cityName + ".");
