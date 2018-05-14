@@ -319,9 +319,10 @@ public class TestNGTests
 		WebElement thisThing = null;
 		for(int i=0; i< things.size(); i++)
 		{
-			if(things.get(i).getAttribute("aria-label").contains("boston, MA"))
+			if(things.get(i).getAttribute("aria-label").contains("Reston, VA"))
 			{
 				thisThing = things.get(i);
+				break;
 			}
 		}
 		

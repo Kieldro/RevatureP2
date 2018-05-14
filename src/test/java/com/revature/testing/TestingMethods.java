@@ -667,11 +667,13 @@ public class TestingMethods
 	{
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
+		WebElement thisField = null;
 		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("ng-model") != null && e.getAttribute("ng-model").contains("cCtrl.skillName"))
 			{
-				e.sendKeys(skillName);
+				thisField = e;
+				thisField.sendKeys(skillName);
 				break;
 			}
 		}
@@ -685,11 +687,13 @@ public class TestingMethods
 		
 		List<WebElement> allDivs = new ArrayList<WebElement>();
 		allDivs = browser.findElements(By.tagName("div"));
+		WebElement thisDiv = null;
 		for(WebElement e: allDivs)
 		{
-			if(e.getAttribute("ng-click").contains("createSkill"))
+			if(e.getAttribute("ng-click") != null && e.getAttribute("ng-click").contains("createSkill"))
 			{
-				e.click();
+				thisDiv = e;
+				thisDiv.click(); /////////////////////////////////////////////////////
 				break;
 			}
 		}
