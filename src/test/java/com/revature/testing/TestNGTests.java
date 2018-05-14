@@ -425,6 +425,7 @@ public class TestNGTests
 		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
 	}
 	
+	/*
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=8)
 	public void ReportsTest()
 	{
@@ -432,6 +433,7 @@ public class TestNGTests
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/reports");
 	}
+	*/
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
 	public void SettingsTest()
