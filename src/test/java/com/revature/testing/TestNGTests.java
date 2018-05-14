@@ -26,7 +26,7 @@ public class TestNGTests
 		TestingMethods.trainerLogin(browser);
 		
 		/////////////////////////////////////////////////////////////////////
-		String sourceCode = "";
+		/*String sourceCode = "";
 		for(int i=0; i<1000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
@@ -42,10 +42,12 @@ public class TestNGTests
 		}
 		*/
 		/////////////////////////////////////////////////////////////////////
+		/*
 		for(int i=0; i<1000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
+		*/
 		
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:

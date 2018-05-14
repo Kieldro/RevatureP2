@@ -65,6 +65,12 @@ public class TestingMethods
 		usernameField.sendKeys("test.trainer@revature.com.int1");
 		passwordField.sendKeys("trainer123");
 		submitButton.click();
+		
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getCurrentUrl();
+		}
+		System.out.println(sourceCode);
 	}
 
 	public static void pushButtonFromNavBar(WebDriver browser, String buttonName)
