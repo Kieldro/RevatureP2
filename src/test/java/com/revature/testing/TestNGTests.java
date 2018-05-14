@@ -120,6 +120,7 @@ public class TestNGTests
 		TestingMethods.pushButtonFromNavBar(browser, "batches");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/batches");
+		//Assert.assertEquals(true,  false);
 	}
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerLocationsNavTest()
