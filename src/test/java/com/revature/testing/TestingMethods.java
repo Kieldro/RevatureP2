@@ -46,18 +46,16 @@ public class TestingMethods
 		// Navigate to the login page:
 		browser.get("https://dev.assignforce.revaturelabs.com");
 		
+		browser.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		
+		/*
 		String sourceCode = "";
 		for(int i=0; i<75; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
 		}
-		
-		while(true)
-		{
-			if(false)
-				break;
-		}
+		*/
 		
 		// Acquire the relevant input objects:
 		WebElement usernameField = browser.findElement(By.id("username"));
@@ -82,7 +80,6 @@ public class TestingMethods
 		 * will for an arbitrary, but large amount of time to give the JS time to create
 		 * the buttons
 		 */
-		browser.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 		// Acquire the button to be tested:
 		WebElement Zhalfir = browser.findElement(By.name(buttonName));
@@ -213,11 +210,13 @@ public class TestingMethods
 		WebElement menu = browser.findElement(By.id(menuID));
 		menu.click();
 		
+		/*
 		String sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
+		*/
 		
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		allOptions = browser.findElements(By.tagName("md-option"));
@@ -287,10 +286,12 @@ public class TestingMethods
 					
 					allInputs.get(i).clear();
 					
+					/*
 					for(int j=0; j<50; j++)
 					{
 						sourceCode = browser.getPageSource();
 					}
+					*/
 					
 					allInputs.get(i).sendKeys(cityName);
 					
@@ -311,11 +312,13 @@ public class TestingMethods
 			{
 				allDropDowns.get(i).click();
 				
+				/*
 				String sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
+				*/
 				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
@@ -386,11 +389,13 @@ public class TestingMethods
 		
 		System.out.println("Checked " + cityName + ".");
 		
+		/*
 		String sourceCode = "";
 		for(int i=0; i<25; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
+		*/
 		
 		System.out.println("Finished waiting.");
 		
@@ -453,11 +458,13 @@ public class TestingMethods
 			{
 				allDropDowns.get(i).click();
 				
+				/*
 				String sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
+				*/
 				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
