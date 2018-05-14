@@ -691,14 +691,15 @@ public class TestingMethods
 	{
 		List<WebElement> buttons = new ArrayList<WebElement>();
 		buttons = browser.findElements(By.tagName("button"));
-		
+		WebElement thisButton = null;
 		for(WebElement e: buttons)
 		{
 			try
 			{
 				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add Trainer"))
 				{
-					e.click();
+					thisButton = e;
+					thisButton.click();
 					break;
 				}
 			}
@@ -708,15 +709,18 @@ public class TestingMethods
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
+		WebElement thisField = null;
 		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("ng-model").equals("tdCtrl.trainer.firstName"))
 			{
-				e.sendKeys(firstName);
+				thisField = e;
+				thisField.sendKeys(firstName);
 			}
 			if(e.getAttribute("ng-model").equals("tdCtrl.trainer.lastName"))
 			{
-				e.sendKeys(lastName);
+				thisField = e;
+				thisField.sendKeys(lastName);
 			}
 		}
 		
@@ -754,41 +758,49 @@ public class TestingMethods
 		
 		List<WebElement> allInput = new ArrayList<WebElement>();
 		allInput = browser.findElements(By.tagName("input"));
+		WebElement thisField = null;
 		for(WebElement e: allInput)
 		{
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.trainersPerPage"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.reportGrads"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.reportIncomingGrads"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.minBatchSize"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.maxBatchSize"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.batchLength"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.trainerBreakDays"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 		}
 		
@@ -801,11 +813,13 @@ public class TestingMethods
 		
 		List<WebElement> allButtons = new ArrayList<WebElement>();
 		allInput = browser.findElements(By.tagName("button"));
+		WebElement thisButton = null;
 		for(WebElement e: allButtons)
 		{
 			if(e.getAttribute("ng-click").contains("updateSettings"))
 			{
-				e.click();
+				thisButton = e;
+				thisButton.click();
 				break;
 			}
 		}
