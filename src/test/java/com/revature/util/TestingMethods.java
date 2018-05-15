@@ -186,7 +186,7 @@ public class TestingMethods
 			System.out.println("Got an option.");
 			
 			thisText = thisOption.findElement(By.xpath(
-					".//div[@class='md-text ng-binding']")).getText();
+					".//div[text()='" + optionValue + "']")).getText();
 			
 			System.out.println("!!!!!option " + i + " contains " + thisText);
 			
