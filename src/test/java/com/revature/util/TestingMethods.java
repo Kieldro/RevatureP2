@@ -22,10 +22,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestingMethods
 {
-	public static ChromeOptions options = new ChromeOptions()
+	/*public static ChromeOptions options = new ChromeOptions()
 			.addArguments(
 				"user-data-dir=C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data");
-	
+	*/
 	
 	public static WebDriver getDriver()
 	{
@@ -38,7 +38,7 @@ public class TestingMethods
 		System.setProperty("webdriver.chrome.driver", path);
 
 		// Make and return a ChromeDriver:
-		return (new ChromeDriver(options));
+		return (new ChromeDriver());//(options));
 	}
 
 	public static void trainerLogin(WebDriver browser)
