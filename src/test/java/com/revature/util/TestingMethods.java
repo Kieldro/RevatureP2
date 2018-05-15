@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
@@ -70,12 +69,10 @@ public class TestingMethods
 		passwordField.sendKeys("trainer123");
 		submitButton.click();
 		
-		/*
 		for(int i=0; i<10; i++)
 		{
 			sourceCode = browser.getCurrentUrl();
 		}
-		*/
 		System.out.println(sourceCode);
 	}
 	
