@@ -46,6 +46,7 @@ public class TestNGTests
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerBatchesNavTest()
 	{
+		/*
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<25; i++)
@@ -58,7 +59,7 @@ public class TestNGTests
 		List<WebElement> allUls = new ArrayList<WebElement>();
 		allUls = browser.findElements(By.tagName("ul"));
 		WebElement thisUl = null;
-		List<WebElement> allLis = new ArrayList<WebElement>();
+		//List<WebElement> allLis = new ArrayList<WebElement>();
 		WebElement thisLi = null;
 		for(int i=0; i<allUls.size(); i++)
 		{
@@ -88,12 +89,10 @@ public class TestNGTests
 		{
 			sourceCode = browser.getPageSource();
 		}
+		*/
 		
 		
-		
-		
-		
-		//TestingMethods.pushButtonFromNavBar(browser, "batches");
+		TestingMethods.pushButtonFromNavBar(browser, "batches");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/batches");
 	}
@@ -113,6 +112,7 @@ public class TestNGTests
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/curriculum");
 	}
+	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerTrainersNavTest()
 	{
@@ -241,10 +241,6 @@ public class TestNGTests
 		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
 		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
 		TestingMethods.leaveDropDown(browser, revatureLogo);
-		
-		
-		
-		
 		
 		
 		/*

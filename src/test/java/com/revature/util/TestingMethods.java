@@ -53,7 +53,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<10; i++)
+		for(int i=0; i<5; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
@@ -69,11 +69,13 @@ public class TestingMethods
 		passwordField.sendKeys("trainer123");
 		submitButton.click();
 		
+		/*
 		for(int i=0; i<10; i++)
 		{
 			sourceCode = browser.getCurrentUrl();
 		}
 		System.out.println(sourceCode);
+		*/
 	}
 	
 	public static void pushButtonFromNavBar(WebDriver browser, String buttonName)
@@ -163,7 +165,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<50; i++)
+		for(int i=0; i<25; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -174,9 +176,15 @@ public class TestingMethods
 		allOptions = browser.findElements(By.tagName("md-option"));
 		WebElement thisOption = null;
 		String thisText = "";
+		
+		System.out.println("About to iterate through the list...");
+		
 		for(int i=0; i<allOptions.size(); i++)
 		{
 			thisOption = allOptions.get(i);
+			
+			System.out.println("Got an option.");
+			
 			thisText = thisOption.findElement(By.xpath(
 					".//div[@class='md-text ng-binding']")).getText();
 			
