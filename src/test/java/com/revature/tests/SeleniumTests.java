@@ -38,6 +38,6 @@ public class SeleniumTests {
 	@AfterClass
 	public void tearDown() {
 		System.out.println("Ending SeleniumTests... " + "");
-//		driver.quit();
+		driver.quit();
 	}
 }
