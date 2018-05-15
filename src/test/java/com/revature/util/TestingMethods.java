@@ -1,5 +1,5 @@
 //John Eifert
-package com.revature.testing;
+package com.revature.util;
 
 import java.io.File;
 import java.io.FileWriter;

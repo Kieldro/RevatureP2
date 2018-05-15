@@ -1,8 +1,11 @@
 //John Eifert
-package com.revature.testing;
+package com.revature.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import com.revature.util.TestingMethods;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

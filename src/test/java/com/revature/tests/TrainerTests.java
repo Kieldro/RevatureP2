@@ -1,9 +1,11 @@
-package com.revature.testing;
+package com.revature.tests;
 
 import java.util.ArrayList;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
+import com.revature.util.TestingMethods;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
