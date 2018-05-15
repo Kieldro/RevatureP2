@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Automated Web Testing API - Team Townes 2018';
- }
+  title = 'Automated Web Testing API - TEAM TOWNES 2018';
+}

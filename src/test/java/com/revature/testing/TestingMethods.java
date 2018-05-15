@@ -50,7 +50,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<75; i++)
+		for(int i=0; i<25; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
@@ -65,7 +65,22 @@ public class TestingMethods
 		usernameField.sendKeys("test.trainer@revature.com.int1");
 		passwordField.sendKeys("trainer123");
 		submitButton.click();
+		
+		/*
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getCurrentUrl();
+		}
+		*/
+		System.out.println(sourceCode);
 	}
+	
+	
+	
+	
+	
+	
+	
 
 	public static void pushButtonFromNavBar(WebDriver browser, String buttonName)
 	{
@@ -256,6 +271,7 @@ public class TestingMethods
 		System.out.println("locName = " + locName);
 		
 		browser.findElement(By.id("locAdd")).click();
+		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
 		String cityName = "Townsville";
@@ -275,6 +291,7 @@ public class TestingMethods
 			{
 				allInputs.get(i).sendKeys(cityName);
 				
+				/////////////////////////////////////////////////////////////////////
 				String sourceCode = "";
 				for(int j=0; j<50; j++)
 				{
@@ -378,6 +395,7 @@ public class TestingMethods
 		for(int i=0; i<allBoxes.size(); i++)
 		{
 			System.out.println("Box " + i + " = " + allBoxes.get(i).getAttribute("aria-label"));
+			
 			if(allBoxes.get(i).getAttribute("aria-label").contains(cityName))
 			{
 				System.out.println("There is a location in " + cityName + ".");
@@ -396,7 +414,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<25; i++)
+		for(int i=0; i<50; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -420,6 +438,25 @@ public class TestingMethods
 			}
 			catch(NullPointerException e)
 			{ }
+		}
+		
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			if(allButtons.get(i).getAttribute("ng-click").contains("dCtrl.delete"))
+			{
+				allButtons.get(i).click();
+			}
+		}
+		
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
 		}
 		
 		System.out.println("Finished location deletion.");
@@ -446,6 +483,13 @@ public class TestingMethods
 			{ }
 		}
 		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
@@ -462,8 +506,32 @@ public class TestingMethods
 			{ }
 		}
 		
+		sourceCode = "";
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			try
+			{
+				if(allButtons.get(i).getAttribute("ng-click") != null && allButtons.get(i).getAttribute("ng-click").contains("saveCurriculum"))
+				{
+					allButtons.get(i).click();
+					break;
+				}
+			}
+			catch(Exception e1)
+			{ }
+		}
+		
+		/*
 		List<WebElement> allDropDowns = new ArrayList<WebElement>();
 		allDropDowns = browser.findElements(By.tagName("md-select"));
+		boolean done = false;
 		for(int i = 0; i < allDropDowns.size(); i++)
 		{
 			System.out.println("drop down " + i + "=" + allDropDowns.get(i).getAttribute("ng-model"));
@@ -473,25 +541,46 @@ public class TestingMethods
 				allDropDowns.get(i).click();
 				
 				/////////////////////////////////////////////////////////////////////
-				String sourceCode = "";
-				for(int j=0; j<25; j++)
+				sourceCode = "";
+				for(int j=0; j<50; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
 				
-				if(true)
-				{
-					return;
-				}
-				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
+				List<WebElement> theseDivs = new ArrayList<WebElement>();
+				WebElement thisOption = null;
 				for(int j = 0; j < allDropOptions.size(); j++)
 				{
-					//ADD FIXED DROPDOWN SELECTION
+					thisOption = allDropOptions.get(j);
+					
+					theseDivs = thisOption.findElements(By.tagName("div"));
+					for(int k=0; k<theseDivs.size(); k++)
+					{
+						if(theseDivs.get(k).getAttribute("class").equals("md-text ng-binding"))
+						{
+							if(theseDivs.get(k).getText().equals(".ANDROID"))
+							{
+								thisOption.click();
+								done = true;
+								break;
+							}
+						}
+					}
+					if(done)
+					{
+						break;
+					}
 				}
 			}
+			if(done)
+			{
+				break;
+			}
 		}
+		*/
+		
 	}
 	
 
@@ -510,6 +599,7 @@ public class TestingMethods
 				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Focus"))
 				{
 					AddButton = e;
+					AddButton.click();
 					break;
 				}
 			}
@@ -517,24 +607,55 @@ public class TestingMethods
 			{ }
 		}
 		
-		AddButton.click();
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
+		WebElement field = null;
 		for(WebElement e: allInputs)
 		{
 			try
 			{
 				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
 				{
-					e.clear();
-					e.sendKeys(focusName);
+					field = e;
+					field.clear();
+					field.sendKeys(focusName);
+					break;
 				}
 			}
 			catch(Exception e1)
 			{ }
 		}
 		
+		sourceCode = "";
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		List<WebElement> allButtons = new ArrayList<WebElement>();
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			try
+			{
+				if(allButtons.get(i).getAttribute("ng-click") != null && allButtons.get(i).getAttribute("ng-click").contains("saveCurriculum"))
+				{
+					allButtons.get(i).click();
+					break;
+				}
+			}
+			catch(Exception e1)
+			{ }
+		}
+		
+		/*
 		List<WebElement> allDropDowns = new ArrayList<WebElement>();
 		allDropDowns = browser.findElements(By.tagName("md-select"));
 		for(int i = 0; i < allDropDowns.size(); i++)
@@ -546,7 +667,7 @@ public class TestingMethods
 				allDropDowns.get(i).click();
 				
 				/////////////////////////////////////////////////////////////////////
-				String sourceCode = "";
+				sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
@@ -560,17 +681,21 @@ public class TestingMethods
 				}
 			}
 		}
+		*/
+		
 	}
 	
 	public static void makeSkill(WebDriver browser, String skillName)
 	{
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
+		WebElement thisField = null;
 		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("ng-model") != null && e.getAttribute("ng-model").contains("cCtrl.skillName"))
 			{
-				e.sendKeys(skillName);
+				thisField = e;
+				thisField.sendKeys(skillName);
 				break;
 			}
 		}
@@ -584,11 +709,13 @@ public class TestingMethods
 		
 		List<WebElement> allDivs = new ArrayList<WebElement>();
 		allDivs = browser.findElements(By.tagName("div"));
+		WebElement thisDiv = null;
 		for(WebElement e: allDivs)
 		{
-			if(e.getAttribute("ng-click").contains("createSkill"))
+			if(e.getAttribute("ng-click") != null && e.getAttribute("ng-click").contains("createSkill"))
 			{
-				e.click();
+				thisDiv = e;
+				thisDiv.click(); /////////////////////////////////////////////////////
 				break;
 			}
 		}
@@ -599,14 +726,15 @@ public class TestingMethods
 	{
 		List<WebElement> buttons = new ArrayList<WebElement>();
 		buttons = browser.findElements(By.tagName("button"));
-		
+		WebElement thisButton = null;
 		for(WebElement e: buttons)
 		{
 			try
 			{
 				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add Trainer"))
 				{
-					e.click();
+					thisButton = e;
+					thisButton.click();
 					break;
 				}
 			}
@@ -616,15 +744,18 @@ public class TestingMethods
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
+		WebElement thisField = null;
 		for(WebElement e: allInputs)
 		{
 			if(e.getAttribute("ng-model").equals("tdCtrl.trainer.firstName"))
 			{
-				e.sendKeys(firstName);
+				thisField = e;
+				thisField.sendKeys(firstName);
 			}
 			if(e.getAttribute("ng-model").equals("tdCtrl.trainer.lastName"))
 			{
-				e.sendKeys(lastName);
+				thisField = e;
+				thisField.sendKeys(lastName);
 			}
 		}
 		
@@ -662,41 +793,49 @@ public class TestingMethods
 		
 		List<WebElement> allInput = new ArrayList<WebElement>();
 		allInput = browser.findElements(By.tagName("input"));
+		WebElement thisField = null;
 		for(WebElement e: allInput)
 		{
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.trainersPerPage"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.reportGrads"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.reportIncomingGrads"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.minBatchSize"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.maxBatchSize"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.batchLength"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 			
 			if(e.getAttribute("ng-model").equals("sCtrl.settings.trainerBreakDays"))
 			{
-				e.sendKeys(Integer.toString(rand.nextInt(30)));
+				thisField = e;
+				thisField.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
 		}
 		
@@ -709,11 +848,13 @@ public class TestingMethods
 		
 		List<WebElement> allButtons = new ArrayList<WebElement>();
 		allInput = browser.findElements(By.tagName("button"));
+		WebElement thisButton = null;
 		for(WebElement e: allButtons)
 		{
 			if(e.getAttribute("ng-click").contains("updateSettings"))
 			{
-				e.click();
+				thisButton = e;
+				thisButton.click();
 				break;
 			}
 		}

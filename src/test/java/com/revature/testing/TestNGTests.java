@@ -26,7 +26,7 @@ public class TestNGTests
 		TestingMethods.trainerLogin(browser);
 		
 		/////////////////////////////////////////////////////////////////////
-		String sourceCode = "";
+		/*String sourceCode = "";
 		for(int i=0; i<1000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
@@ -42,10 +42,12 @@ public class TestNGTests
 		}
 		*/
 		/////////////////////////////////////////////////////////////////////
+		/*
 		for(int i=0; i<1000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
+		*/
 		
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
@@ -120,6 +122,7 @@ public class TestNGTests
 		TestingMethods.pushButtonFromNavBar(browser, "batches");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/batches");
+		//Assert.assertEquals(true,  false);
 	}
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerLocationsNavTest()
@@ -310,23 +313,6 @@ public class TestNGTests
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/locations");
 		
-		List<WebElement> things = new ArrayList<WebElement>();
-		things = browser.findElements(By.tagName("md-checkbox"));
-		
-		WebElement thisThing = null;
-		for(int i=0; i< things.size(); i++)
-		{
-			if(things.get(i).getAttribute("aria-label").contains("boston, MA"))
-			{
-				thisThing = things.get(i);
-			}
-		}
-		
-		System.out.println("About to check the box...");
-		thisThing.click();
-		System.out.println("Checked the box.");
-		
-		
 		//Assert.assertTrue(thisThing.isSelected());
 		String locName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
@@ -351,7 +337,7 @@ public class TestNGTests
 		TestingMethods.deleteLocation(browser, "Townsville");
 		
 		/////////////////////////////////////////////////////////////////////
-		for(int i=0; i<150; i++)
+		for(int i=0; i<500; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -392,13 +378,11 @@ public class TestNGTests
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeSkill(browser, SkillName);
 		
-		/*
 		sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 	}
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=7)
@@ -412,20 +396,21 @@ public class TestNGTests
 				Integer.toString(rand.nextInt(500000)));
 		String lastName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
-		TestingMethods.makeTrainer(browser, firstName, lastName);
+//		TestingMethods.makeTrainer(browser, firstName, lastName);
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<300; i++)
+		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
-			System.out.println(browser.getPageSource());
+			//System.out.println(browser.getPageSource());
 		}
 		
 		String fullName = firstName + " " + lastName;
-		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
+//		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
 	}
 	
+	/*
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=8)
 	public void ReportsTest()
 	{
@@ -433,6 +418,7 @@ public class TestNGTests
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/reports");
 	}
+	*/
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
 	public void SettingsTest()
@@ -442,7 +428,6 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/settings");
 		
 		TestingMethods.settingsTest(browser);
-		
 		
 	}
 	
