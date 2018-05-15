@@ -414,7 +414,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<25; i++)
+		for(int i=0; i<50; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -438,6 +438,25 @@ public class TestingMethods
 			}
 			catch(NullPointerException e)
 			{ }
+		}
+		
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		allButtons = browser.findElements(By.tagName("button"));
+		for(int i=0; i<allButtons.size(); i++)
+		{
+			if(allButtons.get(i).getAttribute("ng-click").contains("dCtrl.delete"))
+			{
+				allButtons.get(i).click();
+			}
+		}
+		
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
 		}
 		
 		System.out.println("Finished location deletion.");

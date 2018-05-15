@@ -337,7 +337,7 @@ public class TestNGTests
 		TestingMethods.deleteLocation(browser, "Townsville");
 		
 		/////////////////////////////////////////////////////////////////////
-		for(int i=0; i<150; i++)
+		for(int i=0; i<500; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
