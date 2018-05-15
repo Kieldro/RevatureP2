@@ -183,21 +183,22 @@ public class TestNGTests
 		String ROOM = "select_29";
 		String CREATE_BATCH_BUTTON = "md-icon-button md-button md-ink-ripple";
 		
-		String JTA_AUTOMATION = "select_option_36";
-		String NO_FOCUS = "select_option_455";
-		String POSSIBLY_WILLIAM = "select_option_443";
-		String TEST_SKILLS = "select_option_454";
-		String SELENIUM_WEBDRIVER = "select_option_493";
-		String LEBRON_JAMES = "select_option_696";
-		String RESTON_VA = "select_option_171";
-		String REVATURE_11730 = "select_option_988";
-		String ROOM_100 = "select_option_989";
-		
 		
 		//Operate the batch creation menus to provide information about a new batch:
 			//Set the new batch's Core Curriculum:
 		TestingMethods.selectCoreCurriculum(browser, CORE_CURRICULUM, "JTA Automation");
 			//Set the new batch's Focus:
+		TestingMethods.selectFocus(browser, FOCUS, "No Focus");
+			//Add some skills to the new batch:
+		WebElement revatureLogo = browser.findElement(By.id("md-card-image"));
+		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
+		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
+		TestingMethods.leaveDropDown(browser, revatureLogo);
+		
+		
+		
+		
+		
 		
 		/*
 		TestingMethods.selectFirstOption(browser, FOCUS, "No Focus");
