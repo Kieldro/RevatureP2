@@ -184,7 +184,7 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<2000; i++)
+		for(int i=0; i<4000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
