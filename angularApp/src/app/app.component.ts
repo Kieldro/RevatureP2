@@ -7,4 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Automated Web Testing API - Team Townes 2018';
-}
+ }

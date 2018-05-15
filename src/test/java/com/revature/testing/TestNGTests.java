@@ -25,7 +25,7 @@ public class TestNGTests
 		//Perform the login actions:
 		TestingMethods.trainerLogin(browser);
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<1000; i++)
 		{
@@ -41,12 +41,11 @@ public class TestNGTests
 			System.err.println("Oops");
 		}
 		*/
-		/*
+		/////////////////////////////////////////////////////////////////////
 		for(int i=0; i<1000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
-		*/
 		
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
@@ -174,14 +173,23 @@ public class TestNGTests
 		String expectedURL, actualURL;
 		TestingMethods.pushButtonFromNavBar(browser, "logout");
 		String sourceCode = "";
-		/*
-		for(int i=0; i<9; i++)
+		/////////////////////////////////////////////////////////////////////
+		if(!browser.getCurrentUrl().equals("https://dev.assignforce.revaturelabs.com/reports"))
 		{
-			//System.out.println(i);
-			sourceCode = browser.getPageSource();
-			//System.out.println(browser.getCurrentUrl());
+			for(int i=0; i<9; i++)
+			{
+				//System.out.println(i);
+				sourceCode = browser.getPageSource();
+				//System.out.println(browser.getCurrentUrl());
+			}
 		}
-		*/
+		else
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getPageSource();
+		}
+		
 		System.out.println(browser.getCurrentUrl());
 		expectedURL = "https://dev.assignforce.revaturelabs.com/settings";
 		actualURL = browser.getCurrentUrl();
@@ -208,13 +216,12 @@ public class TestNGTests
 		TestingMethods.vpLogin(browser);
 		
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<2000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
-		*/
 		
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
@@ -234,7 +241,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/home");
 	}
 	
-	@Test(groups= {"vpTests", "batchesTests"}, dependsOnMethods="vpLoginTest", priority=4)
+	@Test(groups= "vpTests", dependsOnMethods="vpLoginTest", priority=4)
 	public void vpBatchesNavTest()
 	{
 		//Test the batches nav button:
@@ -326,31 +333,28 @@ public class TestNGTests
 		
 		TestingMethods.makeLocation(browser, locName);
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<150; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 		
 		Assert.assertTrue(TestingMethods.findLocation(browser, "Townsville"));
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		for(int i=0; i<150; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 		
 		TestingMethods.deleteLocation(browser, "Townsville");
 		
-		/**
+		/////////////////////////////////////////////////////////////////////
 		for(int i=0; i<150; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 		
 		Assert.assertFalse(TestingMethods.findLocation(browser, "Townsville"));
 	}
@@ -366,25 +370,23 @@ public class TestNGTests
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeCurricula(browser, CurrName);
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 
 		String FocusName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeFocus(browser, FocusName);
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 		
 		String SkillName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
@@ -411,14 +413,14 @@ public class TestNGTests
 		String lastName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeTrainer(browser, firstName, lastName);
-		/*
+		
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<300; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getPageSource());
 		}
-		*/
 		
 		String fullName = firstName + " " + lastName;
 		Assert.assertTrue(TestingMethods.findTrainer(browser, fullName));
@@ -449,7 +451,8 @@ public class TestNGTests
 	{
 		String expectedURL, actualURL;
 		TestingMethods.pushButtonFromNavBar(browser, "logout");
-		/*
+		
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<9; i++)
 		{
@@ -457,7 +460,7 @@ public class TestNGTests
 			sourceCode = browser.getPageSource();
 			//System.out.println(browser.getCurrentUrl());
 		}
-		*/
+		
 		System.out.println(browser.getCurrentUrl());
 		expectedURL = "https://dev.assignforce.revaturelabs.com/settings";
 		actualURL = browser.getCurrentUrl();

@@ -48,14 +48,13 @@ public class TestingMethods
 		
 		browser.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<75; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
 		}
-		*/
 		
 		// Acquire the relevant input objects:
 		WebElement usernameField = browser.findElement(By.id("username"));
@@ -117,6 +116,7 @@ public class TestingMethods
 			submitButton = browser.findElement(By.id("Login"));
 		} catch (NoSuchElementException e)
 		{
+			/*
 			try
 			{
 				//browser.close();
@@ -125,8 +125,9 @@ public class TestingMethods
 			{
 				System.err.println("There was no session to quit.");
 			}
+			*/
 			
-			browser = getDriver();
+			//browser = getDriver();
 			browser.navigate().to("https://dev.assignforce.revaturelabs.com");
 			//browser.get("https://dev.assignforce.revaturelabs.com");
 
@@ -147,6 +148,7 @@ public class TestingMethods
 		WebElement menu = browser.findElement(By.id(menuID));
 		menu.click();
 		
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
@@ -210,13 +212,12 @@ public class TestingMethods
 		WebElement menu = browser.findElement(By.id(menuID));
 		menu.click();
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 		
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		allOptions = browser.findElements(By.tagName("md-option"));
@@ -286,22 +287,22 @@ public class TestingMethods
 					
 					allInputs.get(i).clear();
 					
-					/*
-					for(int j=0; j<50; j++)
+					/////////////////////////////////////////////////////////////////////
+					for(int j=0; j<9; j++)
 					{
 						sourceCode = browser.getPageSource();
 					}
-					*/
 					
 					allInputs.get(i).sendKeys(cityName);
 					
-					for(int j=0; j<50; j++)
+					for(int j=0; j<25; j++)
 					{
 						sourceCode = browser.getPageSource();
 					}
 				}
 			}
 		}
+		
 		List<WebElement> allDropDowns = new ArrayList<WebElement>();
 		allDropDowns = browser.findElements(By.tagName("md-select"));
 		for(int i=0; i<allDropDowns.size(); i++)
@@ -312,13 +313,12 @@ public class TestingMethods
 			{
 				allDropDowns.get(i).click();
 				
-				/*
+				/////////////////////////////////////////////////////////////////////
 				String sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
-				*/
 				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
@@ -357,13 +357,17 @@ public class TestingMethods
 				return(allBoxes.get(i));
 			}
 		}
+		
+		//If there is no location box for cityName:
 		return(null);
 	}
 	
 	public static void checkLocation(WebDriver browser, String cityName)
 	{
 		System.out.println("Checking the location in " + cityName + "...");
+		
 		getLocationBox(browser, cityName).click();
+		
 		System.out.println("Checked the location in " + cityName + ".");
 	}
 	
@@ -380,6 +384,7 @@ public class TestingMethods
 				return(true);
 			}
 		}
+		
 		return(false);
 	}
 	
@@ -389,13 +394,12 @@ public class TestingMethods
 		
 		System.out.println("Checked " + cityName + ".");
 		
-		/*
+		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
 		for(int i=0; i<25; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
-		*/
 		
 		System.out.println("Finished waiting.");
 		
@@ -430,24 +434,34 @@ public class TestingMethods
 		
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Curriculum"))
-				
+			try
 			{
-				e.click();
-				break;
+				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Curriculum"))
+				{
+					e.click();
+					break;
+				}
 			}
+			catch(Exception e1)
+			{ }
 		}
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
 		{
-			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
+			try
 			{
-				e.clear();
-				e.sendKeys(currName);
+				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
+				{
+					e.clear();
+					e.sendKeys(currName);
+				}
 			}
+			catch(Exception e1)
+			{ }
 		}
+		
 		List<WebElement> allDropDowns = new ArrayList<WebElement>();
 		allDropDowns = browser.findElements(By.tagName("md-select"));
 		for(int i = 0; i < allDropDowns.size(); i++)
@@ -458,19 +472,23 @@ public class TestingMethods
 			{
 				allDropDowns.get(i).click();
 				
-				/*
+				/////////////////////////////////////////////////////////////////////
 				String sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
 				}
-				*/
+				
+				if(true)
+				{
+					return;
+				}
 				
 				List<WebElement> allDropOptions = new ArrayList<WebElement>();
 				allDropOptions = browser.findElements(By.tagName("md-option"));
 				for(int j = 0; j < allDropOptions.size(); j++)
 				{
-					//TODO ADD FIXED DROPDOWN SELECTION
+					//ADD FIXED DROPDOWN SELECTION
 				}
 			}
 		}
@@ -487,11 +505,16 @@ public class TestingMethods
 		WebElement AddButton = null;
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Focus"))
+			try
 			{
-				AddButton = e;
-				break;
+				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add New Focus"))
+				{
+					AddButton = e;
+					break;
+				}
 			}
+			catch(Exception e1)
+			{ }
 		}
 		
 		AddButton.click();
@@ -500,12 +523,18 @@ public class TestingMethods
 		allInputs = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInputs)
 		{
-			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
+			try
 			{
-				e.clear();
-				e.sendKeys(focusName);
+				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("curriculumName"))
+				{
+					e.clear();
+					e.sendKeys(focusName);
+				}
 			}
+			catch(Exception e1)
+			{ }
 		}
+		
 		List<WebElement> allDropDowns = new ArrayList<WebElement>();
 		allDropDowns = browser.findElements(By.tagName("md-select"));
 		for(int i = 0; i < allDropDowns.size(); i++)
@@ -516,6 +545,7 @@ public class TestingMethods
 			{
 				allDropDowns.get(i).click();
 				
+				/////////////////////////////////////////////////////////////////////
 				String sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
@@ -526,7 +556,7 @@ public class TestingMethods
 				allDropOptions = browser.findElements(By.tagName("md-option"));
 				for(int j = 0; j < allDropOptions.size(); j++)
 				{
-					//TODO ADD FIXED DROPDOWN SELECTION
+					//ADD FIXED DROPDOWN SELECTION
 				}
 			}
 		}
@@ -543,6 +573,13 @@ public class TestingMethods
 				e.sendKeys(skillName);
 				break;
 			}
+		}
+		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<9; i++)
+		{
+			sourceCode = browser.getPageSource();
 		}
 		
 		List<WebElement> allDivs = new ArrayList<WebElement>();
@@ -565,11 +602,16 @@ public class TestingMethods
 		
 		for(WebElement e: buttons)
 		{
-			if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add Trainer"))
+			try
 			{
-				e.click();
-				break;
+				if(e.getAttribute("aria-label") != null && e.getAttribute("aria-label").contains("Add Trainer"))
+				{
+					e.click();
+					break;
+				}
 			}
+			catch(Exception e1)
+			{ }
 		}
 		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
@@ -617,6 +659,7 @@ public class TestingMethods
 	public static void settingsTest(WebDriver browser)
 	{
 		Random rand = new Random();
+		
 		List<WebElement> allInput = new ArrayList<WebElement>();
 		allInput = browser.findElements(By.tagName("input"));
 		for(WebElement e: allInput)
@@ -655,6 +698,13 @@ public class TestingMethods
 			{
 				e.sendKeys(Integer.toString(rand.nextInt(30)));
 			}
+		}
+		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<9; i++)
+		{
+			sourceCode = browser.getPageSource();
 		}
 		
 		List<WebElement> allButtons = new ArrayList<WebElement>();
