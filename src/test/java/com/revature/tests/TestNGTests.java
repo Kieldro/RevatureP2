@@ -46,11 +46,58 @@ public class TestNGTests
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerBatchesNavTest()
 	{
-		TestingMethods.pushButtonFromNavBar(browser, "batches");
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		System.out.println("About to find the Batches button...");
+		
+		List<WebElement> allUls = new ArrayList<WebElement>();
+		allUls = browser.findElements(By.tagName("ul"));
+		WebElement thisUl = null;
+		List<WebElement> allLis = new ArrayList<WebElement>();
+		WebElement thisLi = null;
+		for(int i=0; i<allUls.size(); i++)
+		{
+			thisUl = allUls.get(i);
+			
+			System.out.println("ul " + i + " class = " + thisUl.getAttribute("class"));
+			
+			if(thisUl.getAttribute("class").contains("nav-bar-list"))
+			{
+				System.out.println("!!!!!Found the ul containing " + thisUl.getAttribute("class"));
+				
+				thisLi = thisUl.findElement(By.xpath(".//li[@name='batches']"));
+				
+				System.out.println("Got the li containing " + thisLi.getAttribute("name"));
+				
+				thisLi.click();
+				
+				System.out.println("Clicked the li.");
+				
+				break;
+			}
+		}
+		
+		/////////////////////////////////////////////////////////////////////
+		sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		
+		
+		
+		
+		//TestingMethods.pushButtonFromNavBar(browser, "batches");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/batches");
-		//Assert.assertEquals(true,  false);
 	}
+	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerLocationsNavTest()
 	{
