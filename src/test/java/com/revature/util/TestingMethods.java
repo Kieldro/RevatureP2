@@ -177,6 +177,11 @@ public class TestingMethods
 		WebElement thisOption = null;
 		String thisText = "";
 		
+		/*
+		WebElement thing = browser.findElement(By.xpath(
+				"//md-option//div[text()='" + optionValue + "']"));
+				*/
+		
 		System.out.println("About to iterate through the list...");
 		
 		for(int i=0; i<allOptions.size(); i++)
