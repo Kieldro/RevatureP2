@@ -165,7 +165,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<100; i++)
+		for(int i=0; i<50; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -178,8 +178,12 @@ public class TestingMethods
 			thisOption = allOptions.get(i);
 			String thisText = thisOption.findElement(By.className("md-text ng-binding")).getText();
 			
+			System.out.println(thisText);
+			
 			if(thisText.equals(optionValue))
 			{
+				System.out.println("Found the option containing " + thisText + ".");
+				
 				thisOption.click();
 				break;
 			}
