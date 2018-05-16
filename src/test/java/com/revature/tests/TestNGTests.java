@@ -1,22 +1,23 @@
 //John Eifert
 package com.revature.tests;
 
-import org.testng.Assert;
-import org.testng.annotations.*;
-import com.revature.util.TestingMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import java.util.Random;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
+import com.revature.util.Driver;
+import com.revature.util.TestingMethods;
 
 
 
 public class TestNGTests
 {
 	//Get a WebDriver object for use in the tests:
-	WebDriver browser = TestingMethods.getDriver();
+	Driver browser = Driver.getInstance();
 	Random rand = new Random();
 	
 	@Test(groups="trainerTests", priority=1)
