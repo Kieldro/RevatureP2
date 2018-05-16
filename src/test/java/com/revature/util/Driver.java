@@ -23,7 +23,8 @@ public final class Driver extends ChromeDriver {
 				path = "src/main/resources/chromedriver";
 			System.setProperty("webdriver.chrome.driver", path);
 
-			if (true) {
+			if (!os.equals("Windows Server 2016")) 
+			{
 				driver = new Driver(); // run locally
 			} else {
 				System.out.println("Driver constructing...");
