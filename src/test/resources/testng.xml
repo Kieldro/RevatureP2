@@ -8,10 +8,10 @@
 			</run> -->
 		</groups>
 		<classes>
-			<!-- <class name="com.revature.tests.SeleniumTests" /> -->
+			<class name="com.revature.tests.SeleniumTests" />
 		</classes>
 	</test>
 	<test name="TestNGTests"> 
-		<classes> <class name="com.revature.tests.TestNGTests"/> </classes> 
+		<!-- <classes> <class name="com.revature.tests.TestNGTests"/> </classes>  -->
 	</test>
 </suite>
