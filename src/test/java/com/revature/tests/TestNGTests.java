@@ -380,7 +380,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/trainers");
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpTrainersNavTest()", priority=7)
+	@Test(groups="vpTests", dependsOnMethods="vpTrainersNavTest", priority=7)
 	public void makeTrainersTest()
 	{
 		String firstName = Integer.toString(rand.nextInt(500000)).concat(
