@@ -380,7 +380,7 @@ public class TestNGTests
 	}
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=7)
-	public void TrainersTest()
+	public void makeTrainersTest()
 	{
 		String firstName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
