@@ -63,8 +63,12 @@ public class TestingMethods
 		allImgs = browser.findElements(By.tagName("img"));
 		for(int i=0; i<allImgs.size(); i++)
 		{
+			System.out.println("iteration: " + i);
+			
 			try
 			{
+				System.out.println("img " + i + " src = " + allImgs.get(i).getAttribute("src"));
+				
 				if(allImgs.get(i).getAttribute("src").equals("/img/logo214.svg"))
 				{
 					/////////////////////////////////////////////////////////////////////
@@ -96,7 +100,7 @@ public class TestingMethods
 				}
 			}
 			catch(NullPointerException e1)
-			{ }
+			{ System.out.println("!!!!!!!!!!!!!!!!!Caught a NullPointerException!!!!!"); }
 		}
 		
 		pushButtonFromNavBar(browser, "logout");
