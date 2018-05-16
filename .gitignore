@@ -66,6 +66,7 @@ target/
 Servers/
 test-output/
 angularApp/dist/
+src/main/webapp/angularApp/
 db.properties
 hibernate.properties
 *Log.html
