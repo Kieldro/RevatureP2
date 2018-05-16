@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -24,22 +26,21 @@ public class CurriculaTests {
 		WebDriver browser;
 		WebElement tableElement;
 		List<WebElement> trList;
+		WebDriverWait wait;
 			
 		@BeforeClass
 		public void setUp() {
 			browser = TestingMethods.getDriver();
+			wait = new WebDriverWait(browser, 10); 
 			//Perform the login actions:
 			vpLogin(browser);
-			for (int i = 0; i < 375; i++) {
-				System.out.println(browser.getPageSource());
-			}
+			
 			pushButtonFromNavBar(browser, "curricula");
 		}
 		
 		/*
 		 * Test if a curricula can be added, by checking the pagesource before and after adding the curricula.
 		 */
-		@Ignore
 		@Test
 		public void testAddingCurricula() {
 			//get the pagesource
@@ -83,6 +84,7 @@ public class CurriculaTests {
 			for (int i = 0; i < 10; i++) {
 				System.out.println(browser.getPageSource());
 			}
+			
 			//get the current url
 			String url = browser.getCurrentUrl();
 			
@@ -92,16 +94,16 @@ public class CurriculaTests {
 			//navigate to the same url, basically refreshing the page
 			browser.navigate().to(url);
 			
-			for (int i = 0; i < 30; i++) {
-				System.out.println(browser.getPageSource());
-			}
+			
 			// assume button is there
 			boolean buttonDetected = true;
 			
 			//see if buttons still exist
 			try {
-				WebElement button = browser.findElement(By.xpath("//*[@aria-label=\"Add New Curriculum\"]"));
-			} catch (NoSuchElementException e) {
+				// wait for 10 seconds to see if button exists. 
+				//If it doesn't exist after 10 seconds, then it will throw a TimeoutException
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"Add New Curriculum\"]")));
+			} catch (TimeoutException e) {
 				buttonDetected = false;
 			}
 			
@@ -131,33 +133,18 @@ public class CurriculaTests {
 		
 		public void pushButtonFromNavBar(WebDriver browser, String buttonName)
 		{
-			/*
-			 * Declare the name of the button being tested, so that, should the test fail,
-			 * the button that it failed on will be easily knowable
-			 */
+			
 			System.out.println("Now testing the " + buttonName + " button.");
-			/*
-			 * Since the page's JavaScript needs time to create the nav buttons, the browser
-			 * will for an arbitrary, but large amount of time to give the JS time to create
-			 * the buttons
-			 */
-
-			// Acquire the button to be tested:
-			WebElement Zhalfir = browser.findElement(By.name(buttonName));
-			System.out.println("Got the " + buttonName + " button.");
+			
 
 			// Kills some time while the JS finishes making the buttons interactable:
-			if(!browser.getCurrentUrl().equals("https://dev.assignforce.revaturelabs.com/reports"))
-			{
-				String sourceCode = "";
-				for (int i = 0; i < 100; i++)
-				{
-					sourceCode = browser.getPageSource();
-				}
-			}
+			wait.until(ExpectedConditions.elementToBeClickable(By.name(buttonName)));
+			
+			//get the button
+			WebElement Zhalfir = browser.findElement(By.name(buttonName));
 			System.out.println("About to push the " + buttonName + " button...");
 			
-			// Push the button to be tested:
+			// Click the button to be tested:
 			Zhalfir.click();
 			System.out.println("Pushed the " + buttonName + " button.");
 		}
