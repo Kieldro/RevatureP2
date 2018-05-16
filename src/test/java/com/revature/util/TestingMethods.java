@@ -187,6 +187,44 @@ public class TestingMethods
 		
 		System.out.println("About to find the option containing " + optionValue + "...");
 		
+		List<WebElement> allDivs = new ArrayList<WebElement>();
+		allDivs = browser.findElements(By.className("md-text ng-binding"));
+		
+		System.out.println("Got all divs containing option text.");
+		
+		WebElement thisDiv = null;
+		WebElement thisOption = null;
+		String thisText = "";
+		
+		System.out.println("About to start the for loop.");
+		
+		for(int i=0; i<allDivs.size(); i++)
+		{
+			System.out.println("Iteration: " + i);
+			
+			thisDiv = allDivs.get(i);
+			
+			System.out.println("Got div number " + i + ".");
+			
+			thisText = thisDiv.getText();
+			
+			System.out.println("div " + i + "=" + thisText + ".");
+			
+			if(thisText.equals(optionValue))
+			{
+				System.out.println(thisText + " = " + optionValue);
+				
+				thisOption = thisDiv.findElement(By.xpath(".."));
+				
+				System.out.println("Got the option.");
+				
+				thisOption.click();
+				
+				System.out.println("Clicked the option.");
+			}
+		}
+		
+		/*
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		allOptions = browser.findElements(By.tagName("md-option"));
 		
@@ -200,8 +238,11 @@ public class TestingMethods
 				"//md-option//div[text()='" + optionValue + "']"));
 				*/
 		
+		/*
 		System.out.println("About to iterate through the list of all options...");
 		
+		
+		/*
 		for(int i=0; i<allOptions.size(); i++)
 		{
 			System.out.println("Entered the for loop.");
@@ -210,8 +251,17 @@ public class TestingMethods
 			
 			System.out.println("Got option " + i);
 			
+			/////////////////////////////////////////////////////////////////////////
+			/*
 			thisText = thisOption.findElement(By.xpath(
-					".//div[text()='" + optionValue + "']")).getText();
+					"//div[text()='" + optionValue + "']")).getText();
+			*/
+		/*
+			/////////////////////////////////////////////////////////////////////////		
+			thisText = browser.findElement(By.xpath(
+					"//div["))
+			/////////////////////////////////////////////////////////////////////////
+
 			
 			System.out.println("!!!!!option " + i + " contains " + thisText);
 			
@@ -227,6 +277,7 @@ public class TestingMethods
 			
 			System.out.println(thisText + " != " + optionValue);
 		}
+		*/
 		
 		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
