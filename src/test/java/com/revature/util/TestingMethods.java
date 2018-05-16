@@ -5,20 +5,23 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchSessionException;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeOptions;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+
+
 
 public class TestingMethods
 {
@@ -50,7 +53,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<10; i++)
+		for(int i=0; i<5; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
@@ -71,17 +74,10 @@ public class TestingMethods
 		{
 			sourceCode = browser.getCurrentUrl();
 		}
-		*/
 		System.out.println(sourceCode);
+		*/
 	}
 	
-	
-	
-	
-	
-	
-	
-
 	public static void pushButtonFromNavBar(WebDriver browser, String buttonName)
 	{
 		/*
@@ -160,8 +156,70 @@ public class TestingMethods
 
 	public static void selectCoreCurriculum(WebDriver browser, String menuID, String optionValue)
 	{
+		System.out.println("Now selecting " + optionValue + " as Core Curriculum...");
+		
 		WebElement menu = browser.findElement(By.id(menuID));
 		menu.click();
+		
+		System.out.println("Clicked into the dropdown menu.");
+		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		System.out.println("About to find the option containing " + optionValue + "...");
+		
+		List<WebElement> allOptions = new ArrayList<WebElement>();
+		allOptions = browser.findElements(By.tagName("md-option"));
+		WebElement thisOption = null;
+		String thisText = "";
+		
+		/*
+		WebElement thing = browser.findElement(By.xpath(
+				"//md-option//div[text()='" + optionValue + "']"));
+				*/
+		
+		System.out.println("About to iterate through the list...");
+		
+		for(int i=0; i<allOptions.size(); i++)
+		{
+			thisOption = allOptions.get(i);
+			
+			System.out.println("Got an option.");
+			
+			thisText = thisOption.findElement(By.xpath(
+					".//div[text()='" + optionValue + "']")).getText();
+			
+			System.out.println("!!!!!option " + i + " contains " + thisText);
+			
+			if(thisText.equals(optionValue))
+			{
+				System.out.println("Found the option containing " + thisText + ".");
+				thisOption.click();
+				System.out.println("Clicked on the option containing " + optionValue + ".");
+				break;
+			}
+		}
+		
+		/////////////////////////////////////////////////////////////////////
+		sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+	}
+	
+	public static void selectFocus(WebDriver browser, String menuID, String optionValue)
+	{
+		System.out.println("Now selecting " + optionValue + " as Focus...");
+		
+		WebElement menu = browser.findElement(By.id(menuID));
+		menu.click();
+		
+		System.out.println("Clicked into the dropdown menu.");
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
@@ -170,92 +228,145 @@ public class TestingMethods
 			sourceCode = browser.getPageSource();
 		}
 		
+		System.out.println("About to find the option containing " + optionValue + "...");
+		
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		allOptions = browser.findElements(By.tagName("md-option"));
 		WebElement thisOption = null;
+		String thisText = "";
 		for(int i=0; i<allOptions.size(); i++)
 		{
 			thisOption = allOptions.get(i);
-			String thisText = thisOption.findElement(By.className("md-text ng-binding")).getText();
+			thisText = thisOption.findElement(By.xpath(".//div[@class='md-text']")).getText();
 			
-			System.out.println(thisText);
+			System.out.println("!!!!!option " + i + " contains " + thisText);
 			
 			if(thisText.equals(optionValue))
 			{
 				System.out.println("Found the option containing " + thisText + ".");
-				
 				thisOption.click();
+				System.out.println("Clicked on the option containing " + optionValue + ".");
 				break;
 			}
 		}
 		
-		
-		/*
-		// Acquire the desired menu object:
-		WebElement menuObject = browser.findElement(By.id(menuID));
-		// Click into the menu:
-		menuObject.click();
-
-		String sourceCode = "";
-		for (int i = 0; i < 50; i++)
-			sourceCode = browser.getPageSource();
-		// System.gc();
-
-		Select menu = new Select(browser.findElement(By.id(menuID)));
-		ArrayList<WebElement> allOptions = new ArrayList<WebElement>();
-		for (int i = 0; i < menu.getOptions().size(); i++)
+		/////////////////////////////////////////////////////////////////////
+		sourceCode = "";
+		for(int i=0; i<25; i++)
 		{
-			allOptions.add(menu.getOptions().get(i));
+			sourceCode = browser.getPageSource();
 		}
-
-		menuObject.findElement(By.tagName("md-option")).click();
-
-		// Select menu = new Select(browser.findElement(By.id(menuID)));
-
-		// menu.selectByVisibleText(optionValue);
-
-		// Acquire the desired option object:
-		// WebElement optionObject = browser.findElement(By.tagName("md-option"));
-		// browser.findElement(By.id(optionID));
-
-		// System.out.println("About to push the " + optionObject.getAttribute("id") + "
-		// button...");
-
-		// Select the desired option:
-		// optionObject.click();
-		 */
 	}
 	
-	public static void selectFocus(WebDriver browser, String menuID, String optionValue)
+	public static void selectFirstSkill(WebDriver browser, String optionValue)
 	{
-		WebElement menu = browser.findElement(By.id(menuID));
+		System.out.println("About to select the first skill...");
+		
+		WebElement menu = browser.findElement(By.id("select_13"));
 		menu.click();
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<100; i++)
+		for(int i=0; i<25; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
 		
+		System.out.println("About to find the option containing " + optionValue + "...");
+		
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		allOptions = browser.findElements(By.tagName("md-option"));
 		WebElement thisOption = null;
+		String thisText = "";
 		for(int i=0; i<allOptions.size(); i++)
 		{
 			thisOption = allOptions.get(i);
+			thisText = thisOption.findElement(By.xpath(
+					".//div[@class='md-text ng-binding']")).getText();
 			
+			System.out.println("!!!!!option " + i + " contains " + thisText);
 			
+			if(thisText.equals(optionValue))
+			{
+				System.out.println("Found the option containing " + thisText + ".");
+				thisOption.click();
+				System.out.println("Clicked on the option containing " + optionValue + ".");
+				break;
+			}
 		}
 		
+		/////////////////////////////////////////////////////////////////////
+		sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
 	}
 
-	public static void selectAnotherOption(WebDriver browser, String optionID)
+	public static void selectAnotherSkill(WebDriver browser, String optionValue)
 	{
+		System.out.println("About to select another skill...");
+		
 		// Acquire the desired option object:
-		WebElement optionObject = browser.findElement(By.id(optionID));
-		// Select the desired option:
-		optionObject.click();
+		List<WebElement> allOptions = new ArrayList<WebElement>();
+		allOptions = browser.findElements(By.tagName("md-option"));
+		WebElement thisOption = null;
+		String thisText = "";
+		for(int i=0; i<allOptions.size(); i++)
+		{
+			thisOption = allOptions.get(i);
+			thisText = thisOption.findElement(
+					By.xpath(".//div[@class='md-text ng-binding']")).getText();
+			
+			System.out.println("!!!!!option " + i + " contains " + thisText);
+			
+			if(thisText.equals(optionValue))
+			{
+				System.out.println("Found the option containing " + thisText + ".");
+				thisOption.click();
+				System.out.println("Clicked on the option containing " + optionValue + ".");
+				break;
+			}
+		}
+		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+	}
+	
+	public static void leaveDropDown(WebDriver browser, WebElement place)
+	{
+		System.out.println("About to leave the drop down menu...");
+		
+		Robot mouse = null;
+		
+		try
+		{
+			mouse = new Robot();
+		}
+		catch(AWTException e1)
+		{
+			System.out.println("!!!Robot creation threw an AWTException.");
+			return;
+		}
+		
+		//Moves the mouse away from the drop down menu:
+		Point thisPoint = place.getLocation();
+		mouse.mouseMove(thisPoint.x, thisPoint.y);
+		
+		//Clicks off of the drop down menu:
+		mouse.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+		mouse.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
 	}
 
 	public static void enterText(WebDriver browser, WebElement field, String sendInput)

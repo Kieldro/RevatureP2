@@ -1,22 +1,23 @@
 //John Eifert
 package com.revature.tests;
 
-import org.testng.Assert;
-import org.testng.annotations.*;
-import com.revature.util.TestingMethods;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import java.util.Random;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
+import com.revature.util.Driver;
+import com.revature.util.TestingMethods;
 
 
 
 public class TestNGTests
 {
 	//Get a WebDriver object for use in the tests:
-	WebDriver browser = TestingMethods.getDriver();
+	Driver browser = Driver.getInstance();
 	Random rand = new Random();
 	
 	@Test(groups="trainerTests", priority=1)
@@ -46,11 +47,57 @@ public class TestNGTests
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerBatchesNavTest()
 	{
+		/*
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		System.out.println("About to find the Batches button...");
+		
+		List<WebElement> allUls = new ArrayList<WebElement>();
+		allUls = browser.findElements(By.tagName("ul"));
+		WebElement thisUl = null;
+		//List<WebElement> allLis = new ArrayList<WebElement>();
+		WebElement thisLi = null;
+		for(int i=0; i<allUls.size(); i++)
+		{
+			thisUl = allUls.get(i);
+			
+			System.out.println("ul " + i + " class = " + thisUl.getAttribute("class"));
+			
+			if(thisUl.getAttribute("class").contains("nav-bar-list"))
+			{
+				System.out.println("!!!!!Found the ul containing " + thisUl.getAttribute("class"));
+				
+				thisLi = thisUl.findElement(By.xpath(".//li[@name='batches']"));
+				
+				System.out.println("Got the li containing " + thisLi.getAttribute("name"));
+				
+				thisLi.click();
+				
+				System.out.println("Clicked the li.");
+				
+				break;
+			}
+		}
+		
+		/////////////////////////////////////////////////////////////////////
+		sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		*/
+		
+		
 		TestingMethods.pushButtonFromNavBar(browser, "batches");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/batches");
-		//Assert.assertEquals(true,  false);
 	}
+	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerLocationsNavTest()
 	{
@@ -66,6 +113,7 @@ public class TestNGTests
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/curriculum");
 	}
+	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=1)
 	public void trainerTrainersNavTest()
 	{
@@ -137,7 +185,7 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<2000; i++)
+		for(int i=0; i<4000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
@@ -183,21 +231,18 @@ public class TestNGTests
 		String ROOM = "select_29";
 		String CREATE_BATCH_BUTTON = "md-icon-button md-button md-ink-ripple";
 		
-		String JTA_AUTOMATION = "select_option_36";
-		String NO_FOCUS = "select_option_455";
-		String POSSIBLY_WILLIAM = "select_option_443";
-		String TEST_SKILLS = "select_option_454";
-		String SELENIUM_WEBDRIVER = "select_option_493";
-		String LEBRON_JAMES = "select_option_696";
-		String RESTON_VA = "select_option_171";
-		String REVATURE_11730 = "select_option_988";
-		String ROOM_100 = "select_option_989";
-		
 		
 		//Operate the batch creation menus to provide information about a new batch:
 			//Set the new batch's Core Curriculum:
-		TestingMethods.selectCoreCurriculum(browser, CORE_CURRICULUM, "JTA Automation");
+		TestingMethods.selectCoreCurriculum(browser, CORE_CURRICULUM, " JTA Automation ");
 			//Set the new batch's Focus:
+		TestingMethods.selectFocus(browser, FOCUS, "No Focus");
+			//Add some skills to the new batch:
+		WebElement revatureLogo = browser.findElement(By.id("md-card-image"));
+		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
+		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
+		TestingMethods.leaveDropDown(browser, revatureLogo);
+		
 		
 		/*
 		TestingMethods.selectFirstOption(browser, FOCUS, "No Focus");
@@ -224,12 +269,16 @@ public class TestNGTests
 	}
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=5)
-	public void locationTest()
+	public void vplocationNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "locations");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/locations");
-		
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vplocationNavTest", priority=5)
+	public void makeLocationTest()
+	{		
 		//Assert.assertTrue(thisThing.isSelected());
 		String locName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
@@ -244,7 +293,11 @@ public class TestNGTests
 		}
 		
 		Assert.assertTrue(TestingMethods.findLocation(browser, "Townsville"));
-		
+	}
+	@Test(groups="vpTests", dependsOnMethods="makeLocationTest", priority=5)
+	public void deleteLocationTest()
+	{
+		String sourceCode = "";
 		/////////////////////////////////////////////////////////////////////
 		for(int i=0; i<150; i++)
 		{
@@ -263,17 +316,27 @@ public class TestNGTests
 	}
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=6)
-	public void curriculumTest()
+	public void vpcurriculumNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "curricula");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/curriculum");
-		
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=6)
+	public void makeCurriculumTest()
+	{		
 		String CurrName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeCurricula(browser, CurrName);
 		
+		Assert.assertTrue(true);
 		/////////////////////////////////////////////////////////////////////
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=6)
+	public void makeFocusTest()
+	{	
 		String sourceCode = "";
 		for(int i=0; i<100; i++)
 		{
@@ -283,7 +346,13 @@ public class TestNGTests
 		String FocusName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
 		TestingMethods.makeFocus(browser, FocusName);
-		
+		Assert.assertTrue(true);
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=6)
+	public void makeSkillTest()
+	{
+		String sourceCode = "";
 		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
 		for(int i=0; i<100; i++)
@@ -300,15 +369,20 @@ public class TestNGTests
 		{
 			sourceCode = browser.getPageSource();
 		}
+		Assert.assertTrue(true);
 	}
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=7)
-	public void TrainersTest()
+	public void vpTrainersNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "trainers");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/trainers");
-		
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpTrainersNavTest", priority=7)
+	public void makeTrainersTest()
+	{
 		String firstName = Integer.toString(rand.nextInt(500000)).concat(
 				Integer.toString(rand.nextInt(500000)));
 		String lastName = Integer.toString(rand.nextInt(500000)).concat(
@@ -338,13 +412,18 @@ public class TestNGTests
 	*/
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
-	public void SettingsTest()
+	public void vpSettingsNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "settings");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/settings");
-		
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpSettingsNavTest", priority=9)
+	public void SettingsTest()
+	{
 		TestingMethods.settingsTest(browser);
+		Assert.assertTrue(true);
 		
 	}
 	
