@@ -41,7 +41,7 @@ public class CurriculaTests {
 		/*
 		 * Test if a curricula can be added, by checking the pagesource before and after adding the curricula.
 		 */
-		@Test
+		@Test(priority=1, groups="curriculaTests")
 		public void testAddingCurricula() {
 			//get the pagesource
 			String sourceCode = browser.getPageSource();
@@ -79,7 +79,7 @@ public class CurriculaTests {
 		 * Test that the buttons on the page are still there after refreshing the page
 		 * Should fail, because website isn't currently working
 		 */
-		@Test
+		@Test(priority=2, groups="curriculaTests")
 		public void testButtonsAfterRefreshingPage() {
 			for (int i = 0; i < 10; i++) {
 				System.out.println(browser.getPageSource());

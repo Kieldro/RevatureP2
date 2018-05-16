@@ -44,7 +44,7 @@ public class OverviewTests {
 	/*
 	 * Check sorting by batch name, ascending.
 	 */
-	@Test(priority=1)
+	@Test(priority=1, groups="overviewTests")
 	public void testOverviewSortByNameAsc() {
 		/*
 		 * Need to get and click on the arrow icon tag <md-icon> that sorts by name
@@ -91,7 +91,7 @@ public class OverviewTests {
 	/*
 	 * Check sorting by batch name, descending.
 	 */
-	@Test(priority=2)
+	@Test(priority=2, groups="overviewTests")
 	public void testOverviewSortByNameDesc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[1]"));
@@ -130,7 +130,7 @@ public class OverviewTests {
 	/*
 	 * Check sorting by Curriculum ascending.
 	 */
-	@Test(priority=3)
+	@Test(priority=3, groups="overviewTests")
 	public void testOverviewSortByCurriculumAsc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[2]"));
@@ -168,7 +168,7 @@ public class OverviewTests {
 	/*
 	 * Check sorting by Curriculum, descending.
 	 */
-	@Test(priority=4)
+	@Test(priority=4, groups="overviewTests")
 	public void testOverviewSortByCurriculumDesc() {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[2]"));
 		
@@ -203,7 +203,7 @@ public class OverviewTests {
 	}
 	
 	
-	@Test(priority=5)
+	@Test(priority=5, groups="overviewTests")
 	public void testOverviewSortByTrainerAsc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[3]"));
@@ -239,7 +239,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=6)
+	@Test(priority=6, groups="overviewTests")
 	public void testOverviewSortByTrainerDesc() {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[3]"));
 		
@@ -273,7 +273,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=7)
+	@Test(priority=7, groups="overviewTests")
 	public void testOverviewSortByLocationAsc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[4]"));
@@ -309,7 +309,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=8)
+	@Test(priority=8, groups="overviewTests")
 	public void testOverviewSortByLocationDesc() {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[4]"));
 		
@@ -343,7 +343,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=9)
+	@Test(priority=9, groups="overviewTests")
 	public void testOverviewSortByBuildingAsc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[5]"));
@@ -379,7 +379,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=10)
+	@Test(priority=10, groups="overviewTests")
 	public void testOverviewSortByBuildingDesc() {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[5]"));
 		
@@ -413,7 +413,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=11)
+	@Test(priority=11, groups="overviewTests")
 	public void testOverviewSortByRoomAsc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[6]"));
@@ -449,7 +449,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=12)
+	@Test(priority=12, groups="overviewTests")
 	public void testOverviewSortByRoomDesc() {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[6]"));
 		
@@ -483,7 +483,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=13)
+	@Test(priority=13, groups="overviewTests")
 	public void testOverviewSortByStartDateAsc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[7]"));
@@ -518,7 +518,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=14)
+	@Test(priority=14, groups="overviewTests")
 	public void testOverviewSortByStartDateDesc() {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[7]"));
 		
@@ -552,7 +552,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=15)
+	@Test(priority=15, groups="overviewTests")
 	public void testOverviewSortByEndDateAsc() {
 		
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
@@ -587,7 +587,7 @@ public class OverviewTests {
 		}
 	}
 	
-	@Test(priority=16)
+	@Test(priority=16, groups="overviewTests")
 	public void testOverviewSortByEndDateDesc() {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
 		
