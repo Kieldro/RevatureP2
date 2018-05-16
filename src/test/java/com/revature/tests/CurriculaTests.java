@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.revature.util.TestingMethods;
@@ -28,7 +30,7 @@ public class CurriculaTests {
 			browser = TestingMethods.getDriver();
 			//Perform the login actions:
 			vpLogin(browser);
-			for (int i = 0; i < 350; i++) {
+			for (int i = 0; i < 375; i++) {
 				System.out.println(browser.getPageSource());
 			}
 			pushButtonFromNavBar(browser, "curricula");
@@ -37,6 +39,7 @@ public class CurriculaTests {
 		/*
 		 * Test if a curricula can be added, by checking the pagesource before and after adding the curricula.
 		 */
+		@Ignore
 		@Test
 		public void testAddingCurricula() {
 			//get the pagesource
@@ -57,10 +60,11 @@ public class CurriculaTests {
 			// changeDetected will hold true if a pageSource is detected in the page.
 			boolean changeDetected = false;
 			
-			// loop 50 times, if the pagesource is changed from what is was initially, 
+			// loop a max of 50 times, if the pagesource is changed from what it was initially, 
 			// this means the curriculum was added.
-			for (int i = 0; i < 100; i++) {
-				if (sourceCode.equals(browser.getPageSource())) {
+			for (int i = 0; i < 50; i++) {
+				System.out.println(browser.getPageSource());
+				if (!sourceCode.equals(browser.getPageSource())) {
 					changeDetected = true;
 					break;
 				}
@@ -72,10 +76,36 @@ public class CurriculaTests {
 		
 		/*
 		 * Test that the buttons on the page are still there after refreshing the page
+		 * Should fail, because website isn't currently working
 		 */
 		@Test
-		public void testRefreshingPage() {
+		public void testButtonsAfterRefreshingPage() {
+			for (int i = 0; i < 10; i++) {
+				System.out.println(browser.getPageSource());
+			}
+			//get the current url
+			String url = browser.getCurrentUrl();
 			
+			for (int i = 0; i < 10; i++) {
+				System.out.println(browser.getPageSource());
+			}
+			//navigate to the same url, basically refreshing the page
+			browser.navigate().to(url);
+			
+			for (int i = 0; i < 30; i++) {
+				System.out.println(browser.getPageSource());
+			}
+			// assume button is there
+			boolean buttonDetected = true;
+			
+			//see if buttons still exist
+			try {
+				WebElement button = browser.findElement(By.xpath("//*[@aria-label=\"Add New Curriculum\"]"));
+			} catch (NoSuchElementException e) {
+				buttonDetected = false;
+			}
+			
+			Assert.assertTrue(buttonDetected);
 		}
 		
 		
