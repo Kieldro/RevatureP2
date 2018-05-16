@@ -63,38 +63,40 @@ public class TestingMethods
 		allImgs = browser.findElements(By.tagName("img"));
 		for(int i=0; i<allImgs.size(); i++)
 		{
-			System.out.println("Made it into the for loop.");
-			
-			if(!allImgs.get(i).getAttribute("src").equals(null) && allImgs.get(i).getAttribute(
-					"src").equals("/img/logo214.svg"))
+			try
 			{
-				/////////////////////////////////////////////////////////////////////
-				sourceCode = "";
-				for(int j=0; j<25; j++)
+				if(allImgs.get(i).getAttribute("src").equals("/img/logo214.svg"))
 				{
-					sourceCode = browser.getPageSource();
+					/////////////////////////////////////////////////////////////////////
+					sourceCode = "";
+					for(int j=0; j<25; j++)
+					{
+						sourceCode = browser.getPageSource();
+					}
+					
+					// Acquire the relevant input objects:
+					WebElement usernameField = browser.findElement(By.id("username"));
+					WebElement passwordField = browser.findElement(By.id("password"));
+					WebElement submitButton = browser.findElement(By.id("Login"));
+	
+					// Perform the login actions:
+					usernameField.sendKeys("test.trainer@revature.com.int1");
+					passwordField.sendKeys("trainer123");
+					submitButton.click();
+					
+					/*
+					for(int j=0; j<10; j++)
+					{
+						sourceCode = browser.getCurrentUrl();
+					}
+					System.out.println(sourceCode);
+					*/
+					
+					return;
 				}
-				
-				// Acquire the relevant input objects:
-				WebElement usernameField = browser.findElement(By.id("username"));
-				WebElement passwordField = browser.findElement(By.id("password"));
-				WebElement submitButton = browser.findElement(By.id("Login"));
-
-				// Perform the login actions:
-				usernameField.sendKeys("test.trainer@revature.com.int1");
-				passwordField.sendKeys("trainer123");
-				submitButton.click();
-				
-				/*
-				for(int j=0; j<10; j++)
-				{
-					sourceCode = browser.getCurrentUrl();
-				}
-				System.out.println(sourceCode);
-				*/
-				
-				return;
 			}
+			catch(NullPointerException e1)
+			{ }
 		}
 		
 		pushButtonFromNavBar(browser, "logout");
