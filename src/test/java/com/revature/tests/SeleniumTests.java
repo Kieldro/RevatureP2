@@ -22,7 +22,7 @@ public class SeleniumTests {
 	@Test(groups = { "group1" })
 	public void test1()
 	{
-		System.out.println("test1() " + "");
+//		System.out.println("test1() " + "");
 		driver.get("https://www.wikipedia.org");
 
 		// Acquire the relevant input objects:
