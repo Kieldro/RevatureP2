@@ -69,7 +69,7 @@ public class TestingMethods
 			{
 				System.out.println("img " + i + " src = " + allImgs.get(i).getAttribute("src"));
 				
-				if(allImgs.get(i).getAttribute("src").equals("/img/logo214.svg"))
+				if(allImgs.get(i).getAttribute("src").contains("/img/logo214.svg"))
 				{
 					/////////////////////////////////////////////////////////////////////
 					sourceCode = "";
