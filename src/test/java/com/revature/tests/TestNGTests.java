@@ -411,13 +411,18 @@ public class TestNGTests
 	*/
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
-	public void SettingsTest()
+	public void vpSettingsNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "settings");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/settings");
-		
+	}
+	
+	@Test(groups="vpTests", dependsOnMethods="vpSettingsNavTest", priority=9)
+	public void SettingsTest()
+	{
 		TestingMethods.settingsTest(browser);
+		Assert.assertTrue(true);
 		
 	}
 	
