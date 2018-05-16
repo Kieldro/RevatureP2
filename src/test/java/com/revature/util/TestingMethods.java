@@ -59,6 +59,18 @@ public class TestingMethods
 			System.out.println(browser.getCurrentUrl());
 		}
 		
+		if(!browser.getCurrentUrl().equals("https://dev.assignforce.revaturelabs.com"))
+		{
+			pushButtonFromNavBar(browser, "logout");
+		}
+		
+		/////////////////////////////////////////////////////////////////////
+		sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
 		// Acquire the relevant input objects:
 		WebElement usernameField = browser.findElement(By.id("username"));
 		WebElement passwordField = browser.findElement(By.id("password"));
@@ -159,6 +171,9 @@ public class TestingMethods
 		System.out.println("Now selecting " + optionValue + " as Core Curriculum...");
 		
 		WebElement menu = browser.findElement(By.id(menuID));
+		
+		System.out.println("Got the menu.");
+		
 		menu.click();
 		
 		System.out.println("Clicked into the dropdown menu.");
@@ -174,6 +189,9 @@ public class TestingMethods
 		
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		allOptions = browser.findElements(By.tagName("md-option"));
+		
+		System.out.println("Got the list of all options.");
+		
 		WebElement thisOption = null;
 		String thisText = "";
 		
@@ -182,18 +200,22 @@ public class TestingMethods
 				"//md-option//div[text()='" + optionValue + "']"));
 				*/
 		
-		System.out.println("About to iterate through the list...");
+		System.out.println("About to iterate through the list of all options...");
 		
 		for(int i=0; i<allOptions.size(); i++)
 		{
+			System.out.println("Entered the for loop.");
+			
 			thisOption = allOptions.get(i);
 			
-			System.out.println("Got an option.");
+			System.out.println("Got option " + i);
 			
 			thisText = thisOption.findElement(By.xpath(
 					".//div[text()='" + optionValue + "']")).getText();
 			
 			System.out.println("!!!!!option " + i + " contains " + thisText);
+			
+			System.out.println("About to check if " + thisText + " = " + optionValue);
 			
 			if(thisText.equals(optionValue))
 			{
@@ -202,6 +224,8 @@ public class TestingMethods
 				System.out.println("Clicked on the option containing " + optionValue + ".");
 				break;
 			}
+			
+			System.out.println(thisText + " != " + optionValue);
 		}
 		
 		/////////////////////////////////////////////////////////////////////
