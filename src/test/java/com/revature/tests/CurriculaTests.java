@@ -97,7 +97,8 @@ public class CurriculaTests {
 			WebElement saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
 			
 			// send a randomly generated string to the input element, and click the save button
-			curriculumNameInput.sendKeys(createRandomString());
+			//curriculumNameInput.clear();
+			curriculumNameInput.sendKeys("testing");
 			saveButton.click();
 			
 			// changeDetected will hold true if the coreCurricula is changed.
@@ -107,7 +108,7 @@ public class CurriculaTests {
 			// this means the curriculum was edited.
 			
 			for (int i = 0; i < 50; i++) {
-				System.out.println(browser.getPageSource());
+				browser.getPageSource();
 				if (!(coreCurriculaText.equals(coreCurriculaName.getText()))) {
 					changeDetected = true;
 					break;
@@ -117,6 +118,7 @@ public class CurriculaTests {
 			Assert.assertTrue(changeDetected);
 			
 			// set back to previous state
+			wait.until(ExpectedConditions.elementToBeClickable(button));
 			button.click();
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
 			curriculumNameInput.clear();
