@@ -23,11 +23,11 @@ public class OverviewTests {
 
 	
 	//Get a WebDriver object for use in the tests:
-	WebDriver browser;
+	/*WebDriver browser;
 	WebElement tableElement;
-	List<WebElement> trList;
+	List<WebElement> trList;*/
 		
-	@BeforeClass
+	/*@BeforeClass
 	public void setUp() {
 		browser = TestingMethods.getDriver();
 		//Perform the login actions:
@@ -38,14 +38,14 @@ public class OverviewTests {
 		// list element and list for rows of table
 		tableElement = browser.findElement(By.tagName("table"));
         trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
-	}
+	}*/
 	
 	
 	/*
 	 * Check sorting by batch name, ascending.
 	 */
-	@Test(priority=1)
-	public void testOverviewSortByNameAsc() {
+	//@Test(priority=1)
+	public static boolean testOverviewSortByNameAsc(WebDriver browser) {
 		/*
 		 * Need to get and click on the arrow icon tag <md-icon> that sorts by name
 		 * This tag is inside of the th tag that has an attribute of md-order-by which has a unique value
@@ -53,6 +53,10 @@ public class OverviewTests {
 		 */
 		// get the tag
 		//List<WebElement> thTags = new ArrayList<WebElement>();
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[1]"));
 		
 		tag.click();
@@ -82,18 +86,25 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 			
 		}
+		return false;
 		
 	}	
 	
 	/*
 	 * Check sorting by batch name, descending.
 	 */
-	@Test(priority=2)
-	public void testOverviewSortByNameDesc() {
+	//@Test(priority=2)
+	public static boolean testOverviewSortByNameDesc(WebDriver browser) {
 		
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[1]"));
 		
 		tag.click();
@@ -122,17 +133,24 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}	
 	
 	/*
 	 * Check sorting by Curriculum ascending.
 	 */
-	@Test(priority=3)
-	public void testOverviewSortByCurriculumAsc() {
+	//@Test(priority=3)
+	public static boolean testOverviewSortByCurriculumAsc(WebDriver browser) {
 		
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[2]"));
 		
 		tag.click();
@@ -160,16 +178,24 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        
+        return false;
 	}
 	
 	/*
 	 * Check sorting by Curriculum, descending.
 	 */
-	@Test(priority=4)
-	public void testOverviewSortByCurriculumDesc() {
+	//@Test(priority=4)
+	public static boolean testOverviewSortByCurriculumDesc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[2]"));
 		
 		tag.click();
@@ -197,15 +223,22 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
 	
-	@Test(priority=5)
-	public void testOverviewSortByTrainerAsc() {
+	//@Test(priority=5)
+	public static boolean testOverviewSortByTrainerAsc(WebDriver browser) {
 		
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[3]"));
 		
 		tag.click();
@@ -234,13 +267,20 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=6)
-	public void testOverviewSortByTrainerDesc() {
+	//@Test(priority=6)
+	public static boolean testOverviewSortByTrainerDesc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[3]"));
 		
 		tag.click();
@@ -268,14 +308,20 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=7)
-	public void testOverviewSortByLocationAsc() {
-		
+	//@Test(priority=7)
+	public static boolean testOverviewSortByLocationAsc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[4]"));
 		
 		tag.click();
@@ -304,13 +350,20 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=8)
-	public void testOverviewSortByLocationDesc() {
+	//@Test(priority=8)
+	public static boolean testOverviewSortByLocationDesc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[4]"));
 		
 		tag.click();
@@ -338,14 +391,20 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=9)
-	public void testOverviewSortByBuildingAsc() {
-		
+	//@Test(priority=9)
+	public static boolean testOverviewSortByBuildingAsc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[5]"));
 		
 		tag.click();
@@ -374,13 +433,20 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=10)
-	public void testOverviewSortByBuildingDesc() {
+	//@Test(priority=10)
+	public static boolean testOverviewSortByBuildingDesc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[5]"));
 		
 		tag.click();
@@ -408,14 +474,19 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=11)
-	public void testOverviewSortByRoomAsc() {
-		
+	//@Test(priority=11)
+	public static boolean testOverviewSortByRoomAsc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[6]"));
 		
 		tag.click();
@@ -444,13 +515,19 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=12)
-	public void testOverviewSortByRoomDesc() {
+	//@Test(priority=12)
+	public static boolean testOverviewSortByRoomDesc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[6]"));
 		
 		tag.click();
@@ -478,14 +555,19 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=13)
-	public void testOverviewSortByStartDateAsc() {
-		
+	//@Test(priority=13)
+	public static boolean testOverviewSortByStartDateAsc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+        trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[7]"));
 		
 		tag.click();
@@ -513,14 +595,20 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=14)
-	public void testOverviewSortByStartDateDesc() {
-		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[7]"));
+	//@Test(priority=14)
+	public static boolean testOverviewSortByStartDateDesc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+		trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
+        WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[7]"));
 		
 		tag.click();
 		
@@ -547,15 +635,21 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=15)
-	public void testOverviewSortByEndDateAsc() {
+	//@Test(priority=15)
+	public static boolean testOverviewSortByEndDateAsc(WebDriver browser) {
 		
-		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+		trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
+        WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
 		
 		tag.click();
 		
@@ -582,14 +676,20 @@ public class OverviewTests {
 			System.out.println("ascending");
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@Test(priority=16)
-	public void testOverviewSortByEndDateDesc() {
-		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
+	//@Test(priority=16)
+	public static boolean testOverviewSortByEndDateDesc(WebDriver browser) {
+		WebElement tableElement;
+		List<WebElement> trList;
+		tableElement = browser.findElement(By.tagName("table"));
+		trList = tableElement.findElements(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/tbody/tr"));
+        WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
 		
 		tag.click();
 		
@@ -616,14 +716,16 @@ public class OverviewTests {
 			List<String> sortedNames = names;
 			Collections.sort(sortedNames);
 			Collections.reverse(sortedNames);
-			Assert.assertEquals(names, sortedNames);
+			return names.equals(sortedNames);
+			//Assert.assertEquals(names, sortedNames);
 		
 		}
+        return false;
 	}
 	
-	@AfterClass
+	/*@AfterClass
 	public void closeBrowser() {
 		//close chromedriver and chrome window
 		browser.quit();
-	}
+	}*/
 }
