@@ -31,7 +31,7 @@ public class CurriculaTests {
 		@BeforeClass
 		public void setUp() {
 			browser = TestingMethods.getDriver();
-			wait = new WebDriverWait(browser, 20); 
+			wait = new WebDriverWait(browser, 10); 
 			//Perform the login actions:
 			vpLogin(browser);
 			
@@ -41,9 +41,9 @@ public class CurriculaTests {
 		/*
 		 * Test if a curricula can be added, by checking the pagesource before and after adding the curricula.
 		 */
-		@Ignore
 		@Test(priority=1, groups="curriculaTests")
 		public void testAddingCoreCurricula() {
+			System.out.println("Adding curricula");
 			//get the pagesource
 			String sourceCode = browser.getPageSource();
 			
@@ -56,7 +56,7 @@ public class CurriculaTests {
 			WebElement saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
 			
 			// send a randomly generated string to the input element, and click the save button
-			curriculumNameInput.sendKeys(createRandomString());
+			curriculumNameInput.sendKeys("New Core Curricula");
 			saveButton.click();
 			
 			// changeDetected will hold true if a pageSource is detected in the page.
@@ -81,63 +81,70 @@ public class CurriculaTests {
 		 */
 		@Test(priority=2, groups="curriculaTests")
 		public void testEditingCoreCurricula() {
-			//wait up to 10 seconds for label to be visible, then get the label, and the text for the label
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
-			WebElement coreCurriculaName = browser.findElement(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3"));
-			String coreCurriculaText = coreCurriculaName.getText();
-			
-			//get and click the edit curriculum element
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
-			WebElement button = browser.findElement(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/button[1]"));
-			button.click();
-			
-			// get the curriculumName input element, and the save button
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
-			WebElement curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
-			WebElement saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
-			
-			// send a randomly generated string to the input element, and click the save button
-			//curriculumNameInput.clear();
-			curriculumNameInput.sendKeys("testing");
-			saveButton.click();
-			
-			// changeDetected will hold true if the coreCurricula is changed.
-			boolean changeDetected = false;
-			
-			// loop a max of 50 times, if the coreCurricula tag is changed from what it was initially, 
-			// this means the curriculum was edited.
-			
-			for (int i = 0; i < 50; i++) {
-				browser.getPageSource();
-				if (!(coreCurriculaText.equals(coreCurriculaName.getText()))) {
-					changeDetected = true;
-					break;
-				}
-			}
-			// if changeDetected is true then test will pass, otherwise it will fail.
-			Assert.assertTrue(changeDetected);
-			
-			// set back to previous state
-			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
-			wait.until(ExpectedConditions.elementToBeClickable(button));
-			
-			for (int i = 0; i < 10; i++) {
-				browser.getPageSource();
-			}
-			button.click();
-			for (int i = 0; i < 10; i++) {
-				browser.getPageSource();
-			}
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
-			curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
-			curriculumNameInput.clear();
-			curriculumNameInput.sendKeys(coreCurriculaText);
-			for (int i = 0; i < 10; i++) {
-				browser.getPageSource();
-			}
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]")));
-			saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
-			saveButton.click();
+			System.out.println("Editing curricula");
+	        //wait up to 10 seconds for label to be visible, then get the label, and the text for the label
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+	                "//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3"))); //tag displaying "JTA Automation"
+	        WebElement coreCurriculaName = browser.findElement(By.xpath(
+	                "//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")); //tag displaying "JTA Automation"
+	        String coreCurriculaText = coreCurriculaName.getText();
+	        //get and click the edit curriculum element
+	        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+	                "//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3"))); //tag displaying "JTA Automation"
+	        WebElement button = browser.findElement(By.xpath(
+	                "//*[@id=\"core\"]/md-list/md-list-item[1]/button[1]")); //edit button
+	        button.click();
+	        // get the curriculumName input element, and the save button
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+	                "//*[@aria-label=\"curriculumName\"]"))); //name field
+	        WebElement curriculumNameInput = browser.findElement(By.xpath(
+	                "//*[@aria-label=\"curriculumName\"]")); //name field
+	        WebElement saveButton = browser.findElement(By.xpath(
+	                "/html/body/div[3]/md-dialog/md-dialog-actions/button[2]")); //save button
+	        // send a randomly generated string to the input element, and click the save button
+	        //curriculumNameInput.clear();
+	        curriculumNameInput.sendKeys("testing");
+	        saveButton.click();
+	        // changeDetected will hold true if the coreCurricula is changed.
+	        boolean changeDetected = false;
+	        // loop a max of 50 times, if the coreCurricula tag is changed from what it was initially, 
+	        // this means the curriculum was edited.
+	        for (int i = 0; i < 50; i++) {
+	            browser.getPageSource();
+	            if (!(coreCurriculaText.equals(coreCurriculaName.getText()))) {
+	                changeDetected = true;
+	                break;
+	            }
+	        }
+	        // if changeDetected is true then test will pass, otherwise it will fail.
+	        Assert.assertTrue(changeDetected);
+	        // set back to previous state
+	        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
+	        wait.until(ExpectedConditions.elementToBeClickable(button));
+	        for (int i = 0; i < 10; i++) {
+	            browser.getPageSource();
+	        }
+	        button.click();
+	        for (int i = 0; i < 10; i++) {
+	            browser.getPageSource();
+	        }
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+	                "//*[@aria-label=\"curriculumName\"]"))); //name field
+	        curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
+	                                                                    //name field
+	        
+	        curriculumNameInput.clear();
+	        curriculumNameInput.sendKeys(coreCurriculaText);
+	        	
+	        for (int i = 0; i < 10; i++) {
+	        	browser.getPageSource();
+	        }
+	        
+	        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+	                "/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"))); //save button
+	        saveButton = browser.findElement(By.xpath(
+	                "/html/body/div[3]/md-dialog/md-dialog-actions/button[2]")); //save button
+	        saveButton.click();
 		}
 		
 		
@@ -145,9 +152,9 @@ public class CurriculaTests {
 		 * Test that the buttons on the page are still there after refreshing the page
 		 * Should fail, because website isn't currently working
 		 */
-		@Ignore
 		@Test(priority=3, groups="curriculaTests")
 		public void testButtonsAfterRefreshingPage() {
+			System.out.println("refreshing page");
 			//get the current url
 			String url = browser.getCurrentUrl();
 			
@@ -181,16 +188,6 @@ public class CurriculaTests {
 			browser.quit();
 		}
 		
-		/*
-		 * Create a randomly generated string, that can be used to add new curriculum.
-		 */
-		public String createRandomString() {
-			byte[] array = new byte[10]; // length 10
-		    new Random().nextBytes(array);
-		    String generatedString = new String(array, Charset.forName("UTF-8"));
-		    System.out.println(generatedString);
-		    return generatedString;
-		}
 		
 		public void pushButtonFromNavBar(WebDriver browser, String buttonName)
 		{
