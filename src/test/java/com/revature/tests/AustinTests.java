@@ -12,7 +12,7 @@ import org.testng.annotations.AfterTest;
 
 import com.revature.util.Driver;
 
-public class NegativeTests {
+public class AustinTests {
   Driver browser = Driver.getInstance();
   
   @Test(groups="negativeTests", priority=1)
