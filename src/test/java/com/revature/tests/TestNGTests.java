@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -20,6 +21,7 @@ public class TestNGTests
 	//Get a WebDriver object for use in the tests:
 	Driver browser = Driver.getInstance();
 	Random rand = new Random();
+	Actions act = new Actions(browser);
 	
 	@Test(groups="trainerTests", priority=1)
 	public void trainerLoginTest()
@@ -439,6 +441,7 @@ public class TestNGTests
 		*/
 		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
 		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
+		TestingMethods.leaveDropDown(browser, act);
 		//TestingMethods.leaveDropDown(browser, revatureLogo);
 		
 		

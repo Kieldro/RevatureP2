@@ -363,16 +363,24 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<3; i++)
+		for(int i=0; i<5; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
 	}
 	
-	public static void leaveDropDown(WebDriver browser, WebElement place)
+	public static void leaveDropDown(WebDriver browser, Actions act)
 	{
 		System.out.println("About to leave the drop down menu...");
 		
+		act.sendKeys(Keys.ESCAPE);
+		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<10; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
 		
 		
 		/*
