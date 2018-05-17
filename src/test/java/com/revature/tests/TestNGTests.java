@@ -234,7 +234,7 @@ public class TestNGTests
 		
 		//Operate the batch creation menus to provide information about a new batch:
 			//Set the new batch's Core Curriculum:
-		TestingMethods.selectCoreCurriculum(browser, CORE_CURRICULUM, " JTA Automation ");
+		TestingMethods.selectCoreCurriculum(browser, CORE_CURRICULUM, "JTA Automation");
 			//Set the new batch's Focus:
 		TestingMethods.selectFocus(browser, FOCUS, "No Focus");
 			//Add some skills to the new batch:

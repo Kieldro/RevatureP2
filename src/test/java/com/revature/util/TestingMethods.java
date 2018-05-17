@@ -233,9 +233,16 @@ public class TestingMethods
 					
 					System.out.println("Got the option.");
 					
-					thisOption.click();
+					if(thisOption.getTagName().equals("md-option"))
+					{
+						thisOption.click();
 					
-					System.out.println("Clicked the option.");
+						System.out.println("Clicked the option.");
+					}
+					else
+					{
+						System.out.println("The option was a checkbox, not a dropdown option.");
+					}
 				}
 			}
 				catch(NullPointerException e1)
