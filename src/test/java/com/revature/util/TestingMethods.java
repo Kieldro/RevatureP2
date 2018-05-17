@@ -63,12 +63,8 @@ public class TestingMethods
 		allImgs = browser.findElements(By.tagName("img"));
 		for(int i=0; i<allImgs.size(); i++)
 		{
-			System.out.println("iteration: " + i);
-			
 			try
 			{
-				System.out.println("img " + i + " src = " + allImgs.get(i).getAttribute("src"));
-				
 				if(allImgs.get(i).getAttribute("src").contains("/img/logo214.svg"))
 				{
 					/////////////////////////////////////////////////////////////////////
@@ -87,14 +83,6 @@ public class TestingMethods
 					usernameField.sendKeys("test.trainer@revature.com.int1");
 					passwordField.sendKeys("trainer123");
 					submitButton.click();
-					
-					/*
-					for(int j=0; j<10; j++)
-					{
-						sourceCode = browser.getCurrentUrl();
-					}
-					System.out.println(sourceCode);
-					*/
 					
 					return;
 				}
@@ -213,9 +201,9 @@ public class TestingMethods
 		System.out.println("About to find the option containing " + optionValue + "...");
 		
 		List<WebElement> allDivs = new ArrayList<WebElement>();
-		allDivs = browser.findElements(By.className("md-text ng-binding"));
+		allDivs = browser.findElements(By.tagName("div"));
 		
-		System.out.println("Got all divs containing option text.");
+		System.out.println("Got all divs.");
 		
 		WebElement thisDiv = null;
 		WebElement thisOption = null;
@@ -231,22 +219,27 @@ public class TestingMethods
 			
 			System.out.println("Got div number " + i + ".");
 			
-			thisText = thisDiv.getText();
-			
-			System.out.println("div " + i + "=" + thisText + ".");
-			
-			if(thisText.equals(optionValue))
+			try
 			{
-				System.out.println(thisText + " = " + optionValue);
+				thisText = thisDiv.getText();
 				
-				thisOption = thisDiv.findElement(By.xpath(".."));
+				System.out.println("div " + i + "=" + thisText + ".");
 				
-				System.out.println("Got the option.");
-				
-				thisOption.click();
-				
-				System.out.println("Clicked the option.");
+				if(thisText.contains(optionValue))
+				{
+					System.out.println(thisText + " = " + optionValue);
+					
+					thisOption = thisDiv.findElement(By.xpath(".."));
+					
+					System.out.println("Got the option.");
+					
+					thisOption.click();
+					
+					System.out.println("Clicked the option.");
+				}
 			}
+				catch(NullPointerException e1)
+				{ System.out.println("!!!!!Caught a NullPointerException!!!!!"); }
 		}
 		
 		/*
