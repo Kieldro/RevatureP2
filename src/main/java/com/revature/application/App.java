@@ -9,6 +9,7 @@ import com.revature.util.HibernateUtil;
 public class App {
 	public static void main(String[] args) {
 		System.out.println("Hello Townies...");
+		//Build trigger
 
 		HibernateTests();
 		
