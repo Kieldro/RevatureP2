@@ -309,97 +309,97 @@ public class TestNGTests
 	}
 	
 
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=12)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=12)
 	public void vpSortNameAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByNameAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortNameAscTest", priority=13)
+	@Test(dependsOnMethods="vpSortNameAscTest", groups="vpTests", priority=13)
 	public void vpSortNameDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByNameDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=13)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=13)
 	public void vpSortCurrAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortCurrAscTest", priority=14)
+	@Test(dependsOnMethods="vpSortCurrAscTest", groups="vpTests", priority=14)
 	public void vpSortCurrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=14)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=14)
 	public void vpSortTnrAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortTnrAscTest", priority=15)
+	@Test(dependsOnMethods="vpSortTnrAscTest", groups="vpTests", priority=15)
 	public void vpSortTnrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=16)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=16)
 	public void vpSortLocAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByLocationAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortLocAscTest", priority=16)
+	@Test(dependsOnMethods="vpSortLocAscTest", groups="vpTests", priority=16)
 	public void vpSortLocDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByLocationDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=17)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=17)
 	public void vpSortBldAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortBldAscTest", priority=17)
+	@Test(dependsOnMethods="vpSortBldAscTest", groups="vpTests", priority=17)
 	public void vpSortBldDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=18)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=18)
 	public void vpSortRoomAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortRoomAscTest", priority=18)
+	@Test(dependsOnMethods="vpSortRoomAscTest", groups="vpTests", priority=18)
 	public void vpSortRoomDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=19)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=19)
 	public void vpSortStdAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortStdAscTest", priority=19)
+	@Test(dependsOnMethods="vpSortStdAscTest", groups="vpTests", priority=19)
 	public void vpSortStdDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=20)
+	@Test(dependsOnMethods="vpOverviewNavTest", groups="vpTests", priority=20)
 	public void vpSortEndAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortEndAscTest", priority=20)
+	@Test(dependsOnMethods="vpSortEndAscTest", groups="vpTests", priority=20)
 	public void vpSortEndDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateDesc(browser));
