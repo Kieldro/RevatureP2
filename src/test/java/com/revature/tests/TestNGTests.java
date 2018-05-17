@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-
 import com.revature.util.Driver;
 import com.revature.util.TestingMethods;
 
@@ -22,6 +21,7 @@ public class TestNGTests
 	//Get a WebDriver object for use in the tests:
 	Driver browser = Driver.getInstance();
 	Random rand = new Random();
+	Actions act = new Actions(browser);
 	
 	@Test(groups="trainerTests", priority=1)
 	public void trainerLoginTest()
@@ -59,92 +59,92 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByNameDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=3)
 	public void trainerSortCurrAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortCurrAscTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerSortCurrAscTest", groups="trainerTests", priority=3)
 	public void trainerSortCurrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=4)
 	public void trainerSortTnrAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortTnrAscTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerSortTnrAscTest", groups="trainerTests", priority=4)
 	public void trainerSortTnrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=5)
 	public void trainerSortLocAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByLocationAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortLocAscTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerSortLocAscTest", groups="trainerTests", priority=5)
 	public void trainerSortLocDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByLocationDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=6)
 	public void trainerSortBldAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortBldAscTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerSortBldAscTest", groups="trainerTests", priority=6)
 	public void trainerSortBldDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=7)
 	public void trainerSortRoomAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortRoomAscTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerSortRoomAscTest", groups="trainerTests", priority=7)
 	public void trainerSortRoomDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=8)
 	public void trainerSortStdAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortStdAscTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerSortStdAscTest", groups="trainerTests", priority=8)
 	public void trainerSortStdDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerOverviewNavTest", groups="trainerTests", priority=9)
 	public void trainerSortEndAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortEndAscTest", groups="trainerTests", priority=2)
+	@Test(dependsOnMethods="trainerSortEndAscTest", groups="trainerTests", priority=9)
 	public void trainerSortEndDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateDesc(browser));
 	}
 		
 		
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=3)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerBatchesNavTest()
 	{
 		/*
@@ -198,7 +198,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/batches");
 	}
 	
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=4)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerLocationsNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "locations");
@@ -206,7 +206,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/locations");
 	}
 	
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=4)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerCurriculaNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "curricula");
@@ -214,7 +214,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/curriculum");
 	}
 	
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=4)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerTrainersNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "trainers");
@@ -222,14 +222,14 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/trainers");
 	}
 	
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=4)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerProfileNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "profile");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/profile");
 	}
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=4)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerReportNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "reports");
@@ -237,7 +237,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/reports");
 	}
 	
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=4)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerSettingsNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "settings");
@@ -245,7 +245,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/settings");
 	}
 	
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=5)
+	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=11)
 	public void TrainerLogoutTest()
 	{
 		String expectedURL, actualURL;
@@ -276,7 +276,7 @@ public class TestNGTests
 	}
 	
 	
-	@Test(groups="vpTests", priority=6)
+	@Test(groups="vpTests", priority=12)
 	public void vpLoginTest()
 	{
 		//Perform the login actions:
@@ -299,7 +299,7 @@ public class TestNGTests
 		Assert.assertEquals(actualURL, expectedURL);
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=6)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=12)
 	public void vpOverviewNavTest()
 	{
 		//Test the overview nav button:
@@ -309,104 +309,104 @@ public class TestNGTests
 	}
 	
 
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=12)
 	public void vpSortNameAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByNameAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortNameAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortNameAscTest", priority=13)
 	public void vpSortNameDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByNameDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=13)
 	public void vpSortCurrAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortCurrAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortCurrAscTest", priority=14)
 	public void vpSortCurrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=14)
 	public void vpSortTnrAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortTnrAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortTnrAscTest", priority=15)
 	public void vpSortTnrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=16)
 	public void vpSortLocAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByLocationAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortLocAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortLocAscTest", priority=16)
 	public void vpSortLocDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByLocationDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=17)
 	public void vpSortBldAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortBldAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortBldAscTest", priority=17)
 	public void vpSortBldDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=18)
 	public void vpSortRoomAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortRoomAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortRoomAscTest", priority=18)
 	public void vpSortRoomDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=19)
 	public void vpSortStdAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortStdAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortStdAscTest", priority=19)
 	public void vpSortStdDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateDesc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpOverviewNavTest", priority=6)
+	@Test(dependsOnMethods="vpOverviewNavTest", priority=20)
 	public void vpSortEndAscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortEndAscTest", priority=6)
+	@Test(dependsOnMethods="vpSortEndAscTest", priority=20)
 	public void vpSortEndDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateDesc(browser));
 	}
 	
 	
-	@Test(groups= "vpTests", dependsOnMethods="vpLoginTest", priority=7)
+	@Test(groups= "vpTests", dependsOnMethods="vpLoginTest", priority=21)
 	public void vpBatchesNavTest()
 	{
 		//Test the batches nav button:
@@ -415,7 +415,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/batches");
 	}
 	
-	@Test(groups={"vpTests", "batchesTests"}, dependsOnMethods="vpBatchesNavTest", priority=7)
+	@Test(groups={"vpTests", "batchesTests"}, dependsOnMethods="vpBatchesNavTest", priority=21)
 	public void vpBatchCreationTest()
 	{
 		String CORE_CURRICULUM = "select_9";
@@ -427,7 +427,6 @@ public class TestNGTests
 		String LOCATION = "select_25";
 		String BUILDING = "select_27";
 		String ROOM = "select_29";
-		String CREATE_BATCH_BUTTON = "md-icon-button md-button md-ink-ripple";
 		
 		
 		//Operate the batch creation menus to provide information about a new batch:
@@ -436,10 +435,14 @@ public class TestNGTests
 			//Set the new batch's Focus:
 		TestingMethods.selectFocus(browser, FOCUS, "No Focus");
 			//Add some skills to the new batch:
-		WebElement revatureLogo = browser.findElement(By.id("md-card-image"));
+		/*
+		WebElement revatureLogo = browser.findElement(By.xpath(
+				"/html/body/div[1]/div[1]/ng-include/div/md-content/img"));
+		*/
 		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
 		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
-		TestingMethods.leaveDropDown(browser, revatureLogo);
+		TestingMethods.leaveDropDown(browser, act);
+		//TestingMethods.leaveDropDown(browser, revatureLogo);
 		
 		
 		/*
@@ -466,7 +469,7 @@ public class TestNGTests
 		Assert.assertTrue(true);
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=8)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=22)
 	public void vplocationNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "locations");
@@ -474,7 +477,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/locations");
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vplocationNavTest", priority=8)
+	@Test(groups="vpTests", dependsOnMethods="vplocationNavTest", priority=22)
 	public void makeLocationTest()
 	{		
 		//Assert.assertTrue(thisThing.isSelected());
@@ -492,7 +495,7 @@ public class TestNGTests
 		
 		Assert.assertTrue(TestingMethods.findLocation(browser, "Townsville"));
 	}
-	@Test(groups="vpTests", dependsOnMethods="makeLocationTest", priority=8)
+	@Test(groups="vpTests", dependsOnMethods="makeLocationTest", priority=22)
 	public void deleteLocationTest()
 	{
 		String sourceCode = "";
@@ -513,7 +516,7 @@ public class TestNGTests
 		Assert.assertFalse(TestingMethods.findLocation(browser, "Townsville"));
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=9)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=23)
 	public void vpcurriculumNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "curricula");
@@ -521,7 +524,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/curriculum");
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=9)
+	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=23)
 	public void makeCurriculumTest()
 	{		
 		String CurrName = Integer.toString(rand.nextInt(500000)).concat(
@@ -532,7 +535,7 @@ public class TestNGTests
 		/////////////////////////////////////////////////////////////////////
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=9)
+	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=23)
 	public void makeFocusTest()
 	{	
 		String sourceCode = "";
@@ -547,7 +550,7 @@ public class TestNGTests
 		Assert.assertTrue(true);
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=9)
+	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=23)
 	public void makeSkillTest()
 	{
 		String sourceCode = "";
@@ -570,7 +573,7 @@ public class TestNGTests
 		Assert.assertTrue(true);
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=10)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=24)
 	public void vpTrainersNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "trainers");
@@ -578,7 +581,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/trainers");
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpTrainersNavTest", priority=10)
+	@Test(groups="vpTests", dependsOnMethods="vpTrainersNavTest", priority=24)
 	public void makeTrainersTest()
 	{
 		String firstName = Integer.toString(rand.nextInt(500000)).concat(
@@ -600,7 +603,7 @@ public class TestNGTests
 	}
 	
 	/*
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=11)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=25)
 	public void ReportsTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "reports");
@@ -609,7 +612,7 @@ public class TestNGTests
 	}
 	*/
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=12)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=26)
 	public void vpSettingsNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "settings");
@@ -617,7 +620,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/settings");
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpSettingsNavTest", priority=12)
+	@Test(groups="vpTests", dependsOnMethods="vpSettingsNavTest", priority=26)
 	public void SettingsTest()
 	{
 		TestingMethods.settingsTest(browser);
@@ -625,7 +628,7 @@ public class TestNGTests
 		
 	}
 	
-	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=13)
+	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=27)
 	public void LogoutTest()
 	{
 		String expectedURL, actualURL;
@@ -647,6 +650,8 @@ public class TestNGTests
 		Assert.assertNotEquals(actualURL, expectedURL);
 	}
 	
+	
+
 	@AfterTest
 	public void quitBrowser()
 	{
