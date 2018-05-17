@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite1" verbose="1" parallel="false"  preserve-order="true" thread-count="1">
+<suite name="Suite1" verbose="1" parallel="false" >
 	<test name="SeleniumTests test">
 		<groups><!-- 
 			<run>
@@ -11,11 +11,6 @@
 			<!-- <class name="com.revature.tests.SeleniumTests" /> -->
 		</classes>
 	</test>
-	
-	<test name = "TrainerOverviewTests">
-		<classes> <class name = "com.revature.tests.OverviewTests"/></classes>
-	</test>
-	
 	<test name="TestNGTests"> 
 		<classes> <class name="com.revature.tests.TestNGTests"/> </classes> 
 	</test>
