@@ -143,7 +143,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateDesc(browser));
 	}
 		
-		
+	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerBatchesNavTest()
 	{
@@ -415,6 +415,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/batches");
 	}
 	
+	/*
 	@Test(groups={"vpTests", "batchesTests"}, dependsOnMethods="vpBatchesNavTest", priority=21)
 	public void vpBatchCreationTest()
 	{
@@ -439,9 +440,13 @@ public class TestNGTests
 		WebElement revatureLogo = browser.findElement(By.xpath(
 				"/html/body/div[1]/div[1]/ng-include/div/md-content/img"));
 		*/
+	
+	/*
 		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
 		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
 		TestingMethods.leaveDropDown(browser, act);
+		*/
+	
 		//TestingMethods.leaveDropDown(browser, revatureLogo);
 		
 		
@@ -464,10 +469,11 @@ public class TestNGTests
 			//Create the new batch:
 		TestingMethods.makeTheBatch(browser, browser.findElement(By.className(CREATE_BATCH_BUTTON)));
 		*/
-		
+		/*
 		
 		Assert.assertTrue(true);
 	}
+	*/
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=22)
 	public void vplocationNavTest()
@@ -524,6 +530,7 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/curriculum");
 	}
 	
+	/*
 	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=23)
 	public void makeCurriculumTest()
 	{		
@@ -534,6 +541,7 @@ public class TestNGTests
 		Assert.assertTrue(true);
 		/////////////////////////////////////////////////////////////////////
 	}
+	*/
 	
 	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=23)
 	public void makeFocusTest()
@@ -550,6 +558,7 @@ public class TestNGTests
 		Assert.assertTrue(true);
 	}
 	
+	/*
 	@Test(groups="vpTests", dependsOnMethods="vpcurriculumNavTest", priority=23)
 	public void makeSkillTest()
 	{
@@ -572,6 +581,7 @@ public class TestNGTests
 		}
 		Assert.assertTrue(true);
 	}
+	*/
 	
 	@Test(groups="vpTests", dependsOnMethods="vpLoginTest", priority=24)
 	public void vpTrainersNavTest()

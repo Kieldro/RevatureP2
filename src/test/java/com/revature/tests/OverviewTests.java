@@ -273,13 +273,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-asc")) != null) {
-			System.out.println("ascending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(ascSortCheck(names));
 		}
         return false;
 	}
@@ -313,14 +307,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-desc")) != null) {
-			System.out.println("descending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			Collections.reverse(sortedNames);
-
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(descSortCheck(names));
 		}
         return false;
 	}
@@ -356,13 +343,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-asc")) != null) {
-			System.out.println("ascending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(ascSortCheck(names));
 		}
         return false;
 	}
@@ -396,14 +377,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-desc")) != null) {
-			System.out.println("descending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			Collections.reverse(sortedNames);
-			
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(descSortCheck(names));
 		}
         return false;
 	}
@@ -439,13 +413,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-asc")) != null) {
-			System.out.println("ascending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(ascSortCheck(names));
 		}
         return false;
 	}
@@ -479,13 +447,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-desc")) != null) {
-			System.out.println("descending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			Collections.reverse(sortedNames);
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(descSortCheck(names));
 		}
         return false;
 	}
@@ -521,12 +483,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-asc")) != null) {
-			System.out.println("ascending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(ascSortCheck(names));
 		}
         return false;
 	}
@@ -560,13 +517,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-desc")) != null) {
-			System.out.println("descending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			Collections.reverse(sortedNames);
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(descSortCheck(names));
 		}
         return false;
 	}
@@ -601,12 +552,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-asc")) != null) {
-			System.out.println("ascending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(ascSortCheck(names));
 		}
         return false;
 	}
@@ -640,13 +586,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-desc")) != null) {
-			System.out.println("descending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			Collections.reverse(sortedNames);
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(descSortCheck(names));
 		}
         return false;
 	}
@@ -682,12 +622,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-asc")) != null) {
-			System.out.println("ascending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(ascSortCheck(names));
 		}
         return false;
 	}
@@ -721,13 +656,7 @@ public class OverviewTests {
         }
         
         if (tag.findElement(By.tagName("md-icon").className("md-desc")) != null) {
-			System.out.println("descending");
-			List<String> sortedNames = names;
-			Collections.sort(sortedNames);
-			Collections.reverse(sortedNames);
-			return names.equals(sortedNames);
-			//Assert.assertEquals(names, sortedNames);
-		
+        	return(descSortCheck(names));
 		}
         return false;
 	}
