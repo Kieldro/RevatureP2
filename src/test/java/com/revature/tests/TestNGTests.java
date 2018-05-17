@@ -441,7 +441,7 @@ public class TestNGTests
 		*/
 		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
 		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
-		TestingMethods.leaveDropDown(browser, revatureLogo);
+		//TestingMethods.leaveDropDown(browser, revatureLogo);
 		
 		
 		/*
@@ -649,68 +649,8 @@ public class TestNGTests
 		Assert.assertNotEquals(actualURL, expectedURL);
 	}
 	
-<<<<<<< HEAD
 	
-	
-	///////////////////////////////////////////////////////////////////////////////
-	@Test(priority=2, groups="curriculaTests")
-	public void testEditingCoreCurricula() {
-	    //wait up to 10 seconds for label to be visible, then get the label, and the text for the label
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
-	    WebElement coreCurriculaName = browser.findElement(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3"));
-	    String coreCurriculaText = coreCurriculaName.getText();
-	    //get and click the edit curriculum element
-	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
-	    WebElement button = browser.findElement(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/button[1]"));
-	    button.click();
-	    // get the curriculumName input element, and the save button
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
-	    WebElement curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
-	    WebElement saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
-	    // send a randomly generated string to the input element, and click the save button
-	    //curriculumNameInput.clear();
-	    curriculumNameInput.sendKeys("testing");
-	    saveButton.click();
-	    // changeDetected will hold true if the coreCurricula is changed.
-	    boolean changeDetected = false;
-	    // loop a max of 50 times, if the coreCurricula tag is changed from what it was initially, 
-	    // this means the curriculum was edited.
-	    for (int i = 0; i < 50; i++) {
-	        browser.getPageSource();
-	        if (!(coreCurriculaText.equals(coreCurriculaName.getText()))) {
-	            changeDetected = true;
-	            break;
-	        }
-	    }
-	    // if changeDetected is true then test will pass, otherwise it will fail.
-	    Assert.assertTrue(changeDetected);
-	    // set back to previous state
-	    //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
-	    wait.until(ExpectedConditions.elementToBeClickable(button));
-	    for (int i = 0; i < 10; i++) {
-	        browser.getPageSource();
-	    }
-	    button.click();
-	    for (int i = 0; i < 10; i++) {
-	        browser.getPageSource();
-	    }
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
-	    curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
-	    curriculumNameInput.clear();
-	    curriculumNameInput.sendKeys(coreCurriculaText);
-	    for (int i = 0; i < 10; i++) {
-	        browser.getPageSource();
-	    }
-	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]")));
-	    saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
-	    saveButton.click();
-	}
-	///////////////////////////////////////////////////////////////////////////////
-	
-	
-	
-=======
->>>>>>> fb0e3001cd219d05e8413de27ebda7bd6fe1c5f9
+
 	@AfterTest
 	public void quitBrowser()
 	{
