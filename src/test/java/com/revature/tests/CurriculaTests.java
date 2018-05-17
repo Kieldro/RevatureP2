@@ -31,7 +31,7 @@ public class CurriculaTests {
 		@BeforeClass
 		public void setUp() {
 			browser = TestingMethods.getDriver();
-			wait = new WebDriverWait(browser, 10); 
+			wait = new WebDriverWait(browser, 20); 
 			//Perform the login actions:
 			vpLogin(browser);
 			
@@ -118,11 +118,25 @@ public class CurriculaTests {
 			Assert.assertTrue(changeDetected);
 			
 			// set back to previous state
+			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
 			wait.until(ExpectedConditions.elementToBeClickable(button));
+			
+			for (int i = 0; i < 10; i++) {
+				browser.getPageSource();
+			}
 			button.click();
+			for (int i = 0; i < 10; i++) {
+				browser.getPageSource();
+			}
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
+			curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
 			curriculumNameInput.clear();
 			curriculumNameInput.sendKeys(coreCurriculaText);
+			for (int i = 0; i < 10; i++) {
+				browser.getPageSource();
+			}
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]")));
+			saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
 			saveButton.click();
 		}
 		
