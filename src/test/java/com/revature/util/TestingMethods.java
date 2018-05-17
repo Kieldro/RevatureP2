@@ -286,7 +286,7 @@ public class TestingMethods
 		WebElement menu = browser.findElement(By.id("select_13"));
 		menu.click();
 		
-		menu.cle
+		//menu.cle
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
