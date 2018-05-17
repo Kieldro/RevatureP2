@@ -192,16 +192,18 @@ public class TestingMethods
 		}
 		
 		List<WebElement> allDivs = new ArrayList<WebElement>();
-		allDivs = browser.findElements(By.tagName("div"));
+		allDivs = browser.findElements(By.xpath("//md-option/div"));
 		WebElement thisDiv = null;
 		WebElement thisOption = null;
 		String thisText = "";
 		for(int i=0; i<allDivs.size(); i++)
 		{
 			thisDiv = allDivs.get(i);
+			System.out.println("Got div number " + i);
 			try
 			{
 				thisText = thisDiv.getText();
+				System.out.println("Div number " + i + " contains: " + thisText + ".");
 				if(thisText.contains(optionValue))
 				{
 					thisOption = thisDiv.findElement(By.xpath(".."));
@@ -226,12 +228,8 @@ public class TestingMethods
 	
 	public static void selectFocus(WebDriver browser, String menuID, String optionValue)
 	{
-		System.out.println("Now selecting " + optionValue + " as Focus...");
-		
 		WebElement menu = browser.findElement(By.id(menuID));
 		menu.click();
-		
-		System.out.println("Clicked into the dropdown menu.");
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
@@ -239,9 +237,7 @@ public class TestingMethods
 		{
 			sourceCode = browser.getPageSource();
 		}
-		
-		System.out.println("About to find the option containing " + optionValue + "...");
-		
+
 		List<WebElement> allDivs = new ArrayList<WebElement>();
 		allDivs = browser.findElements(By.tagName("div"));
 		WebElement thisDiv = null;
@@ -253,13 +249,8 @@ public class TestingMethods
 			try
 			{
 				thisText = thisDiv.getText();
-				
-				System.out.println("!!!!!option " + i + " contains " + thisText);
-				
 				if(thisText.equals(optionValue))
 				{
-					System.out.println("Found the option containing " + thisText + ".");
-					
 					thisOption = thisDiv.findElement(By.xpath(".."));
 					if(thisOption.getTagName().equals("md-option"))
 					{
