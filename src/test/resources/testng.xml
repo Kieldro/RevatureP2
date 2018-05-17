@@ -12,7 +12,7 @@
 		</classes>
 	</test>
 	
-	<test name="TestNGTests"> 
+	<test name="TestNGTests" parallel="false" preserve-order="true">> 
 		<classes> 
 			<class name = "com.revature.tests.OverviewTests"/>
 			<class name="com.revature.tests.TestNGTests"/> 
