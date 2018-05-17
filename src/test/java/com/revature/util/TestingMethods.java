@@ -186,7 +186,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<25; i++)
+		for(int i=0; i<20; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -220,7 +220,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
-		for(int i=0; i<25; i++)
+		for(int i=0; i<20; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -233,13 +233,13 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<25; i++)
+		for(int i=0; i<20; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
 
 		List<WebElement> allDivs = new ArrayList<WebElement>();
-		allDivs = browser.findElements(By.tagName("div"));
+		allDivs = browser.findElements(By.xpath("//md-option/div"));
 		WebElement thisDiv = null;
 		WebElement thisOption = null;
 		String thisText = "";
@@ -265,7 +265,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
-		for(int i=0; i<25; i++)
+		for(int i=0; i<20; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
