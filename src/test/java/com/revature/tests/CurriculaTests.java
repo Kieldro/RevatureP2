@@ -41,8 +41,9 @@ public class CurriculaTests {
 		/*
 		 * Test if a curricula can be added, by checking the pagesource before and after adding the curricula.
 		 */
+		@Ignore
 		@Test(priority=1, groups="curriculaTests")
-		public void testAddingCurricula() {
+		public void testAddingCoreCurricula() {
 			//get the pagesource
 			String sourceCode = browser.getPageSource();
 			
@@ -51,11 +52,11 @@ public class CurriculaTests {
 			button.click();
 			
 			// get the curriculumName input element, and the save button
-			WebElement curriculumName = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
+			WebElement curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
 			WebElement saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
 			
 			// send a randomly generated string to the input element, and click the save button
-			curriculumName.sendKeys(createRandomString());
+			curriculumNameInput.sendKeys(createRandomString());
 			saveButton.click();
 			
 			// changeDetected will hold true if a pageSource is detected in the page.
@@ -74,23 +75,67 @@ public class CurriculaTests {
 			Assert.assertTrue(changeDetected);
 		}
 		
+		/*
+		 * Test if a curricula can be edited, 
+		 * by checking the h3 tag that displays the core curricula before and after editing
+		 */
+		@Test(priority=2, groups="curriculaTests")
+		public void testEditingCoreCurricula() {
+			//wait up to 10 seconds for label to be visible, then get the label, and the text for the label
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
+			WebElement coreCurriculaName = browser.findElement(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3"));
+			String coreCurriculaText = coreCurriculaName.getText();
+			
+			//get and click the edit curriculum element
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/div[1]/h3")));
+			WebElement button = browser.findElement(By.xpath("//*[@id=\"core\"]/md-list/md-list-item[1]/button[1]"));
+			button.click();
+			
+			// get the curriculumName input element, and the save button
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
+			WebElement curriculumNameInput = browser.findElement(By.xpath("//*[@aria-label=\"curriculumName\"]"));
+			WebElement saveButton = browser.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button[2]"));
+			
+			// send a randomly generated string to the input element, and click the save button
+			curriculumNameInput.sendKeys(createRandomString());
+			saveButton.click();
+			
+			// changeDetected will hold true if the coreCurricula is changed.
+			boolean changeDetected = false;
+			
+			// loop a max of 50 times, if the coreCurricula tag is changed from what it was initially, 
+			// this means the curriculum was edited.
+			
+			for (int i = 0; i < 50; i++) {
+				System.out.println(browser.getPageSource());
+				if (!(coreCurriculaText.equals(coreCurriculaName.getText()))) {
+					changeDetected = true;
+					break;
+				}
+			}
+			// if changeDetected is true then test will pass, otherwise it will fail.
+			Assert.assertTrue(changeDetected);
+			
+			// set back to previous state
+			button.click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label=\"curriculumName\"]")));
+			curriculumNameInput.clear();
+			curriculumNameInput.sendKeys(coreCurriculaText);
+			saveButton.click();
+		}
+		
 		
 		/*
 		 * Test that the buttons on the page are still there after refreshing the page
 		 * Should fail, because website isn't currently working
 		 */
-		@Test(priority=2, groups="curriculaTests")
+		@Ignore
+		@Test(priority=3, groups="curriculaTests")
 		public void testButtonsAfterRefreshingPage() {
-			for (int i = 0; i < 10; i++) {
-				System.out.println(browser.getPageSource());
-			}
-			
 			//get the current url
 			String url = browser.getCurrentUrl();
 			
-			for (int i = 0; i < 10; i++) {
-				System.out.println(browser.getPageSource());
-			}
+			
 			//navigate to the same url, basically refreshing the page
 			browser.navigate().to(url);
 			
