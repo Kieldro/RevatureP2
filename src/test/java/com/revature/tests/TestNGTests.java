@@ -31,7 +31,7 @@ public class TestNGTests
 		TestingMethods.trainerLogin(browser);
 		
 		//Establish what URL we expect the new URL to be and what the new URL actually is:
-		String expectedURL = "https://dev.assignforce.revaturelabs.com/";
+		String expectedURL = "https://dev.assignforce.revaturelabs.com/home";
 		String actualURL = browser.getCurrentUrl();
 		System.out.println(actualURL);
 		
