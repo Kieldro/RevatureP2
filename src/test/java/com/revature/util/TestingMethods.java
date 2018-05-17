@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.Point;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
@@ -39,6 +41,7 @@ public class TestingMethods
 		if (os.equals("Linux")) // windows path
 			path = "src/main/resources/chromedriver";
 		System.setProperty("webdriver.chrome.driver", path);
+		
 
 		// Make and return a ChromeDriver:
 		return (new ChromeDriver(options));
@@ -191,8 +194,13 @@ public class TestingMethods
 			sourceCode = browser.getPageSource();
 		}
 		
+		
+		//Actions act = new Actions(browser);
+		//act.sendKeys(Keys.ESCAPE).perform();
+		
+		
 		List<WebElement> allDivs = new ArrayList<WebElement>();
-		allDivs = browser.findElements(By.xpath("//md-option/div"));
+		allDivs = browser.findElements(By.xpath("//div/md-select-menu//md-content//md-option/div"));
 		WebElement thisDiv = null;
 		WebElement thisOption = null;
 		String thisText = "";
@@ -237,7 +245,7 @@ public class TestingMethods
 		}
 
 		List<WebElement> allDivs = new ArrayList<WebElement>();
-		allDivs = browser.findElements(By.xpath("//md-option/div"));
+		allDivs = browser.findElements(By.xpath("//div/md-select-menu/md-content/div//md-option/div"));
 		WebElement thisDiv = null;
 		WebElement thisOption = null;
 		String thisText = "";
@@ -261,6 +269,8 @@ public class TestingMethods
 			{ }
 		}
 		
+		
+		
 		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
 		for(int i=0; i<9; i++)
@@ -275,6 +285,8 @@ public class TestingMethods
 		
 		WebElement menu = browser.findElement(By.id("select_13"));
 		menu.click();
+		
+		menu.cle
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
@@ -434,14 +446,14 @@ public class TestingMethods
 					allInputs.get(i).clear();
 					
 					/////////////////////////////////////////////////////////////////////
-					for(int j=0; j<9; j++)
+					for(int j=0; j<3; j++)
 					{
 						sourceCode = browser.getPageSource();
 					}
 					
 					allInputs.get(i).sendKeys(cityName);
 					
-					for(int j=0; j<25; j++)
+					for(int j=0; j<9; j++)
 					{
 						sourceCode = browser.getPageSource();
 					}
