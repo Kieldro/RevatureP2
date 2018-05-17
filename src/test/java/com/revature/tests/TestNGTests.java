@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-
 import com.revature.util.Driver;
 import com.revature.util.TestingMethods;
 
@@ -22,6 +21,7 @@ public class TestNGTests
 	//Get a WebDriver object for use in the tests:
 	Driver browser = Driver.getInstance();
 	Random rand = new Random();
+	Actions act = new Actions(browser);
 	
 	@Test(groups="trainerTests", priority=1)
 	public void trainerLoginTest()
@@ -427,7 +427,6 @@ public class TestNGTests
 		String LOCATION = "select_25";
 		String BUILDING = "select_27";
 		String ROOM = "select_29";
-		String CREATE_BATCH_BUTTON = "md-icon-button md-button md-ink-ripple";
 		
 		
 		//Operate the batch creation menus to provide information about a new batch:
@@ -436,10 +435,14 @@ public class TestNGTests
 			//Set the new batch's Focus:
 		TestingMethods.selectFocus(browser, FOCUS, "No Focus");
 			//Add some skills to the new batch:
-		WebElement revatureLogo = browser.findElement(By.id("md-card-image"));
+		/*
+		WebElement revatureLogo = browser.findElement(By.xpath(
+				"/html/body/div[1]/div[1]/ng-include/div/md-content/img"));
+		*/
 		TestingMethods.selectFirstSkill(browser, "Possibly William WebDriver");
 		TestingMethods.selectAnotherSkill(browser, "Advanced UI");
-		TestingMethods.leaveDropDown(browser, revatureLogo);
+		TestingMethods.leaveDropDown(browser, act);
+		//TestingMethods.leaveDropDown(browser, revatureLogo);
 		
 		
 		/*
@@ -647,6 +650,8 @@ public class TestNGTests
 		Assert.assertNotEquals(actualURL, expectedURL);
 	}
 	
+	
+
 	@AfterTest
 	public void quitBrowser()
 	{
