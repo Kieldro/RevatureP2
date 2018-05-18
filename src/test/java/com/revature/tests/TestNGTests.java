@@ -369,13 +369,13 @@ public class TestNGTests
 				"https://dev.assignforce.revaturelabs.com/curriculum");
 	}
 	
-	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
+	/*@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerTrainersNavTest()
 	{
 		TestingMethods.pushButtonFromNavBar(browser, "trainers");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/trainers");
-	}
+	}*/
 	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerProfileNavTest()
