@@ -62,7 +62,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<5; i++)
+		for(int i=0; i<10; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
@@ -78,9 +78,9 @@ public class TestingMethods
 				{
 					/////////////////////////////////////////////////////////////////////
 					sourceCode = "";
-					for(int j=0; j<25; j++)
+					for(int j=0; j<250; j++)
 					{
-						sourceCode = browser.getPageSource();
+						sourceCode = browser.getCurrentUrl();
 					}
 					
 					// Acquire the relevant input objects:
@@ -104,9 +104,9 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
-		for(int j=0; j<25; j++)
+		for(int j=0; j<250; j++)
 		{
-			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
 		}
 		
 		trainerLogin(browser);
@@ -1017,5 +1017,27 @@ public class TestingMethods
 				break;
 			}
 		}
+	}
+	
+	
+	public static boolean arrowIsUp(WebDriver browser)
+	{
+		List<WebElement> allIcons = new ArrayList<WebElement>();
+		allIcons = browser.findElements(By.xpath("//th/md-icon"));
+		
+		for(int i=0; i<allIcons.size(); i++)
+		{
+			if(allIcons.get(i).getAttribute("class")!=null && allIcons.get(i).getAttribute(
+					"class").contains("md-asc"))
+			{
+				return(true);
+			}
+			if(allIcons.get(i).getAttribute("class")!=null && allIcons.get(i).getAttribute(
+					"class").contains("md-desc"))
+			{
+				return(false);
+			}
+		}
+		return(false);
 	}
 }
