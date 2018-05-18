@@ -404,18 +404,28 @@ public class TestNGTests
 		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
-	///////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=9)
 	public void trainerSortBatchesStartDateAscTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyStartDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=10)
+	@Test(dependsOnMethods="trainerBatchesStartDateAscArrowTest", groups="trainerTests", priority=9)
 	public void trainerSortBatchesStartDateDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyStartDateDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesStartDateAscTest", groups="trainerTests", priority=9)
+	public void trainerBatchesStartDateAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesStartDateDescTest", groups="trainerTests", priority=9)
+	public void trainerBatchesStartDateDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=10)
@@ -424,12 +434,23 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyEndDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=11)
+	@Test(dependsOnMethods="trainerBatchesEndDateAscArrowTest", groups="trainerTests", priority=10)
 	public void trainerSortBatchesEndDateDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyEndDateDesc(browser));
 	}
 	
+	@Test(dependsOnMethods="trainerSortBatchesEndDateAscTest", groups="trainerTests", priority=10)
+	public void trainerBatchesEndDateAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesEndDateDescTest", groups="trainerTests", priority=10)
+	public void trainerBatchesEndDateDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
+	}
 	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerBatchesNavTest()

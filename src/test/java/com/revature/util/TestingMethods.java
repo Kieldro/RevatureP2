@@ -62,42 +62,56 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<10; i++)
+		for(int i=0; i<20; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
 		}
 		
 		List<WebElement> allImgs = new ArrayList<WebElement>();
+		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allImgs = browser.findElements(By.tagName("img"));
+		allInputs = browser.findElements(By.tagName("input"));
 		for(int i=0; i<allImgs.size(); i++)
 		{
-			try
+			if(allImgs.get(i) != null && allImgs.get(i).getAttribute("src") != null &&
+					allImgs.get(i).getAttribute("src").contains("/img/logo214.svg"))
 			{
-				if(allImgs.get(i).getAttribute("src").contains("/img/logo214.svg"))
+				for(int j=0; j<allInputs.size(); j++)
 				{
-					/////////////////////////////////////////////////////////////////////
-					sourceCode = "";
-					for(int j=0; j<250; j++)
+					if(allInputs.get(j).getAttribute("value") != null &&
+							allInputs.get(j).getAttribute("value").contains("Log In"))
 					{
-						sourceCode = browser.getCurrentUrl();
+						/*	
+						/////////////////////////////////////////////////////////////////////
+						sourceCode = "";
+						for(int k=0; k<500; k++)
+						{
+							sourceCode = browser.getCurrentUrl();
+						}
+						*/
+						
+						// Acquire the relevant input objects:
+						WebElement usernameField = browser.findElement(By.id("username"));
+						WebElement passwordField = browser.findElement(By.id("password"));
+						WebElement submitButton = browser.findElement(By.id("Login"));
+		
+						// Perform the login actions:
+						usernameField.sendKeys("test.trainer@revature.com.int1");
+						passwordField.sendKeys("trainer123");
+						submitButton.click();
+						
+						sourceCode = "";
+						for(int k=0; k<250; k++)
+						{
+							sourceCode = browser.getPageSource();
+							System.out.println(browser.getCurrentUrl());
+						}
+						
+						return;
 					}
-					
-					// Acquire the relevant input objects:
-					WebElement usernameField = browser.findElement(By.id("username"));
-					WebElement passwordField = browser.findElement(By.id("password"));
-					WebElement submitButton = browser.findElement(By.id("Login"));
-	
-					// Perform the login actions:
-					usernameField.sendKeys("test.trainer@revature.com.int1");
-					passwordField.sendKeys("trainer123");
-					submitButton.click();
-					
-					return;
 				}
 			}
-			catch(NullPointerException e1)
-			{ System.out.println("!!!!!!!!!!!!!!!!!Caught a NullPointerException!!!!!"); }
 		}
 		
 		pushButtonFromNavBar(browser, "logout");
