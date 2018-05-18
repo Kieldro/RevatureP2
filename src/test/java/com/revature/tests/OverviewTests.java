@@ -104,13 +104,11 @@ public class OverviewTests {
         
         for(WebElement trElement : trList) {
             List<WebElement> tdList= trElement.findElements(By.xpath("td"));
-            System.out.println("NUMBER OF COLUMNS = " + tdList.size());
             
             if (tdList.size() <= 1) {
             	continue;
             }
             
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -150,7 +148,6 @@ public class OverviewTests {
             	continue;
             }
             
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -189,7 +186,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -227,7 +223,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -265,7 +260,6 @@ public class OverviewTests {
             	continue;
             }
             
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -299,7 +293,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -335,7 +328,6 @@ public class OverviewTests {
             	continue;
             }
             
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -369,7 +361,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -405,7 +396,6 @@ public class OverviewTests {
             	continue;
             }
             
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -439,7 +429,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -475,7 +464,6 @@ public class OverviewTests {
             	continue;
             }
             
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -509,7 +497,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -544,7 +531,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -578,7 +564,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -614,7 +599,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }
@@ -648,7 +632,6 @@ public class OverviewTests {
             if (tdList.size() <= 1) {
             	continue;
             }
-            System.out.println("row # "+rowNum+", col # "+colNum+ "text="+tdList.get(colNum).getText());
             if (!(tdList.get(colNum).getText().isEmpty())) {
             	names.add(tdList.get(colNum).getText());
             }

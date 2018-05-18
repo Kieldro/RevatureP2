@@ -123,19 +123,19 @@ public class TestNGTests
 	}
 	
 	@Test(dependsOnMethods="trainerSortLocAscTest", groups="trainerTests", priority=5)
-	public void trainerSortLocDscTest()
-	{
-		Assert.assertTrue(OverviewTests.testOverviewSortByLocationDesc(browser));
-	}
-	
-	@Test(dependsOnMethods="trainerSortLocAscTest", groups="trainerTests", priority=5)
 	public void trainerLocAscArrowTest()
 	{
 		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
 	}
 	
+	@Test(dependsOnMethods="trainerLocAscArrowTest", groups="trainerTests", priority=5)
+	public void trainerSortLocDscTest()
+	{
+		Assert.assertTrue(OverviewTests.testOverviewSortByLocationDesc(browser));
+	}
+	
 	@Test(dependsOnMethods="trainerSortLocDscTest", groups="trainerTests", priority=5)
-	public void trainerLocDscArrowTest()
+	public void trainerLocDescArrowTest()
 	{
 		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
@@ -146,7 +146,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortBldAscTest", groups="trainerTests", priority=6)
+	@Test(dependsOnMethods="trainerBldAscArrowTest", groups="trainerTests", priority=6)
 	public void trainerSortBldDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByBuildingDesc(browser));
@@ -170,7 +170,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortRoomAscTest", groups="trainerTests", priority=7)
+	@Test(dependsOnMethods="trainerRoomAscArrowTest", groups="trainerTests", priority=7)
 	public void trainerSortRoomDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByRoomDesc(browser));
@@ -194,7 +194,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortStdAscTest", groups="trainerTests", priority=8)
+	@Test(dependsOnMethods="trainerStdAscArrowTest", groups="trainerTests", priority=8)
 	public void trainerSortStdDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByStartDateDesc(browser));
@@ -218,7 +218,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerSortEndAscTest", groups="trainerTests", priority=9)
+	@Test(dependsOnMethods="trainerEndAscArrowTest", groups="trainerTests", priority=9)
 	public void trainerSortEndDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateDesc(browser));
@@ -242,10 +242,22 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyNameAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=3)
+	@Test(dependsOnMethods="trainerBatchesNameAscArrowTest", groups="trainerTests", priority=2)
 	public void trainerSortBatchesNameDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyNameDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesNameAscTest", groups="trainerTests", priority=2)
+	public void trainerBatchesNameAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesNameDescTest", groups="trainerTests", priority=2)
+	public void trainerBatchesNameDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=3)
@@ -254,10 +266,22 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyCurriculumAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=4)
+	@Test(dependsOnMethods="trainerBatchesCurriculumAscArrowTest", groups="trainerTests", priority=3)
 	public void trainerSortBatchesCurriculumDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyCurriculumDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesCurriculumAscTest", groups="trainerTests", priority=3)
+	public void trainerBatchesCurriculumAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesCurriculumDescTest", groups="trainerTests", priority=3)
+	public void trainerBatchesCurriculumDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=4)
@@ -266,10 +290,22 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyFocusAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=5)
+	@Test(dependsOnMethods="trainerBatchesFocusAscArrowTest", groups="trainerTests", priority=4)
 	public void trainerSortBatchesFocusDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyFocusDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesFocusAscTest", groups="trainerTests", priority=4)
+	public void trainerBatchesFocusAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesFocusDescTest", groups="trainerTests", priority=4)
+	public void trainerBatchesFocusDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=5)
@@ -278,10 +314,22 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyTrainerAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=6)
+	@Test(dependsOnMethods="trainerBatchesTrainerAscArrowTest", groups="trainerTests", priority=5)
 	public void trainerSortBatchesTrainerDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyTrainerDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesTrainerAscTest", groups="trainerTests", priority=5)
+	public void trainerBatchesTrainerAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesTrainerDescTest", groups="trainerTests", priority=5)
+	public void trainerBatchesTrainerDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=6)
@@ -290,10 +338,22 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyLocationAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=7)
+	@Test(dependsOnMethods="trainerBatchesLocationAscArrowTest", groups="trainerTests", priority=6)
 	public void trainerSortBatchesLocationDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyLocationDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesLocationAscTest", groups="trainerTests", priority=6)
+	public void trainerBatchesLocationAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesLocationDescTest", groups="trainerTests", priority=6)
+	public void trainerBatchesLocationDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=7)
@@ -302,10 +362,22 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyBuildingAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=8)
+	@Test(dependsOnMethods="trainerBatchesBuildingAscArrowTest", groups="trainerTests", priority=7)
 	public void trainerSortBatchesBuildingDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyBuildingDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesBuildingAscTest", groups="trainerTests", priority=7)
+	public void trainerBatchesBuildingAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesBuildingDescTest", groups="trainerTests", priority=7)
+	public void trainerBatchesBuildingDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
 	}
 	
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=8)
@@ -314,12 +386,26 @@ public class TestNGTests
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyRoomAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=9)
+	@Test(dependsOnMethods="trainerBatchesRoomAscArrowTest", groups="trainerTests", priority=8)
 	public void trainerSortBatchesRoomDescTest()
 	{
 		Assert.assertTrue(BatchesSortTests.BatchesSortbyRoomDesc(browser));
 	}
 	
+	@Test(dependsOnMethods="trainerSortBatchesRoomAscTest", groups="trainerTests", priority=8)
+	public void trainerBatchesRoomAscArrowTest()
+	{
+		Assert.assertTrue(TestingMethods.arrowIsUp(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerSortBatchesRoomDescTest", groups="trainerTests", priority=8)
+	public void trainerBatchesRoomDescArrowTest()
+	{
+		Assert.assertFalse(TestingMethods.arrowIsUp(browser));
+	}
+	
+	///////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////
 	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=9)
 	public void trainerSortBatchesStartDateAscTest()
 	{
@@ -801,11 +887,11 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<9; i++)
+		for(int i=0; i<250; i++)
 		{
 			//System.out.println(i);
-			sourceCode = browser.getPageSource();
-			//System.out.println(browser.getCurrentUrl());
+			sourceCode = browser.getCurrentUrl();
+			System.out.println(browser.getCurrentUrl());
 		}
 		
 		System.out.println(browser.getCurrentUrl());
