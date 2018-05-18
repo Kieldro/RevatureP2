@@ -126,6 +126,7 @@ public class TestingMethods
 		trainerLogin(browser);
 	}
 	
+	
 	public static void pushButtonFromNavBar(WebDriver browser, String buttonName)
 	{
 		/*
