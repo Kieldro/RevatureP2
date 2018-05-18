@@ -1026,34 +1026,18 @@ public class TestingMethods
 		allIcons = browser.findElements(By.xpath("//th/md-icon"));
 		
 		for(int i=0; i<allIcons.size(); i++)
-		{
-			System.out.println(Boolean.toString(allIcons.get(i).isDisplayed()).toString());
-			
-			if(allIcons.get(i).isDisplayed() && allIcons.get(i).getAttribute("class")!=null &&
-					allIcons.get(i).getAttribute("class").contains("md-asc"))
+		{					
+			if(allIcons.get(i).isDisplayed() && allIcons.get(i).getAttribute("class") != null)
 			{
-				return(true);
+				if(allIcons.get(i).getAttribute("class").contains("md-asc"))
+				{
+					return(true);
+				}
+				if(allIcons.get(i).getAttribute("class").contains("md-desc"))
+				{
+					return(false);
+				}
 			}
-			if(allIcons.get(i).isDisplayed() && allIcons.get(i).getAttribute("class")!=null &&
-					allIcons.get(i).getAttribute("class").contains("md-desc"))
-			{
-				return(false);
-			}
-			
-			
-			
-			/*
-			if(allIcons.get(i).getAttribute("class")!=null && allIcons.get(i).getAttribute(
-					"class").contains("md-asc"))
-			{
-				return(true);
-			}
-			if(allIcons.get(i).getAttribute("class")!=null && allIcons.get(i).getAttribute(
-					"class").contains("md-desc"))
-			{
-				return(false);
-			}
-			*/
 		}
 		return(false);
 	}
