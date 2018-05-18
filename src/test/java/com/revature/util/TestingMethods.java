@@ -431,6 +431,12 @@ public class TestingMethods
 		
 		browser.findElement(By.id("locAdd")).click();
 		
+		String sourceCode = "";
+		for(int i=0; i<25; i++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
 		List<WebElement> allInputs = new ArrayList<WebElement>();
 		allInputs = browser.findElements(By.tagName("input"));
 		String cityName = "Townsville";
@@ -438,6 +444,9 @@ public class TestingMethods
 		{
 			cityName = "Townsville";
 		}
+		
+		System.out.println("All inputs size: " + allInputs.size());
+		
 		for(int i=0; i<allInputs.size(); i++)
 		{
 			System.out.println("input " + i + " = " + allInputs.get(i).getAttribute("ng-model"));
@@ -451,7 +460,7 @@ public class TestingMethods
 				allInputs.get(i).sendKeys(cityName);
 				
 				/////////////////////////////////////////////////////////////////////
-				String sourceCode = "";
+				sourceCode = "";
 				for(int j=0; j<50; j++)
 				{
 					sourceCode = browser.getPageSource();
@@ -490,7 +499,7 @@ public class TestingMethods
 				allDropDowns.get(i).click();
 				
 				/////////////////////////////////////////////////////////////////////
-				String sourceCode = "";
+				sourceCode = "";
 				for(int j=0; j<25; j++)
 				{
 					sourceCode = browser.getPageSource();
