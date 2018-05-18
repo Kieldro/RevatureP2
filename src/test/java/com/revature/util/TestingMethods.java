@@ -1018,4 +1018,26 @@ public class TestingMethods
 			}
 		}
 	}
+	
+	
+	public static boolean arrowIsUp(WebDriver browser)
+	{
+		List<WebElement> allIcons = new ArrayList<WebElement>();
+		allIcons = browser.findElements(By.xpath("//th/md-icon"));
+		
+		for(int i=0; i<allIcons.size(); i++)
+		{
+			if(allIcons.get(i).getAttribute("class")!=null && allIcons.get(i).getAttribute(
+					"class").contains("md-asc"))
+			{
+				return(true);
+			}
+			if(allIcons.get(i).getAttribute("class")!=null && allIcons.get(i).getAttribute(
+					"class").contains("md-desc"))
+			{
+				return(false);
+			}
+		}
+		return(false);
+	}
 }

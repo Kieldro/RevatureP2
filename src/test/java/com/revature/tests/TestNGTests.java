@@ -142,57 +142,119 @@ public class TestNGTests
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByEndDateDesc(browser));
 	}
-		
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=2)
+	public void trainerSortBatchesNameAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyNameAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=3)
+	public void trainerSortBatchesNameDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyNameDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=3)
+	public void trainerSortBatchesCurriculumAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyCurriculumAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=4)
+	public void trainerSortBatchesCurriculumDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyCurriculumDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=4)
+	public void trainerSortBatchesFocusAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyFocusAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=5)
+	public void trainerSortBatchesFocusDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyFocusDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=5)
+	public void trainerSortBatchesTrainerAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyTrainerAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=6)
+	public void trainerSortBatchesTrainerDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyTrainerDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=6)
+	public void trainerSortBatchesLocationAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyLocationAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=7)
+	public void trainerSortBatchesLocationDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyLocationDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=7)
+	public void trainerSortBatchesBuildingAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyBuildingAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=8)
+	public void trainerSortBatchesBuildingDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyBuildingDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=8)
+	public void trainerSortBatchesRoomAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyRoomAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=9)
+	public void trainerSortBatchesRoomDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyRoomDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=9)
+	public void trainerSortBatchesStartDateAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyStartDateAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=10)
+	public void trainerSortBatchesStartDateDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyStartDateDesc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=10)
+	public void trainerSortBatchesEndDateAscTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyEndDateAsc(browser));
+	}
+	
+	@Test(dependsOnMethods="trainerBatchesNavTest", groups="trainerTests", priority=11)
+	public void trainerSortBatchesEndDateDescTest()
+	{
+		Assert.assertTrue(BatchesSortTests.BatchesSortbyEndDateDesc(browser));
+	}
+	
 	
 	@Test(dependsOnMethods="trainerLoginTest", groups="trainerTests", priority=10)
 	public void trainerBatchesNavTest()
 	{
-		/*
-		/////////////////////////////////////////////////////////////////////
-		String sourceCode = "";
-		for(int i=0; i<25; i++)
-		{
-			sourceCode = browser.getPageSource();
-		}
-		
-		System.out.println("About to find the Batches button...");
-		
-		List<WebElement> allUls = new ArrayList<WebElement>();
-		allUls = browser.findElements(By.tagName("ul"));
-		WebElement thisUl = null;
-		//List<WebElement> allLis = new ArrayList<WebElement>();
-		WebElement thisLi = null;
-		for(int i=0; i<allUls.size(); i++)
-		{
-			thisUl = allUls.get(i);
-			
-			System.out.println("ul " + i + " class = " + thisUl.getAttribute("class"));
-			
-			if(thisUl.getAttribute("class").contains("nav-bar-list"))
-			{
-				System.out.println("!!!!!Found the ul containing " + thisUl.getAttribute("class"));
-				
-				thisLi = thisUl.findElement(By.xpath(".//li[@name='batches']"));
-				
-				System.out.println("Got the li containing " + thisLi.getAttribute("name"));
-				
-				thisLi.click();
-				
-				System.out.println("Clicked the li.");
-				
-				break;
-			}
-		}
-		
-		/////////////////////////////////////////////////////////////////////
-		sourceCode = "";
-		for(int i=0; i<25; i++)
-		{
-			sourceCode = browser.getPageSource();
-		}
-		*/
-		
-		
 		TestingMethods.pushButtonFromNavBar(browser, "batches");
 		Assert.assertEquals(browser.getCurrentUrl(),
 				"https://dev.assignforce.revaturelabs.com/batches");
