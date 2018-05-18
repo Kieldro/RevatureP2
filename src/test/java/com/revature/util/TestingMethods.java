@@ -62,7 +62,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<5; i++)
+		for(int i=0; i<10; i++)
 		{
 			sourceCode = browser.getPageSource();
 			System.out.println(browser.getCurrentUrl());
@@ -78,9 +78,9 @@ public class TestingMethods
 				{
 					/////////////////////////////////////////////////////////////////////
 					sourceCode = "";
-					for(int j=0; j<25; j++)
+					for(int j=0; j<150; j++)
 					{
-						sourceCode = browser.getPageSource();
+						sourceCode = browser.getCurrentUrl();
 					}
 					
 					// Acquire the relevant input objects:
@@ -106,7 +106,7 @@ public class TestingMethods
 		sourceCode = "";
 		for(int j=0; j<25; j++)
 		{
-			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
 		}
 		
 		trainerLogin(browser);
