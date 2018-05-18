@@ -145,6 +145,9 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<outputDirectory>
+						/var/lib/jenkins/workspace/RevatureP2/src/main/webapp/test-output/
+					</outputDirectory>
 
 					<excludes>
 						<!-- <exclude>**/TestNGTests.java</exclude> -->

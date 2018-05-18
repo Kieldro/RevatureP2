@@ -42,6 +42,8 @@ public class BatchesSortTests
 		}
 		return false;
 	}
+	
+	
 	public static boolean descSort(WebDriver browser, WebElement tag, int colNum)
 	{
 		WebElement tableElement;
