@@ -409,7 +409,7 @@ public class TestNGTests
 		/////////////////////////////////////////////////////////////////////
 		if(!browser.getCurrentUrl().equals("https://dev.assignforce.revaturelabs.com/reports"))
 		{
-			for(int i=0; i<9; i++)
+			for(int i=0; i<500; i++)
 			{
 				//System.out.println(i);
 				sourceCode = browser.getPageSource();
@@ -418,9 +418,11 @@ public class TestNGTests
 		}
 		else
 		{
-			sourceCode = browser.getPageSource();
-			sourceCode = browser.getPageSource();
-			sourceCode = browser.getPageSource();
+			for(int i=0; i<500; i++)
+			{
+				sourceCode = browser.getPageSource();
+				System.out.println(browser.getCurrentUrl());
+			}
 		}
 		
 		System.out.println(browser.getCurrentUrl());
@@ -440,7 +442,7 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<250; i++)
+		for(int i=0; i<5000; i++)
 		{
 			System.out.println(browser.getCurrentUrl());
 		}
@@ -649,7 +651,7 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<150; i++)
+		for(int i=0; i<5000; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -661,7 +663,7 @@ public class TestNGTests
 	{
 		String sourceCode = "";
 		/////////////////////////////////////////////////////////////////////
-		for(int i=0; i<150; i++)
+		for(int i=0; i<5000; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -669,7 +671,7 @@ public class TestNGTests
 		TestingMethods.deleteLocation(browser, "Townsville");
 		
 		/////////////////////////////////////////////////////////////////////
-		for(int i=0; i<500; i++)
+		for(int i=0; i<50000; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -702,7 +704,7 @@ public class TestNGTests
 	public void makeFocusTest()
 	{	
 		String sourceCode = "";
-		for(int i=0; i<100; i++)
+		for(int i=0; i<10000; i++)
 		{
 			sourceCode = browser.getPageSource();
 		}
@@ -757,7 +759,7 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<100; i++)
+		for(int i=0; i<10000; i++)
 		{
 			sourceCode = browser.getPageSource();
 			//System.out.println(browser.getPageSource());
@@ -801,11 +803,11 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<9; i++)
+		for(int i=0; i<5000; i++)
 		{
 			//System.out.println(i);
 			sourceCode = browser.getPageSource();
-			//System.out.println(browser.getCurrentUrl());
+			System.out.println(browser.getCurrentUrl());
 		}
 		
 		System.out.println(browser.getCurrentUrl());

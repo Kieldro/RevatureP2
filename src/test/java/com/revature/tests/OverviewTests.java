@@ -95,6 +95,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[1]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
 		
         int rowNum = 1; 
@@ -137,6 +143,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[1]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 0;
@@ -176,6 +188,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[2]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -215,6 +233,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[2]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -251,6 +275,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[3]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -288,6 +318,13 @@ public class OverviewTests {
 		
 		tag.click();
 		
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
+		
         int rowNum = 1; 
         int colNum = 1;
         
@@ -321,6 +358,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[4]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -357,6 +400,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[4]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -391,6 +440,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[5]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -427,6 +482,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[5]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -461,6 +522,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[6]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -497,6 +564,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[6]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -531,6 +604,12 @@ public class OverviewTests {
 		WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[7]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -566,6 +645,12 @@ public class OverviewTests {
         WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[7]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -601,6 +686,12 @@ public class OverviewTests {
         WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
@@ -636,6 +727,12 @@ public class OverviewTests {
         WebElement tag = browser.findElement(By.xpath("//*[@id=\"view\"]/div/md-card/md-content/md-table-container/table/thead/tr/th[8]"));
 		
 		tag.click();
+		String sourceCode = "";
+		for(int i=0; i<50; i++)
+		{
+			sourceCode = browser.getPageSource();
+			sourceCode = browser.getCurrentUrl();
+		}
 		
         int rowNum = 1; 
         int colNum = 1;
