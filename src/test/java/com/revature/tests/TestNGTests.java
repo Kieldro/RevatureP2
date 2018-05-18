@@ -470,7 +470,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByNameAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortNameAscTest", groups="vpTests", priority=13)
+	@Test(dependsOnMethods="vpSortNameAscTest", groups="vpTests", priority=12)
 	public void vpSortNameDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByNameDesc(browser));
@@ -482,7 +482,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortCurrAscTest", groups="vpTests", priority=14)
+	@Test(dependsOnMethods="vpSortCurrAscTest", groups="vpTests", priority=13)
 	public void vpSortCurrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByCurriculumDesc(browser));
@@ -494,7 +494,7 @@ public class TestNGTests
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerAsc(browser));
 	}
 	
-	@Test(dependsOnMethods="vpSortTnrAscTest", groups="vpTests", priority=15)
+	@Test(dependsOnMethods="vpSortTnrAscTest", groups="vpTests", priority=14)
 	public void vpSortTnrDscTest()
 	{
 		Assert.assertTrue(OverviewTests.testOverviewSortByTrainerDesc(browser));
