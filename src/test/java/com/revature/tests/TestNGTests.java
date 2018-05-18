@@ -1,16 +1,13 @@
 //John Eifert
 package com.revature.tests;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+
 import com.revature.util.Driver;
 import com.revature.util.TestingMethods;
 

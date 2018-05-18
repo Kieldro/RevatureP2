@@ -208,6 +208,41 @@ public class AustinTests {
 		return;
   }
   
+  @Test
+  public void sqlInjection() {
+	  
+	  browser.get("https://dev.assignforce.revaturelabs.com");
+	  
+	  browser.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		
+		/////////////////////////////////////////////////////////////////////
+		String sourceCode = "";
+		for(int i=0; i<5; i++)
+		{
+			sourceCode = browser.getPageSource();
+			System.out.println(browser.getCurrentUrl());
+		}
+		
+		// Acquire the relevant input objects:
+		WebElement usernameField = browser.findElement(By.id("username"));
+		WebElement passwordField = browser.findElement(By.id("password"));
+		WebElement submitButton = browser.findElement(By.id("Login"));
+		
+		// Perform the login actions without entering password:
+		usernameField.sendKeys("test.trainer@revature.com.int1");
+		passwordField.sendKeys("xxx') OR 1 = 1 -- ]");
+		submitButton.click();
+		
+		//wait
+		for(int j=0; j<25; j++)
+		{
+			sourceCode = browser.getPageSource();
+		}
+		
+		String currUrl = browser.getCurrentUrl();
+		Assert.assertEquals(currUrl, "https://revature--int1.cs17.my.salesforce.com/");
+  }
+  
   /*@Test(priority=2)
   public void stressTest() {
 	  browser.get("https://dev.assignforce.revaturelabs.com");
