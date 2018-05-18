@@ -642,8 +642,8 @@ public class TestNGTests
 	public void makeLocationTest()
 	{		
 		//Assert.assertTrue(thisThing.isSelected());
-		String locName = "guwop";//Integer.toString(rand.nextInt(500000)).concat(
-				//Integer.toString(rand.nextInt(500000)));
+		String locName = Integer.toString(rand.nextInt(500000)).concat(
+				Integer.toString(rand.nextInt(500000)));
 		
 		TestingMethods.makeLocation(browser, locName);
 		
