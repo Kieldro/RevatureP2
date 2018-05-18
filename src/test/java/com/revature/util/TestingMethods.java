@@ -78,7 +78,7 @@ public class TestingMethods
 				{
 					/////////////////////////////////////////////////////////////////////
 					sourceCode = "";
-					for(int j=0; j<150; j++)
+					for(int j=0; j<250; j++)
 					{
 						sourceCode = browser.getCurrentUrl();
 					}
@@ -104,7 +104,7 @@ public class TestingMethods
 		
 		/////////////////////////////////////////////////////////////////////
 		sourceCode = "";
-		for(int j=0; j<25; j++)
+		for(int j=0; j<250; j++)
 		{
 			sourceCode = browser.getCurrentUrl();
 		}
