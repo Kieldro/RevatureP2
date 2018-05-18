@@ -887,11 +887,11 @@ public class TestNGTests
 		
 		/////////////////////////////////////////////////////////////////////
 		String sourceCode = "";
-		for(int i=0; i<9; i++)
+		for(int i=0; i<250; i++)
 		{
 			//System.out.println(i);
-			sourceCode = browser.getPageSource();
-			//System.out.println(browser.getCurrentUrl());
+			sourceCode = browser.getCurrentUrl();
+			System.out.println(browser.getCurrentUrl());
 		}
 		
 		System.out.println(browser.getCurrentUrl());
