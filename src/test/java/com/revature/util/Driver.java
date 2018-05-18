@@ -26,9 +26,6 @@ public final class Driver extends ChromeDriver {
 			if (!os.equals("Windows Server 2016")) 
 			{
 				driver = new Driver(); // run locally
-				String args = "user-data-dir=C:\\Users\\austin\\AppData\\Local\\Google\\Chrome\\User Data";
-				options = new ChromeOptions().addArguments(args);
-				driver = new Driver(options);
 			} else {
 				System.out.println("Driver constructing...");
 				String args = "user-data-dir=C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data";
