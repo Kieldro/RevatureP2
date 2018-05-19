@@ -1,6 +1,10 @@
 package com.revature.application;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import org.testng.TestNG;
 
 import com.revature.model.Batch;
 import com.revature.service.BatchService;
@@ -9,10 +13,16 @@ import com.revature.util.HibernateUtil;
 public class App {
 	public static void main(String[] args) {
 		System.out.println("Hello Townies...");
-		//Build trigger
 
-		HibernateTests();
+		TestNG runner = new TestNG();
+		List<String> suites = new ArrayList<>();
+		suites.add("./src/test/resources/testng.xml");
+		// suites.add("c:/tests/testng2.xml");
+		runner.setTestSuites(suites);
+		runner.run();
 		
+		// HibernateTests();
+
 		System.out.println("Bye Townes.");
 	}
 
