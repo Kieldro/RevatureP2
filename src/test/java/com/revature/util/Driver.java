@@ -7,14 +7,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public final class Driver extends ChromeDriver {
 	private static Driver driver = null;
 	private static ChromeOptions options;
-
+	
 	private Driver() {
 	}
-
+	
 	private Driver(ChromeOptions options) {
 		super(options);
 	}
-
+	
 	public static Driver getInstance() {
 		if (driver == null) {
 			String os = System.getProperty("os.name");
@@ -22,7 +22,7 @@ public final class Driver extends ChromeDriver {
 			if (os.equals("Linux"))
 				path = "src/main/resources/chromedriver";
 			System.setProperty("webdriver.chrome.driver", path);
-
+			
 			if (!os.equals("Windows Server 2016")) {
 				driver = new Driver(); // run locally
 			} else {
@@ -31,7 +31,7 @@ public final class Driver extends ChromeDriver {
 				driver = new Driver(options);
 			}
 		}
-
+		
 		return driver;
 	}
 }
